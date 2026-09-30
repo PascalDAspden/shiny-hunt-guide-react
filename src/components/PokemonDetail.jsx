@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Sprite from './Sprite.jsx';
 import EvolutionLine from './EvolutionLine.jsx';
+import OddsCalculator from './OddsCalculator.jsx';
 import { RateNote } from './PokemonCard.jsx';
 import { useCountdown } from '../hooks/useCountdown.js';
 import { formatRange, parseDate, shortDate, timeOfDay } from '../utils/dates.js';
@@ -123,6 +124,7 @@ export default function PokemonDetail({ detail, onClose, tracked, onTrack, shiny
 
           <div className="detail-label">Shiny chance</div>
           <RateNote odds={detail.odds} />
+          {!locked && <OddsCalculator key={`${detail.kind}:${detail.name}:${detail.odds?.value}`} odds={detail.odds} />}
 
           <div className="event-actions">
             {!locked && (
