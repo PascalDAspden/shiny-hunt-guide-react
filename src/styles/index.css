@@ -269,6 +269,21 @@ a { color: var(--teal); }
 .intro { margin: 10px 0 20px; }
 .intro h2 { font-size: clamp(1.9rem, 7vw, 2.8rem); letter-spacing: -.055em; margin: 0; line-height: 1.08; }
 .intro p { color: #a9bad0; margin: 8px 0 0; font-size: .93rem; }
+.odds-open-button { margin-top: 14px; border: 1px solid #6b8374; background: #203b3c; color: var(--accent); border-radius: 12px; padding: 9px 14px; font-size: .85rem; font-weight: 700; }
+.odds-calculator { background: #17273b; border: 1px solid #3a586d; border-radius: 15px; padding: 14px; margin: 10px 0; display: flex; flex-direction: column; gap: 10px; }
+.odds-calculator .detail-label { margin-top: 0; color: var(--accent); }
+.odds-calculator .meta { margin: 0; }
+.odds-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.odds-fields label { color: #c8d7e8; font-size: .79rem; font-weight: 700; display: flex; flex-direction: column; gap: 5px; }
+.odds-fields input { width: 100%; min-width: 0; border: 1px solid #50657a; border-radius: 10px; padding: 10px; background: #101c30; font-size: 1rem; }
+.odds-fields input:focus { outline: 2px solid var(--teal); }
+.odds-presets { display: flex; flex-wrap: wrap; gap: 6px; }
+.odds-presets button { border: 1px solid #50657a; background: #243b4b; border-radius: 999px; padding: 6px 9px; font-size: .71rem; }
+.odds-presets button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.odds-result { display: flex; flex-direction: column; background: #263f3e; border-radius: 12px; padding: 13px; gap: 2px; }
+.odds-result strong { color: var(--accent); font-size: 1.7rem; }
+.odds-result span { color: #e1f2e8; font-size: .84rem; }
+.odds-caveat { font-size: .75rem; line-height: 1.45; }
 .spark { font-size: .48em; vertical-align: top; margin-left: 8px; color: var(--accent); }
 .search-wrap { display: flex; align-items: center; gap: 9px; background: #192a41; border: 1px solid #3b536a; border-radius: 15px; padding: 0 14px; color: #9eb8c8; min-height: 52px; }
 .search-wrap:focus-within { outline: 2px solid #89e6d5; }
