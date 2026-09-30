@@ -4,6 +4,7 @@ import Raids from './pages/Raids.jsx';
 import Research from './pages/Research.jsx';
 import Events from './pages/Events.jsx';
 import Checklist from './pages/Checklist.jsx';
+import OddsCalculator from './components/OddsCalculator.jsx';
 import { fetchRaidsFeed, fetchEggsFeed, fetchResearchFeed, fetchEventsFeed, fetchRocketFeed, scheduledRaids, researchRewards } from './data/raids.js';
 import { maxEncounters } from './data/events.js';
 import { shinyRocketEncounters } from './data/rocket.js';
@@ -19,6 +20,7 @@ export default function App() {
   const [appearance, setAppearance] = useState('normal');
   const [query, setQuery] = useState('');
   const [view, setView] = useState('hunt');
+  const [showOdds, setShowOdds] = useState(false);
   const [huntFilter, setHuntFilter] = useState('all');
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [shinyFormArt, setShinyFormArt] = useState({});
@@ -189,6 +191,7 @@ export default function App() {
             <div className="intro">
               <h2>Shiny targets <span className="spark">✦</span></h2>
               <p>Current encounters and upcoming hunts.</p>
+              <button type="button" className="odds-open-button" onClick={() => setShowOdds(true)}>✦ Odds calculator</button>
             </div>
 
             <Checklist {...pageProps} compact />
@@ -246,6 +249,17 @@ export default function App() {
           <span className="calendar-glyph" aria-hidden="true" /><span>Calendar</span>
         </button>
       </nav>
+      {showOdds && (
+        <div className="modal-backdrop" onClick={() => setShowOdds(false)}>
+          <div className="modal-card" role="dialog" aria-modal="true" aria-label="Odds calculator" onClick={(e) => e.stopPropagation()}>
+            <div className="raid-modal-top">
+              <span className="eyebrow">SHINY HUNT TOOLS</span>
+              <button type="button" className="modal-close" onClick={() => setShowOdds(false)} aria-label="Close calculator">✕</button>
+            </div>
+            <OddsCalculator odds={{ value: '1/512' }} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
