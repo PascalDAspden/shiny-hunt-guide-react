@@ -19,7 +19,7 @@ export default function OddsCalculator({ odds }) {
   const validCount = /^\d+$/.test(attempts) && Number.isSafeInteger(count) && count <= 1000000;
   const validRate = /^\d+$/.test(rate) && Number.isSafeInteger(denominator) && denominator >= 2 && denominator <= 1000000000;
   const chance = validCount && validRate ? atLeastOneShiny(count, denominator) : null;
-  const percent = chance === null ? null : new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 }).format(chance * 100);
+  const percent = chance === null ? null : chance === 0 ? '0%' : chance * 100 < 0.01 ? '<0.01%' : chance * 100 > 99.99 ? '>99.99%' : `${new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 }).format(chance * 100)}%`;
 
   return (
     <section className="odds-calculator" aria-label="Shiny odds calculator">
@@ -42,11 +42,11 @@ export default function OddsCalculator({ odds }) {
         <p className="meta" role="status">Enter 0–1,000,000 encounters and a rate of at least 1 in 2.</p>
       ) : (
         <div className="odds-result" role="status">
-          <strong>{percent}%</strong>
+          <strong>{percent}</strong>
           <span>estimated chance of at least one shiny in {count.toLocaleString()} {count === 1 ? 'encounter' : 'encounters'}</span>
         </div>
       )}
-      <p className="meta odds-caveat">Assumes each encounter is independent and has the same 1/{validRate ? denominator : '?'} chance. Rates shown here are community estimates, not guaranteed Pokémon GO rates. A {percent || '0'}% chance does not guarantee a shiny.</p>
+      <p className="meta odds-caveat">Assumes each encounter is independent and has the same 1/{validRate ? denominator : '?'} chance. Rates shown here are community estimates, not guaranteed Pokémon GO rates. A high calculated chance does not guarantee a shiny.</p>
     </section>
   );
 }
