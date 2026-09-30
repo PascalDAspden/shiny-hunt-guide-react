@@ -9,6 +9,12 @@ Card sprites now use the same Leek Duck icon path and 66px/75px card sizing
 as the working static guide. The artwork switch remains the Normal/Shiny
 control at the top of the Hunt page.
 
+The Hunt page has an odds calculator. Enter a number of encounters and a
+community-estimated 1-in-N rate to see the estimated chance of at least one
+shiny. A Pokémon's detail view prefills a numeric rate when available; for an
+unknown rate you must enter one yourself. This tool does not import Pokémon GO
+data, save encounters, or guarantee a result.
+
 ## Run it
 
 Open Terminal inside the unzipped `shiny-hunt-guide-react-restored` folder
