@@ -1,0 +1,41 @@
+[
+  {
+    "id": "promo-adidasxpokemon",
+    "title": "adidas Shoes Avatar Item",
+    "code": "ADIDASxPOKEMON",
+    "rewards": [
+      "adidas shoes"
+    ],
+    "expires": "2027-01-15T23:59:59-08:00",
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=ADIDASxPOKEMON",
+    "active": true
+  },
+  {
+    "id": "promo-fendixfrgmtxpokemon",
+    "title": "FENDI x FRGMT x POKÉMON Hoodie Avatar Item",
+    "code": "FENDIxFRGMTxPOKEMON",
+    "rewards": [
+      "FENDI x FRGMT x POKÉMON hoodie"
+    ],
+    "expires": null,
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=FENDIxFRGMTxPOKEMON",
+    "active": true
+  },
+  {
+    "id": "promo-legoxpokemongoxberries",
+    "title": "LEGO × Pokémon GO Berries",
+    "code": "LEGOxPOKEMONGOxBERRIES",
+    "rewards": [
+      "×5 Razz Berry",
+      "×10 Poké Ball",
+      "×5 Pinap Berry",
+      "×5 Nanab Berry"
+    ],
+    "expires": null,
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=LEGOxPOKEMONGOxBERRIES",
+    "active": true
+  }
+]

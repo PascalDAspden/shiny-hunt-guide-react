@@ -330,3 +330,15 @@ a { color: var(--teal); }
   .intro h2 { font-size: 2.8rem; }
   .calendar-note { max-width: 780px; }
 }
+
+/* Promo Codes reuses the existing cards, filters, and action buttons. */
+.promo-page .event-filter-row { display: flex; gap: 8px; }
+.promo-grid { margin-top: 14px; }
+.promo-card { flex-direction: column; align-items: stretch; gap: 10px; }
+.promo-card h3 { margin: 0; font-size: 1.1rem; }
+.promo-rewards { margin: 0; padding-left: 22px; color: #c8d7e8; line-height: 1.6; }
+.promo-code { display: block; padding: 12px; background: #0b1425; border-radius: 10px; color: #d2ef6e; font-size: 1rem; overflow-wrap: anywhere; user-select: all; }
+.promo-redeem { display: inline-block; text-decoration: none; }
+.promo-feedback { min-height: 1.4em; margin: 10px 0; }
+.promo-attribution { margin-top: 24px; line-height: 1.6; }
+.bottom-nav .nav-item { flex: 1; min-width: 0; }

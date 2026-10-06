@@ -137,3 +137,59 @@ still shows something if a feed request fails.
 - No CSS framework — `styles/index.css` is one file using the original app's
   dark palette (`#0b1425` background, lime `#d2ef6e` accent, teal `#78e1d0`
   links) so it still feels like the same app.
+
+## Pokémon GO Promo Codes
+
+The new **Promo Codes** navigation item has **Available** and **Redeemed** filters,
+reward details, **Copy Code**, and **Redeem**. Expired or removed codes never appear
+in Available. Redeemed marks are saved on this device in localStorage under
+`redeemed-promo-codes-v1`; the button does not verify an actual redemption.
+
+```bash
+npm run scrape:codes   # One Leek Duck page request, writes src/data/promo-codes.json
+npm run test:codes     # Parser, failure, filtering, and DOM interaction tests
+npm run build
+npm run ios:sync       # Build and copy the web app into the existing iOS project
+npm run ios:open       # Open Xcode on your Mac
+```
+
+`scripts/scrape-promo-codes.js` uses Node fetch and Cheerio. It matches the actual
+Leek Duck HTML inspected on 6 October 2026, including reward quantities and
+`data-expires`. Hidden dates displayed as `???` become `null`. Published timezone
+offsets are preserved; dates without an offset are interpreted as device-local
+time, matching the source's local-time offers. Dates are displayed in your local
+time. A missing title or reward does not discard the code. Duplicate codes are
+merged case-insensitively, and previously seen removed/expired codes are archived
+with `active: false` so redeemed history can still display them. Network/HTTP or
+recognizable layout failures leave the previous JSON untouched. JSON writes are
+atomic, sorted, and contain no changing run timestamp.
+
+The workflow `.github/workflows/update-promo-codes.yml` runs approximately every
+8 hours (00:23, 08:23, and 16:23 UTC) on the default branch. It installs dependencies,
+runs the scraper, and commits **only** `src/data/promo-codes.json` when changed,
+with the message `Update Pokémon GO promo codes`. It can also be run manually
+from GitHub's Actions tab. GitHub Actions must be enabled and allowed to write
+repository contents; scheduled runs can be delayed, and public repositories'
+schedules can be disabled after 60 days without activity.
+
+On opening the Promo Codes page, the app loads the generated JSON from this public
+repository's raw GitHub URL. It never contacts Leek Duck from the frontend. The
+React build includes a bundled fallback; successful feed reads are also cached
+locally. The hosted static guide reads the same generated feed with its own
+bundled fallback. This lets scheduled data updates reach installed iOS copies
+without rebuilding the app. Changes to React code still require `git pull`,
+`npm install`, `npm run ios:sync`, and a new Xcode build.
+
+Redeem opens a new tab/window at
+`https://store.pokemongo.com/offer-redemption?passcode=ENCODED_CODE`.
+The user signs in and confirms on the official store; this app never logs in,
+submits a redemption, or accesses Pokémon GO credentials.
+
+Limitations: Leek Duck may change its HTML, publish outdated availability, omit
+expiry/rewards, or stop responding. Unknown expiry cannot be checked locally;
+redemption eligibility is ultimately determined by the official store. When a
+feed refresh fails, the last saved information remains visible with a notice.
+Copy needs clipboard access (normally HTTPS or localhost); failure shows manual
+copy instructions. Redeemed marks persist only where localStorage is available.
+The DOM tests simulate clipboard and page reload/remount; real Safari/iPhone and
+native Xcode signing/build were not tested in the Linux workspace.

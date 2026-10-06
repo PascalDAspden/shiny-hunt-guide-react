@@ -3,6 +3,7 @@ import ShinyToggle from './components/ShinyToggle.jsx';
 import Raids from './pages/Raids.jsx';
 import Research from './pages/Research.jsx';
 import Events from './pages/Events.jsx';
+import PromoCodes from './pages/PromoCodes.jsx';
 import Checklist from './pages/Checklist.jsx';
 import OddsCalculator from './components/OddsCalculator.jsx';
 import { fetchRaidsFeed, fetchEggsFeed, fetchResearchFeed, fetchEventsFeed, fetchRocketFeed, scheduledRaids, researchRewards } from './data/raids.js';
@@ -222,6 +223,8 @@ export default function App() {
             {huntFilter === 'all' && <Research {...pageProps} sectionFilter="rocket" />}
             {(huntFilter === 'research' || huntFilter === 'breakthrough' || huntFilter === 'rocket') && <Research {...pageProps} sectionFilter={huntFilter} />}
           </>
+        ) : view === 'codes' ? (
+          <PromoCodes />
         ) : (
           <section className="calendar-view">
             <div className="intro">
@@ -247,6 +250,9 @@ export default function App() {
         </button>
         <button type="button" className={`nav-item${view === 'calendar' ? ' active' : ''}`} aria-current={view === 'calendar' ? 'page' : undefined} onClick={() => setView('calendar')}>
           <span className="calendar-glyph" aria-hidden="true" /><span>Calendar</span>
+        </button>
+        <button type="button" className={`nav-item${view === 'codes' ? ' active' : ''}`} aria-current={view === 'codes' ? 'page' : undefined} onClick={() => setView('codes')}>
+          <span className="nav-icon" aria-hidden="true">♢</span><span>Promo Codes</span>
         </button>
       </nav>
       {showOdds && (
