@@ -11,7 +11,8 @@
     "ios:sync": "npm run build && cap sync ios",
     "ios:open": "cap open ios",
     "scrape:codes": "node scripts/scrape-promo-codes.js",
-    "test:codes": "node --test tests/promo-codes.test.js tests/promo-ui.test.js"
+    "test:codes": "node --test tests/promo-codes.test.js tests/promo-ui.test.js",
+    "test:costumes": "node --test tests/costumes.test.js tests/costume-ui.test.js"
   },
   "dependencies": {
     "@capacitor/core": "^8.5.2",

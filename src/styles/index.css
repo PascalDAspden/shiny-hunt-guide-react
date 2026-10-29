@@ -342,3 +342,36 @@ a { color: var(--teal); }
 .promo-feedback { min-height: 1.4em; margin: 10px 0; }
 .promo-attribution { margin-top: 24px; line-height: 1.6; }
 .bottom-nav .nav-item { flex: 1; min-width: 0; }
+
+/* Each costume has its own artwork and evolution routes. */
+.costumes-page { gap: 14px; }
+.costume-evolution-filter { display: flex; gap: 12px; align-items: center; color: var(--meta); font-size: .83rem; }
+.costume-evolution-filter select { min-width: 0; background: #101c30; border: 1px solid var(--card-border); border-radius: 10px; padding: 9px; }
+.costume-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.costume-card { min-width: 0; padding: 16px; border: 1px solid var(--card-border); border-radius: 19px; background: var(--card-bg); display: flex; flex-direction: column; gap: 13px; }
+.costume-card h4 { margin: 0 0 4px; font-size: 1.15rem; }
+.costume-card .card-top { align-items: flex-start; flex-wrap: wrap; }
+.costume-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.costume-pair figure { min-width: 0; margin: 0; text-align: center; }
+.costume-pair figcaption { color: var(--meta); font-size: .72rem; margin-top: 4px; }
+.costume-art { display: flex; align-items: center; justify-content: center; width: 100%; min-width: 0; aspect-ratio: 1; max-height: 156px; border-radius: 15px; background: #1c3347; flex-shrink: 0; }
+.costume-art-shiny { background: radial-gradient(ellipse at 50% 55%, #354b43, #1a303d); }
+.costume-art img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.costume-art-missing { padding: 8px; color: var(--meta); font-size: .7rem; text-align: center; }
+.card > .costume-art, .tracked-hunt > .costume-art, .checklist-row > .costume-art { width: 66px; height: 66px; }
+.raid-modal-heading > .costume-art { width: 72px; height: 72px; }
+.costume-methods { display: flex; flex-direction: column; gap: 8px; }
+.costume-methods small { color: var(--teal); font-size: .72rem; }
+.costume-details { border-top: 1px solid var(--card-border); padding-top: 12px; margin-top: auto; }
+.costume-details summary { color: var(--teal); cursor: pointer; font-size: .85rem; font-weight: 700; padding: 4px 0; }
+.costume-evolution { margin-top: 12px; min-width: 0; }
+.costume-evolution-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 8px; }
+.costume-evolution-heading h4 { font-size: .87rem; margin: 0; }
+.costume-chain { display: flex; gap: 10px; overflow-x: auto; padding: 12px 1px 8px; scroll-snap-type: x proximity; }
+.costume-stage { flex: 0 0 210px; min-width: 0; display: flex; flex-direction: column; align-items: stretch; text-align: center; gap: 6px; padding: 12px; border: 1px solid #3a586d; border-radius: 14px; background: #16283b; scroll-snap-align: start; }
+.costume-stage .costume-art { max-height: 92px; }
+.costume-stage small { font-size: .72rem; color: var(--meta); }
+.costume-candy { color: var(--accent); font-size: .8rem; margin-top: 4px; }
+.costume-sources { display: flex; flex-wrap: wrap; gap: 12px; font-size: .72rem; margin-top: 8px; }
+.costume-attribution { line-height: 1.6; }
+@media (min-width: 900px) { .costume-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

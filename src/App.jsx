@@ -5,6 +5,7 @@ import Research from './pages/Research.jsx';
 import Events from './pages/Events.jsx';
 import PromoCodes from './pages/PromoCodes.jsx';
 import Checklist from './pages/Checklist.jsx';
+import Costumes from './pages/Costumes.jsx';
 import OddsCalculator from './components/OddsCalculator.jsx';
 import { fetchRaidsFeed, fetchEggsFeed, fetchResearchFeed, fetchEventsFeed, fetchRocketFeed, scheduledRaids, researchRewards } from './data/raids.js';
 import { maxEncounters } from './data/events.js';
@@ -157,6 +158,7 @@ export default function App() {
   const filters = [
     { id: 'all', label: 'All' },
     { id: 'raids', label: `Raids ${feeds.raids.length}` },
+    { id: 'costumes', label: 'Costumes' },
     { id: 'eggs', label: `Eggs ${feeds.eggs.length}` },
     { id: 'research', label: `Research ${researchRewards(feeds.research).length}` },
     { id: 'breakthrough', label: 'Breakthrough' },
@@ -210,13 +212,14 @@ export default function App() {
               ))}
             </nav>
 
-            <div className="appearance-controls">
+            {huntFilter !== 'costumes' && <div className="appearance-controls">
               <span>Pokémon artwork</span>
               <ShinyToggle value={appearance} onChange={setAppearance} />
-            </div>
+            </div>}
 
             {(huntFilter === 'all' || huntFilter === 'events') && <Research {...pageProps} sectionFilter="events" />}
             {(huntFilter === 'all' || huntFilter === 'raids') && <Raids {...pageProps} />}
+            {huntFilter === 'costumes' && <Costumes query={query} />}
             {huntFilter === 'all' && <Research {...pageProps} sectionFilter="research" />}
             {huntFilter === 'eggs' && <Research {...pageProps} sectionFilter="eggs" />}
             {huntFilter === 'max' && <Research {...pageProps} sectionFilter="max" />}

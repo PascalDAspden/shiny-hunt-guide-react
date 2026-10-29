@@ -15,6 +15,41 @@ shiny. A Pokémon's detail view prefills a numeric rate when available; for an
 unknown rate you must enter one yourself. This tool does not import Pokémon GO
 data, save encounters, or guarantee a result.
 
+## Costume Pokémon
+
+On **Hunt**, tap **Costumes** beside Raids. The gallery compares normal and
+shiny costume artwork, including each permitted evolved form. Search also
+matches evolved names (for example, Crobat finds the top-hat Zubat family).
+Filter by availability or evolution rule. Evolution-locked costumes never
+inherit an ordinary species evolution chain; final evolutions and unconfirmed
+costume rules have separate labels. Existing encounter detail views reuse
+these costume rules when their name or artwork identifies a known outfit.
+
+The initial reviewed catalogue covers Halloween 2026: 12 costume families,
+22 forms, and 44 bundled normal/shiny images. It includes the separate Phony
+and Antique Sinistea routes (50 versus 400 Candy), the top-hat Zubat family,
+and evolution-locked Halloween Mischief Piplup. Pikachu's hat-and-capelet
+evolution is unconfirmed rather than inferred from ordinary Pikachu.
+
+Availability is a **reviewed snapshot dated 29 October 2026**, not an automatic
+costume feed or a complete historical costume Pokédex. Event windows follow
+device-local time and expire automatically; the page does not mark expired
+encounters as current. Paid GO Pass Deluxe rewards are labelled separately
+from wild and raid encounters. The costume gallery and its images work
+offline once the app is installed, while the existing live feeds still need
+internet access.
+
+To update the catalogue, edit `src/data/costumes.js`. Each entry has its own
+availability windows, explicit permitted costume chain, shiny-release flags,
+artwork identities and source links. Check the actual costume's evolution
+rule; an image or a base-species chain is not proof of release or evolvability.
+For a new event, update the reviewed date, sources and event windows together.
+Add matching normal/shiny files under `public/costumes/`; missing art displays
+an unavailable label instead of substituting an ordinary or non-shiny image.
+
+Run `npm run test:costumes` for costume identity, restrictions, dates, filters,
+navigation, unknown-costume handling and missing-art regression checks.
+
 ## Run it
 
 Open Terminal inside the unzipped `shiny-hunt-guide-react-restored` folder
