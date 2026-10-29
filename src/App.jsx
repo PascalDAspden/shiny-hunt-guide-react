@@ -23,7 +23,7 @@ export default function App() {
   const [query, setQuery] = useState('');
   const [view, setView] = useState('hunt');
   const [showOdds, setShowOdds] = useState(false);
-  const [huntFilter, setHuntFilter] = useState('all');
+  const [huntFilter, setHuntFilter] = useState('featured');
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [shinyFormArt, setShinyFormArt] = useState({});
 
@@ -156,15 +156,14 @@ export default function App() {
   );
 
   const filters = [
-    { id: 'all', label: 'All' },
+    { id: 'featured', label: 'Featured' },
     { id: 'raids', label: `Raids ${feeds.raids.length}` },
     { id: 'costumes', label: 'Costumes' },
     { id: 'eggs', label: `Eggs ${feeds.eggs.length}` },
     { id: 'research', label: `Research ${researchRewards(feeds.research).length}` },
     { id: 'breakthrough', label: 'Breakthrough' },
     { id: 'rocket', label: `Rocket ${shinyRocketEncounters(feeds.rocket).length}` },
-    { id: 'max', label: `Max ${maxEncounters(feeds.events, pokemonInfo, feeds.eggs).length}` },
-    { id: 'events', label: `Events ${feeds.events.length}` }
+    { id: 'max', label: `Max ${maxEncounters(feeds.events, pokemonInfo, feeds.eggs).length}` }
   ];
 
   return (
@@ -217,13 +216,11 @@ export default function App() {
               <ShinyToggle value={appearance} onChange={setAppearance} />
             </div>}
 
-            {(huntFilter === 'all' || huntFilter === 'events') && <Research {...pageProps} sectionFilter="events" />}
-            {(huntFilter === 'all' || huntFilter === 'raids') && <Raids {...pageProps} />}
+            {huntFilter === 'featured' && <Research {...pageProps} sectionFilter="events" />}
+            {huntFilter === 'raids' && <Raids {...pageProps} />}
             {huntFilter === 'costumes' && <Costumes query={query} />}
-            {huntFilter === 'all' && <Research {...pageProps} sectionFilter="research" />}
             {huntFilter === 'eggs' && <Research {...pageProps} sectionFilter="eggs" />}
             {huntFilter === 'max' && <Research {...pageProps} sectionFilter="max" />}
-            {huntFilter === 'all' && <Research {...pageProps} sectionFilter="rocket" />}
             {(huntFilter === 'research' || huntFilter === 'breakthrough' || huntFilter === 'rocket') && <Research {...pageProps} sectionFilter={huntFilter} />}
           </>
         ) : view === 'codes' ? (
