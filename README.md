@@ -15,7 +15,20 @@ shiny. A Pokémon's detail view prefills a numeric rate when available; for an
 unknown rate you must enter one yourself. This tool does not import Pokémon GO
 data, save encounters, or guarantee a result.
 
-## Costume Pokémon
+## Adding events to Calendar on iPhone
+
+The installed iOS app uses Apple's native event editor. Tap **Add to Calendar**,
+choose a calendar, review the title, dates and 30-minute reminder, then tap
+**Add**. **Cancel** saves nothing. iOS 17+ does not require access to existing
+calendar entries for this editor; iOS 15/16 requests Calendar access.
+Browsers retain the existing `.ics` export fallback. This fixes the former
+iPhone behaviour where the button exported an `.ics` file to the share sheet.
+After updating, run `npm run ios:sync`, reopen Xcode and rebuild/install: a
+web-only refresh cannot install the new Swift bridge. Verify Add and Cancel
+on an iPhone before release. Run `npm run test:calendar` for bridge routing
+and date-conversion regression checks.
+
+## Costume Pokémon gallery
 
 On **Hunt**, tap **Costumes** beside Raids. The gallery compares normal and
 shiny costume artwork, including each permitted evolved form. Search also
