@@ -1,5 +1,8 @@
 import { parseDate, now } from '../utils/dates.js';
 import { rate, validEvents } from './raids.js';
+import { Capacitor, registerPlugin } from '@capacitor/core';
+
+const CalendarEditor = registerPlugin('CalendarEditor');
 
 /** Spotlight Hour / Community Day / Hatch Day encounters worth calling out as shiny targets. */
 export function eventEncounters(events, eggsFeed = []) {
@@ -160,6 +163,18 @@ function calendarFileText(event) {
 
 /** Downloads (or shares, on platforms that support Web Share with files) a .ics for an event. */
 export async function addToCalendar(event) {
+  if (Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios') {
+    try {
+      const start = parseDate(event.start);
+      const end = parseDate(event.end);
+      if (!start || !end || !Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime()) || end <= start) throw new Error('This event has invalid calendar dates.');
+      const result = await CalendarEditor.open({ title: event.name, start: start.toISOString(), end: end.toISOString(), url: event.link || '', notes: 'Pokémon GO event. Source: Leek Duck.', alarmMinutes: 30 });
+      return result.status;
+    } catch {
+      window.alert('Could not open Calendar. Make sure you have installed the latest iPhone build, then try again.');
+      return 'failed';
+    }
+  }
   const fileName = `${String(event.eventID).replace(/[^a-z0-9_-]/gi, '-') || 'pokemon-go-event'}.ics`;
   const file = new File([calendarFileText(event)], fileName, { type: 'text/calendar' });
   if (navigator.canShare?.({ files: [file] })) {

@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react';
 import { safeUrl, normalizedSpriteUrl, shinySource } from '../utils/pokemonForms.js';
+import { findCostume } from '../data/costumes.js';
+import CostumeArtwork from './CostumeArtwork.jsx';
+
+export default function Sprite(props) {
+  const match = findCostume({ name: props.name, image: props.src });
+  if (match) return <CostumeArtwork {...match} shiny={props.shiny} size={props.size} />;
+  return <StandardSprite {...props} />;
+}
 
 /**
  * Renders a Pokémon's artwork.
@@ -9,7 +17,7 @@ import { safeUrl, normalizedSpriteUrl, shinySource } from '../utils/pokemonForms
  * - Falls back from shiny to normal and from the crop URL to the feed URL.
  * - Falls back to ✦ if normal art also fails.
  */
-export default function Sprite({
+function StandardSprite({
   src,
   name,
   shiny = false,

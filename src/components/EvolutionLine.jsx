@@ -4,9 +4,18 @@ import Sprite from './Sprite.jsx';
 import { baseSpeciesName, collectFormSlugs, pokemonForm, safeUrl, shinySource } from '../utils/pokemonForms.js';
 import { fetchEvolutionData, fetchNormalFormArtBatch, fetchShinyFormArtBatch, buildEvolutionFamily, evolutionRequirementText, familyMemberSprite } from '../data/pokemon.js';
 import { permanentFamilyForms } from '../data/familyForms.js';
+import { findCostume, isCostumeEncounter } from '../data/costumes.js';
+import CostumeEvolution from './CostumeEvolution.jsx';
+
+export default function EvolutionLine(props) {
+  const match = findCostume(props.item);
+  if (match) return <CostumeEvolution costume={match.costume} />;
+  if (isCostumeEncounter(props.item)) return <section className="evolution-section"><h4>Costume evolution unconfirmed</h4><p className="meta">A costume-specific evolution route has not been checked for this outfit. Check its evolution button in Pokémon GO.</p></section>;
+  return <StandardEvolutionLine {...props} />;
+}
 
 /** `item` is the raid/egg/research/event/max object the detail modal is showing. */
-export default function EvolutionLine({ item, shinyFormArt, battleForms = [] }) {
+function StandardEvolutionLine({ item, shinyFormArt = {}, battleForms = [] }) {
   const [family, setFamily] = useState(null); // null = loading, [] = unavailable
   const [appearance, setAppearance] = useState('normal');
   const [localFormArt, setLocalFormArt] = useState({});
