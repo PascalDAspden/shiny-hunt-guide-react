@@ -10,7 +10,7 @@ export default function CostumeArtwork({ variant, costume, shiny = false, size }
   return (
     <div className={`costume-art${shiny ? ' costume-art-shiny' : ''}`} style={size ? { width: size, height: size } : undefined}>
       {available && failed !== url ? <img src={url} alt={name} loading="lazy" onError={() => setFailed(url)} /> : (
-        <span className="costume-art-missing" role="img" aria-label={`${name}: artwork unavailable`}>{available ? 'Artwork unavailable' : 'Shiny not released'}</span>
+        <span className="costume-art-missing" role="img" aria-label={`${name}: artwork unavailable`}>{available ? 'Artwork unavailable' : 'Shiny status unconfirmed'}</span>
       )}
     </div>
   );

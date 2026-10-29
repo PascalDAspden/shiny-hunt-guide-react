@@ -44,24 +44,49 @@ and Antique Sinistea routes (50 versus 400 Candy), the top-hat Zubat family,
 and evolution-locked Halloween Mischief Piplup. Pikachu's hat-and-capelet
 evolution is unconfirmed rather than inferred from ordinary Pikachu.
 
-Availability is a **reviewed snapshot dated 29 October 2026**, not an automatic
-costume feed or a complete historical costume Pokédex. Event windows follow
-device-local time and expire automatically; the page does not mark expired
-encounters as current. Paid GO Pass Deluxe rewards are labelled separately
-from wild and raid encounters. The costume gallery and its images work
-offline once the app is installed, while the existing live feeds still need
-internet access.
+Each card has **Where to find**, with compact Wild / Raids / Research / GO Pass
+labels. Expand it for the exact task, free or paid track, pass rank, event dates
+and a source link. Dates follow the device timezone unless the source provides
+an explicit timezone. Expired routes stop appearing as available automatically.
+The default Hunt tab is **Featured** rather than one long All page.
 
-To update the catalogue, edit `src/data/costumes.js`. Each entry has its own
-availability windows, explicit permitted costume chain, shiny-release flags,
-artwork identities and source links. Check the actual costume's evolution
-rule; an image or a base-species chain is not proof of release or evolvability.
-For a new event, update the reviewed date, sources and event windows together.
-Add matching normal/shiny files under `public/costumes/`; missing art displays
-an unavailable label instead of substituting an ordinary or non-shiny image.
+`.github/workflows/update-costumes.yml` checks published event pages about every
+6 hours on the default branch and commits `public/data/costume-encounters.json`.
+It discovers active/upcoming events from ScrapedDuck (within 90 days) and reads
+Leek Duck's encounter, research and pass reward sections. GitHub Actions must
+be enabled with permission to write repository contents. Schedules may be delayed
+or disabled after extended repository inactivity. Run it manually through Actions
+or locally with `npm run update:costumes`.
 
-Run `npm run test:costumes` for costume identity, restrictions, dates, filters,
-navigation, unknown-costume handling and missing-art regression checks.
+The installed app reads this generated JSON on opening Costumes, returning to the
+app, pressing Refresh costumes and every 10 minutes while that page is open.
+Successful reads are cached. Later data updates therefore reach installed copies
+without a new Xcode build; installing this new UI still requires an iOS sync and
+rebuild. Failed refreshes show the saved guide and its timestamp. Failed individual
+source pages keep their previous routes, original check time and original expiry.
+Complete network or recognisable layout failures leave the saved file untouched.
+A guide older than 48 hours displays an out-of-date notice.
+
+Coverage depends on published source details. A debut or shiny preview alone does
+not establish an encounter method. Text-only Timed Research can match existing
+reviewed costume aliases; entirely new text-only rewards need manual review.
+Unpublished rewards, regional restrictions and unusual page layouts can be missed;
+use the linked event guide for eligibility. GO Pass dates conservatively follow
+the containing event unless a separate pass window has been reviewed in the
+updater (Halloween 2026's pass spans both parts). Earning points and claiming
+already-unlocked rewards can have different deadlines; check the event guide.
+
+`src/data/costumes.js` remains the reviewed source for costume-specific evolution
+rules and released shiny forms. A new costume from an event gets an unconfirmed
+evolution label, a single form and only explicitly marked shiny artwork. It never
+inherits the ordinary species evolution chain. To verify a new chain, add its
+sources, evolution restrictions, Candy costs and matching costume artwork there.
+The 44 reviewed images are bundled for offline use. New event artwork loads from
+Leek Duck's CDN; missing images stay unavailable instead of becoming an ordinary
+Pokémon image. This is an event guide, not a complete historical costume Pokédex.
+
+Run `npm run test:costumes` for parser, update failure, cache, expiry, identity,
+evolution restriction, navigation and UI interaction checks.
 
 ## Run it
 
@@ -130,8 +155,9 @@ npm run build     # production build to dist/
 npm run preview   # serve that build locally
 ```
 
-Requires Node 18+ and an internet connection — like the original, this app
-has no bundled Pokémon data. Everything loads live from:
+Requires Node 22+ for the development tools. Live encounters and event updates
+need an internet connection; the costume gallery also includes a saved guide.
+Data sources include:
 
 - **ScrapedDuck** (`raw.githubusercontent.com/bigfoott/ScrapedDuck`) — raids, eggs, field research, events
 - **Leak Duck** (`raw.githubusercontent.com/zhenga8533/leak-duck`) — Team GO Rocket encounter slots and shiny availability

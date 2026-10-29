@@ -1,0 +1,39 @@
+name: Update costume encounters
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/update-costumes.yml
+      - scripts/update-costumes.js
+      - src/data/costumes.js
+      - tests/costume-updates.test.js
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: costume-encounters
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/costume-updates.test.js
+      - run: node scripts/update-costumes.js
+      - name: Publish encounter data
+        run: |
+          if git diff --quiet -- public/data/costume-encounters.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data/costume-encounters.json
+          git commit -m 'Update costume encounter sources'
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

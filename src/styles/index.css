@@ -374,4 +374,11 @@ a { color: var(--teal); }
 .costume-candy { color: var(--accent); font-size: .8rem; margin-top: 4px; }
 .costume-sources { display: flex; flex-wrap: wrap; gap: 12px; font-size: .72rem; margin-top: 8px; }
 .costume-attribution { line-height: 1.6; }
+.costume-source-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.costume-find { border-top: 1px solid var(--card-border); padding-top: 10px; }
+.costume-find summary { cursor: pointer; color: var(--accent); font-weight: 750; padding: 5px 0; }
+.costume-find .costume-methods { list-style: none; margin: 10px 0 0; padding: 0; gap: 10px; }
+.costume-find li { display: flex; flex-direction: column; gap: 4px; padding: 10px; border-radius: 10px; background: #192a40; font-size: .8rem; }
+.costume-find li > span { color: var(--meta); font-size: .74rem; }
+.costume-find a { font-size: .73rem; }
 @media (min-width: 900px) { .costume-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

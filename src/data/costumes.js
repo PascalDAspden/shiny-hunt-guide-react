@@ -28,7 +28,7 @@ export const costumeCatalog = [
   {
     id: 'zubat-top-hat', label: 'Top hat', evolutionStatus: 'can-evolve',
     aliases: ['Zubat wearing a top hat', 'Zubat (Top hat)', 'Golbat (Top hat)', 'Crobat (Top hat)'],
-    availability: [part1('Wild encounters, Field Research and surprise boxes'), wholeEvent('GO Pass Deluxe reward')],
+    availability: [part1('Wild encounters, Field Research and surprise boxes'), wholeEvent('GO Pass reward · Free and Deluxe tracks')],
     note: 'The top hat carries through both evolutions. Routes are documented by community Pokémon GO databases.',
     sources: [COSTUME_SOURCES.debut, COSTUME_SOURCES.zubat],
     variants: [variant(41, 'Zubat', 'pm41.fHALLOWEEN_2026_01'), variant(42, 'Golbat', 'pm42.fHALLOWEEN_2026_01', 25), variant(169, 'Crobat', 'pm169.fHALLOWEEN_2026_01', 100)]
@@ -68,7 +68,7 @@ export const costumeCatalog = [
   {
     id: 'noibat-headband', label: 'Headband', evolutionStatus: 'can-evolve',
     aliases: ['Noibat wearing a headband', 'Noibat (Halloween Headband)', 'Noivern wearing a headband'],
-    availability: [part1('Wild encounters, Field Research and surprise boxes'), wholeEvent('GO Pass Deluxe reward')],
+    availability: [part1('Wild encounters, Field Research and surprise boxes'), wholeEvent('GO Pass reward · Free and Deluxe tracks')],
     note: 'Noivern keeps the headband. Evolution costs 400 Noibat Candy.',
     sources: [COSTUME_SOURCES.noibat, 'https://bulbapedia.bulbagarden.net/wiki/Noibat_(GO)'],
     variants: [variant(714, 'Noibat', 'pm714.cHALLOWEEN_2025'), variant(715, 'Noivern', 'pm715.cHALLOWEEN_2025', 400)]
@@ -100,7 +100,7 @@ export const costumeCatalog = [
   {
     id: 'rowlet-halloween', label: 'Pokémon Halloween', evolutionStatus: 'can-evolve',
     aliases: ['Rowlet wearing a Pokémon Halloween costume', 'Dartrix wearing a Pokémon Halloween costume', 'Decidueye wearing a Pokémon Halloween costume'],
-    availability: [wholeEvent('GO Pass Deluxe reward'), part2('Wild encounters')],
+    availability: [wholeEvent('GO Pass reward · Free and Deluxe tracks'), part2('Wild encounters')],
     note: 'Both evolutions keep their Halloween costume. This route leads to Alolan Decidueye.',
     sources: [COSTUME_SOURCES.starters],
     variants: [variant(722, 'Rowlet', 'pm722.cFALL_2024'), variant(723, 'Dartrix', 'pm723.cFALL_2024', 25), variant(724, 'Decidueye', 'pm724.cFALL_2024', 100)]
@@ -108,7 +108,7 @@ export const costumeCatalog = [
   {
     id: 'froakie-halloween', label: 'Pokémon Halloween', evolutionStatus: 'can-evolve',
     aliases: ['Froakie wearing a Pokémon Halloween costume', 'Frogadier wearing a Pokémon Halloween costume', 'Greninja wearing a Pokémon Halloween costume'],
-    availability: [wholeEvent('GO Pass Deluxe reward')],
+    availability: [wholeEvent('GO Pass reward · Free and Deluxe tracks')],
     note: 'Frogadier and Greninja retain the Halloween costume.',
     sources: [COSTUME_SOURCES.starters],
     variants: [variant(656, 'Froakie', 'pm656.cFALL_2024'), variant(657, 'Frogadier', 'pm657.cFALL_2024', 25), variant(658, 'Greninja', 'pm658.cFALL_2024', 100)]
@@ -116,7 +116,7 @@ export const costumeCatalog = [
   {
     id: 'gengar-spooky-festival', label: 'Spooky Festival', evolutionStatus: 'final',
     aliases: ['Gengar wearing a Spooky Festival costume'],
-    availability: [part2('Rare wild encounters')],
+    availability: [wholeEvent('GO Pass reward · Free and Deluxe tracks'), part2('Rare wild encounters')],
     note: 'Gengar is a final evolution. Its Spooky Festival outfit is distinct from the Tricks & Treats outfit.',
     sources: [COSTUME_SOURCES.part2, COSTUME_SOURCES.starters],
     variants: [variant(94, 'Gengar', 'pm94.cFALL_2022_NOEVOLVE')]
@@ -124,12 +124,14 @@ export const costumeCatalog = [
 ].map((costume) => ({ ...costume, variants: costume.variants.map((member) => ({ ...member, id: `${costume.id}:${member.dex}` })) }));
 
 export function costumeArtwork(variant, shiny = false) {
+  if (variant.image) return shiny ? variant.image.replace(/(?:\.s)?\.icon\.png$/, '.s.icon.png') : variant.image;
   return `/costumes/${variant.asset}${shiny ? '.s' : ''}.icon.png`;
 }
 
 export function costumeAvailability(costume, at = new Date()) {
   const time = at.getTime();
   const windows = costume.availability.filter((entry) => Number.isFinite(new Date(entry.start).getTime()) && Number.isFinite(new Date(entry.end).getTime()));
+  if (!windows.length) return { status: 'unknown', label: 'Availability unconfirmed', windows: [] };
   const active = windows.filter((entry) => new Date(entry.start).getTime() <= time && time < new Date(entry.end).getTime());
   if (active.length) return { status: 'now', label: 'Available now', windows: active };
   const upcoming = windows.filter((entry) => new Date(entry.start).getTime() > time);

@@ -31,8 +31,8 @@ test('event boundaries follow local time; paid rewards and future encounters rem
   assert.equal(costumeAvailability(costume, new Date('2026-10-27T10:00:00')).status, 'now');
   assert.equal(costumeAvailability(costume, new Date('2026-11-01T10:00:00')).status, 'past');
   const rowlet = costumeAvailability(get('rowlet-halloween'), new Date('2026-10-29T17:00:00'));
-  assert.deepEqual(rowlet.windows.map((window) => window.method), ['GO Pass Deluxe reward']);
-  assert.equal(costumeAvailability(get('gengar-spooky-festival'), new Date('2026-10-29T17:00:00')).status, 'upcoming');
+  assert.deepEqual(rowlet.windows.map((window) => window.method), ['GO Pass reward · Free and Deluxe tracks']);
+  assert.equal(costumeAvailability(get('gengar-spooky-festival'), new Date('2026-10-29T17:00:00')).status, 'now');
   assert.equal(costumeAvailability(get('zubat-top-hat'), new Date('2026-12-01T12:00:00')).status, 'past');
   assert.equal(get('zubat-top-hat').evolutionStatus, 'can-evolve');
 });
