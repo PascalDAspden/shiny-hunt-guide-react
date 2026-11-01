@@ -1,3 +1,4 @@
+import { parseDate, zoneOptions } from '../utils/dates.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import CostumeArtwork from '../components/CostumeArtwork.jsx';
 import CostumeEvolution from '../components/CostumeEvolution.jsx';
@@ -5,7 +6,7 @@ import { COSTUME_SOURCES, costumeAvailability, costumeEvolutionLabel } from '../
 import { buildCostumeCatalogue, fetchCostumeEncounters, encounterLabels } from '../data/costumeEncounters.js';
 
 const FILTERS = [['now', 'Available now'], ['upcoming', 'Upcoming'], ['all', 'All listed']];
-const formatDate = (value) => new Date(value).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+const formatDate = (value) => parseDate(value).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', ...zoneOptions() });
 
 export default function Costumes({ query = '' }) {
   const [scope, setScope] = useState('now');
@@ -70,8 +71,8 @@ export default function Costumes({ query = '' }) {
               <div><span className={`badge ${costume.evolutionStatus === 'locked' ? 'locked' : ''}`}>{costumeEvolutionLabel(costume)}</span></div>
               <div className="costume-source-chips">{[...new Set(availability.windows.map(window => encounterLabels[window.kind] || window.method))].map(label => <span key={label} className="badge">{label}</span>)}</div>
               <details className="costume-find"><summary>Where to find</summary>{!costume.availability.length && <p className="meta">No encounter method is currently confirmed. Check back after the next event update.</p>}<ul className="costume-methods">{costume.availability.map((window, index) => {
-                const active = new Date(window.start) <= time && time < new Date(window.end);
-                const soon = new Date(window.start) > time;
+                const active = parseDate(window.start) <= time && time < parseDate(window.end);
+                const soon = parseDate(window.start) > time;
                 return <li key={`${window.method}:${index}`}><strong>{window.method}</strong>{window.event && <span>{window.event}</span>}<small>{soon ? `Starts ${formatDate(window.start)} · Ends ${formatDate(window.end)}` : active ? `Until ${formatDate(window.end)}` : `Ended ${formatDate(window.end)}`}</small>{window.kind === 'pass' && <small>Reach this rank and claim the encounter. {window.paid ? 'Deluxe purchase required.' : 'No Deluxe purchase required.'}</small>}<a href={window.source} target="_blank" rel="noopener noreferrer">Event guide ↗</a></li>;
               })}</ul></details>
               <details className="costume-details"><summary>{costume.variants.length > 1 ? 'View costume evolutions' : 'View evolution restriction'}</summary><CostumeEvolution costume={costume} /></details>
@@ -80,7 +81,7 @@ export default function Costumes({ query = '' }) {
         })}
       </div>
       {!matches.length && <div className="empty" role="status">No listed costumes match these filters. Try All listed or another Pokémon name.</div>}
-      <p className="meta costume-attribution">Checks published event guides every 6 hours. This page refreshes on opening, returning to the app and every 10 minutes. Local times follow your device. Availability depends on the event and any location or ticket restrictions in its guide. Unverified evolution rules stay marked unconfirmed. Artwork from <a href={COSTUME_SOURCES.assets} target="_blank" rel="noopener noreferrer">PokeMiners</a>.</p>
+      <p className="meta costume-attribution">Checks published event guides every 6 hours. This page refreshes on opening, returning to the app and every 10 minutes. Local times follow your selected timezone. Availability depends on the event and any location or ticket restrictions in its guide. Unverified evolution rules stay marked unconfirmed. Artwork from <a href={COSTUME_SOURCES.assets} target="_blank" rel="noopener noreferrer">PokeMiners</a>.</p>
     </section>
   );
 }

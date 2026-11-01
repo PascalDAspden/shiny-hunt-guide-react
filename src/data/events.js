@@ -1,4 +1,4 @@
-import { parseDate, now } from '../utils/dates.js';
+import { parseDate, now, getEventTimeZone } from '../utils/dates.js';
 import { rate, validEvents } from './raids.js';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 
@@ -135,7 +135,7 @@ function icsDate(date, isUtc) {
 function calendarFileText(event) {
   const start = parseDate(event.start);
   const end = parseDate(event.end);
-  const globallyTimed = /Z$/i.test(event.start);
+  const globallyTimed = !!getEventTimeZone() || /(?:Z|[+-]\d{2}:?\d{2})$/i.test(event.start);
   const description = `Pokémon GO event. Details: ${event.link || 'https://leekduck.com/events/'}\nSource: Leek Duck via ScrapedDuck.`;
   const lines = [
     'BEGIN:VCALENDAR',

@@ -382,3 +382,12 @@ a { color: var(--teal); }
 .costume-find li > span { color: var(--meta); font-size: .74rem; }
 .costume-find a { font-size: .73rem; }
 @media (min-width: 900px) { .costume-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.location-control { margin: 12px 0; padding: 12px; border: 1px solid var(--card-border); border-radius: 14px; background: var(--card-bg); }
+.location-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.location-control p { margin: 8px 0; }
+.location-control small { display: block; color: var(--meta); font-size: .7rem; line-height: 1.5; }
+
+.raid-source-notes { padding: 12px; border: 1px solid var(--card-border); border-radius: 12px; font-size: .8rem; }
+.raid-source-notes summary { cursor: pointer; color: var(--teal); }
+.raid-source-notes > div { margin-top: 12px; }

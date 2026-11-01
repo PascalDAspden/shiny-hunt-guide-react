@@ -17,7 +17,7 @@ const entries = { App: '../src/App.jsx', Costumes: '../src/pages/Costumes.jsx', 
 const components = {};
 for (const [name, path] of Object.entries(entries)) {
   const output = new URL(`costume-${name}.mjs`, directory);
-  await build({ entryPoints: [fileURLToPath(new URL(path, import.meta.url))], outfile: fileURLToPath(output), bundle: true, format: 'esm', jsx: 'automatic', external: ['react', 'react/jsx-runtime'] });
+  await build({ entryPoints: [fileURLToPath(new URL(path, import.meta.url))], outfile: fileURLToPath(output), bundle: true, format: 'esm', jsx: 'automatic', external: ['react', 'react/jsx-runtime'], plugins: [{ name: 'stable-costume-test-seed', setup(builder) { builder.onLoad({ filter: /costume-encounters\.json$/ }, () => ({ contents: JSON.stringify({ version: 1, updatedAt: '2000-01-01T00:00:00Z', sources: [], encounters: [] }), loader: 'json' })); } }] });
   components[name] = (await import(output.href)).default;
 }
 
@@ -50,7 +50,7 @@ test('Costumes button opens the gallery and preserves raid navigation', async (t
     assert.match(document.body.textContent, /GO Pass · Free · Rank 29/);
     assert.match(document.body.textContent, /No Deluxe purchase required/);
     assert.match(document.body.textContent, /Evolution unconfirmed/);
-    await click('Raids 0');
+    await click([...document.querySelectorAll('button')].find(button => /^Raids \d+$/.test(button.textContent)).textContent);
     assert.equal(document.querySelector('.costumes-page'), null);
     assert.ok(document.querySelector('.appearance-controls'));
   } finally { await act(async () => root.unmount()); dom.window.close(); }

@@ -1,0 +1,480 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-01T05:41:27.471Z",
+  "rotations": [
+    {
+      "id": "giratina-origin-mega-sableye",
+      "title": "Giratina (Origin Forme) and Mega Sableye in Raids",
+      "description": "Pikachu wearing a hat and capelet and Sinistea wearing a bow in 1-star raids; Cofagrigus, Trevenant, and Dhelmise in 3-star raids; Giratina (Origin) in 5-star raids; Mega Sableye in Mega raids",
+      "start": "2026-10-28T06:00:00",
+      "end": "2026-11-03T20:00:00",
+      "shadow": false,
+      "tags": [],
+      "source": "https://leekduck.com/raids/giratina-origin-mega-sableye.html",
+      "checkedAt": "2026-11-01T05:41:27.471Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Pikachu wearing a hat and capelet",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm25.fHALLOWEEN_2026.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 493,
+              "max": 536
+            },
+            "boosted": {
+              "min": 616,
+              "max": 670
+            }
+          }
+        },
+        {
+          "name": "Sinistea wearing a bow",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm854.fP_HALLOWEEN_2026_01.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 603,
+              "max": 650
+            },
+            "boosted": {
+              "min": 754,
+              "max": 813
+            }
+          }
+        },
+        {
+          "name": "Cofagrigus",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm563.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1231,
+              "max": 1299
+            },
+            "boosted": {
+              "min": 1539,
+              "max": 1624
+            }
+          }
+        },
+        {
+          "name": "Trevenant",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm709.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Grass"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1390,
+              "max": 1462
+            },
+            "boosted": {
+              "min": 1738,
+              "max": 1828
+            }
+          }
+        },
+        {
+          "name": "Dhelmise",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm781.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Grass"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1608,
+              "max": 1685
+            },
+            "boosted": {
+              "min": 2010,
+              "max": 2107
+            }
+          }
+        },
+        {
+          "name": "Giratina (Origin)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm487.fORIGIN.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2018,
+              "max": 2105
+            },
+            "boosted": {
+              "min": 2523,
+              "max": 2631
+            }
+          }
+        },
+        {
+          "name": "Mega Sableye",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm302.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 789,
+              "max": 843
+            },
+            "boosted": {
+              "min": 986,
+              "max": 1054
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "chandelure-super-mega-raid-day-2026",
+      "title": "Chandelure Super Mega Raid Day",
+      "description": "Mega Chandelure in Super Mega Raids",
+      "start": "2026-10-31T14:00:00",
+      "end": "2026-10-31T17:00:00",
+      "shadow": false,
+      "tags": [
+        "Raid Day"
+      ],
+      "source": "https://leekduck.com/raids/chandelure-super-mega-raid-day-2026.html",
+      "checkedAt": "2026-11-01T05:41:27.471Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Mega Chandelure",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm609.fMEGA.icon.png",
+          "tier": "Super Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1784,
+              "max": 1867
+            },
+            "boosted": {
+              "min": 2231,
+              "max": 2335
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-global",
+      "title": "Pokémon GO Wild Area 2026: Global",
+      "description": "Modern Jacket Machamp in 3-star raids; Zekrom and White Kyurem on Saturday, Reshiram and Black Kyurem on Sunday in 5-star raids from 10:00 a.m. to 6:00 p.m. each day",
+      "start": "2026-11-14T10:00:00",
+      "end": "2026-11-15T18:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
+      "checkedAt": "2026-11-01T05:41:27.471Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Modern Jacket Machamp",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm68.fWILDAREA_2026_01.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1667,
+              "max": 1746
+            },
+            "boosted": {
+              "min": 2084,
+              "max": 2183
+            }
+          }
+        },
+        {
+          "name": "Zekrom",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm644.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2217,
+              "max": 2307
+            },
+            "boosted": {
+              "min": 2771,
+              "max": 2884
+            }
+          }
+        },
+        {
+          "name": "Kyurem (White)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm646.fWHITE.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ice"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1957,
+              "max": 2042
+            },
+            "boosted": {
+              "min": 2446,
+              "max": 2553
+            }
+          }
+        },
+        {
+          "name": "Reshiram",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm643.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2217,
+              "max": 2307
+            },
+            "boosted": {
+              "min": 2771,
+              "max": 2884
+            }
+          }
+        },
+        {
+          "name": "Kyurem (Black)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm646.fBLACK.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ice"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1957,
+              "max": 2042
+            },
+            "boosted": {
+              "min": 2446,
+              "max": 2553
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow-landorus-incarnate-october-november-2026",
+      "title": "Shadow Landorus (Incarnate Forme) October–November 2026",
+      "description": "Shadow Gastly, Shadow Totodile, Shadow Shieldon, and Shadow Gible in 1-star Shadow Raids; Shadow Primeape, Shadow Kirlia, and Shadow Drapion in 3-star Shadow Raids; Shadow Landorus (Incarnate Forme) in 5-star Shadow Raids",
+      "start": "2026-10-07T06:00:00",
+      "end": "2026-11-03T22:00:00",
+      "shadow": true,
+      "tags": [],
+      "source": "https://leekduck.com/raids/shadow-landorus-incarnate-october-november-2026.html",
+      "checkedAt": "2026-11-01T05:41:27.471Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Shadow Gastly",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm92.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Poison"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 608,
+              "max": 702
+            },
+            "boosted": {
+              "min": 760,
+              "max": 878
+            }
+          }
+        },
+        {
+          "name": "Shadow Totodile",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm158.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 562,
+              "max": 646
+            },
+            "boosted": {
+              "min": 703,
+              "max": 808
+            }
+          }
+        },
+        {
+          "name": "Shadow Shieldon",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm410.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Rock",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 431,
+              "max": 509
+            },
+            "boosted": {
+              "min": 539,
+              "max": 636
+            }
+          }
+        },
+        {
+          "name": "Shadow Gible",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm443.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 551,
+              "max": 635
+            },
+            "boosted": {
+              "min": 689,
+              "max": 794
+            }
+          }
+        },
+        {
+          "name": "Shadow Primeape",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm57.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1185,
+              "max": 1307
+            },
+            "boosted": {
+              "min": 1482,
+              "max": 1634
+            }
+          }
+        },
+        {
+          "name": "Shadow Kirlia",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm281.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic",
+            "Fairy"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 475,
+              "max": 552
+            },
+            "boosted": {
+              "min": 593,
+              "max": 690
+            }
+          }
+        },
+        {
+          "name": "Shadow Drapion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm452.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Poison",
+            "Dark"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1277,
+              "max": 1401
+            },
+            "boosted": {
+              "min": 1596,
+              "max": 1752
+            }
+          }
+        },
+        {
+          "name": "Shadow Landorus (Incarnate)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm645.fINCARNATE.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ground",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1897,
+              "max": 2050
+            },
+            "boosted": {
+              "min": 2372,
+              "max": 2563
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

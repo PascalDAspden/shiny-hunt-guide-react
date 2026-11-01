@@ -33,6 +33,6 @@ export function matchesAnyQuery(parts, query) {
 }
 
 /** Applies the Raids page's type + shiny-only filters together. */
-export function filterRaids(raids, { raidType = 'all', shinyOnly = true } = {}) {
+export function filterRaids(raids, { raidType = 'all', shinyOnly = false } = {}) {
   return raids.filter((raid) => matchesRaidType(raid, raidType) && matchesShinyOnly(raid, shinyOnly));
 }
