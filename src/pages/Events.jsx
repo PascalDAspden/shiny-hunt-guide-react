@@ -3,7 +3,7 @@ import EventCard from '../components/EventCard.jsx';
 import { useCountdown } from '../hooks/useCountdown.js';
 import { validEvents } from '../data/raids.js';
 import { eventKind, eventDescription, eventHighlights, addToCalendar } from '../data/events.js';
-import { formatRange, parseDate, now } from '../utils/dates.js';
+import { formatRange, parseDate, now, zoneOptions } from '../utils/dates.js';
 
 const TYPE_OPTIONS = [
   { value: 'all', label: 'All types' },
@@ -101,9 +101,9 @@ function EventDetailModal({ event, onClose }) {
         </div>
         <div className="event-modal-heading">
           <div className="date-tile">
-            <span>{new Intl.DateTimeFormat(undefined, { month: 'short' }).format(new Date(event.start))}</span>
-            <b>{new Date(event.start).getDate()}</b>
-            <span>{new Intl.DateTimeFormat(undefined, { weekday: 'short' }).format(new Date(event.start))}</span>
+            <span>{new Intl.DateTimeFormat(undefined, { month: 'short', ...zoneOptions() }).format(parseDate(event.start))}</span>
+            <b>{new Intl.DateTimeFormat(undefined, { day: 'numeric', ...zoneOptions() }).format(parseDate(event.start))}</b>
+            <span>{new Intl.DateTimeFormat(undefined, { weekday: 'short', ...zoneOptions() }).format(parseDate(event.start))}</span>
           </div>
           <div>
             <h2>{event.name}</h2>

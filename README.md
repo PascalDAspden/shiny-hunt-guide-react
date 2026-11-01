@@ -88,6 +88,44 @@ Pokémon image. This is an event guide, not a complete historical costume Pokéd
 Run `npm run test:costumes` for parser, update failure, cache, expiry, identity,
 evolution restriction, navigation and UI interaction checks.
 
+## Location and raid lineups
+
+Tap **Use my location** to opt in for this session. The iPhone asks for While Using
+permission and uses approximate Core Location plus Apple's place/timezone lookup.
+The event guide then interprets offset-free event times in that timezone; events
+with explicit UTC/offset timestamps keep their absolute instant. The Calendar editor
+receives those same resolved instants. Denial, timeout and failed place lookup fall
+back to device time. The browser can acquire coordinates but uses device time
+because no browser reverse-geocoding service is configured.
+
+Location is checked on enabling, on returning to the foreground and every five
+minutes while visible. A move of at least 5 km or a timezone change refreshes feeds.
+Turn location off to clear the session location and restore device time. Coordinates
+are held in memory only; the iPhone's reverse-geocoding request goes to Apple. There
+is no background tracking, account location history, nearby spawn data or gym API.
+Do not interpret a published event/raid pool as a confirmed nearby encounter. Regional
+and ticket restrictions still require the event guide; no regional species inference
+is made from GPS alone.
+
+Leek Duck's raid page now uses an event selector. Its default server-rendered Raid
+Day selection can outlive that event, so the old ScrapedDuck snapshot may contain
+only a Mega boss and Shadow raids. `scripts/update-raid-rotations.js` now reads the
+published raid manifest and per-rotation boss fragments. The scheduled encounter
+workflow publishes `public/data/raid-rotations.json` about every six hours. The app
+selects each normal/Shadow rotation using its actual dates in the selected timezone,
+lets a shorter overlapping special rotation replace the base pool and excludes
+entries tagged Exclusive, whose geographic eligibility is unavailable. Published
+daily restrictions in the rotation description remain visible. An expired dated
+pool cannot be replaced by the old undated snapshot. Saved guides retain expiry.
+
+Raids starts with **Shiny-capable only** off, so 1-star and 3-star normal bosses
+remain visible even when they cannot be shiny. Shadow has its own filter. The
+walking-distance Eggs tab is separate from raid eggs at gyms. This is a published
+boss guide, not a live gym map. Run `npm run test:location-raids` for timezone,
+permission/lifecycle, rotation parsing/selection, failure and raid filter checks.
+Native GPS and timezone lookup must be verified on a physical iPhone after syncing
+and rebuilding; Swift cannot be compiled in this Linux workspace.
+
 ## Run it
 
 Open Terminal inside the unzipped `shiny-hunt-guide-react-restored` folder

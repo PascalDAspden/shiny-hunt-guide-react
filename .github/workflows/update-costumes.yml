@@ -1,4 +1,4 @@
-name: Update costume encounters
+name: Update encounter guides
 on:
   push:
     branches: [main]
@@ -7,6 +7,8 @@ on:
       - scripts/update-costumes.js
       - src/data/costumes.js
       - tests/costume-updates.test.js
+      - scripts/update-raid-rotations.js
+      - tests/location-raids.test.js
   schedule:
     - cron: '47 */6 * * *'
   workflow_dispatch:
@@ -26,14 +28,15 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: node --test tests/costume-updates.test.js
+      - run: node --test tests/costume-updates.test.js tests/location-raids.test.js
       - run: node scripts/update-costumes.js
+      - run: node scripts/update-raid-rotations.js
       - name: Publish encounter data
         run: |
-          if git diff --quiet -- public/data/costume-encounters.json; then exit 0; fi
+          if git diff --quiet -- public/data/costume-encounters.json public/data/raid-rotations.json; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/data/costume-encounters.json
-          git commit -m 'Update costume encounter sources'
+          git add public/data/costume-encounters.json public/data/raid-rotations.json
+          git commit -m 'Update encounter guide sources'
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"

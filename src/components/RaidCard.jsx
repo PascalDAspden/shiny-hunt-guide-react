@@ -8,7 +8,8 @@ export default function RaidCard({ raid, events, appearance, shinyFormArt, track
   const locked = raid.canBeShiny === false;
   const upcoming = !!raid.event;
   const countdown = useCountdown(raid.event?.start || raid.rotationEvent?.start, raid.event?.end || raid.rotationEvent?.end);
-  const info = locked ? rate('Shiny locked', 'feed status', 'Not obtainable shiny from this raid') : raidRate(raid, events);
+  const unknown = raid.canBeShiny !== true && !locked;
+  const info = unknown ? rate('Shiny status unknown', 'unconfirmed', 'The source has not confirmed shiny availability') : locked ? rate('Shiny locked', 'feed status', 'Not obtainable shiny from this raid') : raidRate(raid, events);
   const eventId = raid.event?.eventID || '';
 
   return (
@@ -17,7 +18,7 @@ export default function RaidCard({ raid, events, appearance, shinyFormArt, track
       <div className="card-main">
         <div className="card-top">
           <h4>{raid.name}</h4>
-          <span className={`badge ${locked ? 'locked' : upcoming ? 'upcoming' : 'gold'}`}>{locked ? 'LOCKED' : upcoming ? 'UPCOMING' : 'SHINY'}</span>
+          <span className={`badge ${locked ? 'locked' : upcoming ? 'upcoming' : 'gold'}`}>{locked ? 'LOCKED' : upcoming ? 'UPCOMING' : unknown ? 'UNCONFIRMED' : 'SHINY'}</span>
         </div>
         <p className="meta">
           {raid.tier}

@@ -2,6 +2,7 @@ import UIKit
 import Capacitor
 import EventKit
 import EventKitUI
+import CoreLocation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -29,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 class CalendarBridgeViewController: CAPBridgeViewController {
     override func capacitorDidLoad() {
         bridge?.registerPluginInstance(CalendarEditorPlugin())
+        bridge?.registerPluginInstance(LocationGuidePlugin())
     }
 }
 
@@ -91,5 +93,89 @@ public class CalendarEditorPlugin: CAPPlugin, CAPBridgedPlugin, EKEventEditViewD
             self.pendingCall = nil
             call?.resolve(["status": action == .saved ? "saved" : "cancelled"])
         }
+    }
+}
+
+
+// Foreground, approximate location only. No coordinate history is persisted.
+@objc(LocationGuidePlugin)
+public class LocationGuidePlugin: CAPPlugin, CAPBridgedPlugin, CLLocationManagerDelegate {
+    public let identifier = "LocationGuidePlugin"
+    public let jsName = "LocationGuide"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "getLocation", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "cancel", returnType: CAPPluginReturnPromise)
+    ]
+    private var manager: CLLocationManager?
+    private let geocoder = CLGeocoder()
+    private var pending: CAPPluginCall?
+    private var timeout: DispatchWorkItem?
+    private var locating = false
+
+    @objc func getLocation(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            guard self.pending == nil else { call.reject("Location request already running"); return }
+            self.pending = call
+            if self.manager == nil {
+                let manager = CLLocationManager()
+                manager.desiredAccuracy = kCLLocationAccuracyKilometer
+                self.manager = manager
+                manager.delegate = self
+            }
+            self.authorizeOrLocate()
+        }
+    }
+    private func authorizeOrLocate() {
+        guard pending != nil, let manager = manager, !locating else { return }
+        switch manager.authorizationStatus {
+        case .notDetermined: manager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            locating = true
+            let task = DispatchWorkItem { [weak self] in self?.fail("Location timed out") }
+            timeout = task
+            DispatchQueue.main.asyncAfter(deadline: .now() + 20, execute: task)
+            manager.requestLocation()
+        default: fail("Location permission denied or restricted")
+        }
+    }
+    public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted { fail("Location permission denied") }
+        else { authorizeOrLocate() }
+    }
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let call = pending, let location = locations.last,
+              location.horizontalAccuracy >= 0, abs(location.timestamp.timeIntervalSinceNow) < 600 else {
+            fail("No recent location available"); return
+        }
+        manager.stopUpdatingLocation()
+        // Available on the app's iOS 15+ deployment target. Apple's geocoder
+        // resolves locality/timezone; a network failure falls back to device time.
+        geocoder.reverseGeocodeLocation(location) { [weak self] places, _ in
+            guard let self = self, self.pending === call else { return }
+            let place = places?.first
+            var result: [String: Any] = [
+                "latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude,
+                "accuracy": location.horizontalAccuracy, "timestamp": location.timestamp.timeIntervalSince1970 * 1000
+            ]
+            if let zone = place?.timeZone?.identifier { result["timeZone"] = zone }
+            let label = [place?.locality ?? place?.administrativeArea, place?.country].compactMap { $0 }.joined(separator: ", ")
+            if !label.isEmpty { result["place"] = label }
+            self.finish()
+            call.resolve(result)
+        }
+    }
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) { fail(error.localizedDescription) }
+    private func finish() {
+        timeout?.cancel(); timeout = nil
+        manager?.stopUpdatingLocation()
+        pending = nil; locating = false
+    }
+    private func fail(_ message: String) {
+        let call = pending
+        finish(); geocoder.cancelGeocode()
+        call?.reject(message)
+    }
+    @objc func cancel(_ call: CAPPluginCall) {
+        DispatchQueue.main.async { self.fail("Location cancelled"); call.resolve() }
     }
 }

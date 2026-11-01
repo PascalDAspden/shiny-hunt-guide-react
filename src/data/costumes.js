@@ -1,3 +1,4 @@
+import { parseDate } from '../utils/dates.js';
 // Reviewed event catalogue, not the ordinary species evolution graph.
 // Keep artwork identity, shiny release and permitted evolution routes separate.
 export const COSTUMES_REVIEWED = '2026-10-29';
@@ -15,7 +16,7 @@ export const COSTUME_SOURCES = {
   assets: 'https://github.com/PokeMiners/pogo_assets'
 };
 
-// Times without Z intentionally follow the player's device timezone.
+// Times without an offset follow the selected GPS timezone, or device time.
 const START = '2026-10-27T10:00:00';
 const PART1_END = '2026-11-01T10:00:00';
 const END = '2026-11-05T20:00:00';
@@ -130,11 +131,11 @@ export function costumeArtwork(variant, shiny = false) {
 
 export function costumeAvailability(costume, at = new Date()) {
   const time = at.getTime();
-  const windows = costume.availability.filter((entry) => Number.isFinite(new Date(entry.start).getTime()) && Number.isFinite(new Date(entry.end).getTime()));
+  const windows = costume.availability.filter((entry) => Number.isFinite(parseDate(entry.start).getTime()) && Number.isFinite(parseDate(entry.end).getTime()));
   if (!windows.length) return { status: 'unknown', label: 'Availability unconfirmed', windows: [] };
-  const active = windows.filter((entry) => new Date(entry.start).getTime() <= time && time < new Date(entry.end).getTime());
+  const active = windows.filter((entry) => parseDate(entry.start).getTime() <= time && time < parseDate(entry.end).getTime());
   if (active.length) return { status: 'now', label: 'Available now', windows: active };
-  const upcoming = windows.filter((entry) => new Date(entry.start).getTime() > time);
+  const upcoming = windows.filter((entry) => parseDate(entry.start).getTime() > time);
   if (upcoming.length) return { status: 'upcoming', label: 'Upcoming', windows: upcoming };
   return { status: 'past', label: 'Past event', windows };
 }

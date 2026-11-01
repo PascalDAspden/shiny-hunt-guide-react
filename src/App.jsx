@@ -1,4 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { fetchRaidRotations, currentRaidPool } from './data/raidRotations.js';
+import useGuideLocation from './hooks/useGuideLocation.js';
+import LocationControl from './components/LocationControl.jsx';
 import ShinyToggle from './components/ShinyToggle.jsx';
 import Raids from './pages/Raids.jsx';
 import Research from './pages/Research.jsx';
@@ -14,7 +17,7 @@ import { fetchSpeciesInfo, fetchGmaxArt, fetchShinyFormArtBatch } from './data/p
 import { collectFormSlugs } from './utils/pokemonForms.js';
 import { useActiveHunt, useChecklist } from './hooks/useChecklist.js';
 
-const EMPTY_FEEDS = { raids: [], eggs: [], research: [], events: [], rocket: {} };
+const EMPTY_FEEDS = { raids: [], eggs: [], research: [], events: [], rocket: {}, rotations: [] };
 
 export default function App() {
   const [feeds, setFeeds] = useState(EMPTY_FEEDS);
@@ -32,13 +35,18 @@ export default function App() {
 
   const refresh = useCallback(async () => {
     setStatus((s) => ({ ...s, loading: true }));
-    const [raids, eggs, research, events, rocket] = await Promise.all([fetchRaidsFeed(), fetchEggsFeed(), fetchResearchFeed(), fetchEventsFeed(), fetchRocketFeed()]);
-    setFeeds({ raids: raids.data, eggs: eggs.data, research: research.data, events: events.data, rocket: rocket.data });
-    const cached = [raids, eggs, research, events, rocket].some((v) => v.cached);
-    const failed = [raids, eggs, research, events, rocket].some((v) => v.failed);
+    const [raids, eggs, research, events, rocket, rotations] = await Promise.all([fetchRaidsFeed(), fetchEggsFeed(), fetchResearchFeed(), fetchEventsFeed(), fetchRocketFeed(), fetchRaidRotations()]);
+    setFeeds({ raids: raids.data, eggs: eggs.data, research: research.data, events: events.data, rocket: rocket.data, rotations: rotations.data });
+    const cached = [raids, eggs, research, events, rocket, rotations].some((v) => v.cached);
+    const failed = [raids, eggs, research, events, rocket, rotations].some((v) => v.failed);
     const allFailed = [raids, eggs, research, events, rocket].every((v) => v.failed);
     setStatus({ loading: false, cached, failed, allFailed, updatedAt: new Date() });
   }, []);
+
+  const location = useGuideLocation(refresh);
+  const [clock, setClock] = useState(0);
+  useEffect(() => { const timer = setInterval(() => setClock(value => value + 1), 30000); return () => clearInterval(timer); }, []);
+  const raidsFeed = useMemo(() => currentRaidPool(feeds.rotations, feeds.raids), [feeds, location.timeZone, clock]);
 
   useEffect(() => {
     refresh();
@@ -47,7 +55,7 @@ export default function App() {
   // Lazily hydrate legendary/dex-id info for raid bosses & Max Battle targets that need it
   // (the feeds don't carry a "legendary" flag, and Max Battle events only name a species).
   useEffect(() => {
-    const upcoming = scheduledRaids(feeds.events, feeds.raids, pokemonInfo);
+    const upcoming = scheduledRaids(feeds.events, raidsFeed, pokemonInfo);
     const shadowSpecies = upcoming.filter((r) => /^shadow\s/i.test(r.name)).map((r) => r.name.replace(/^shadow\s+/i, '').replace(/\s*\(.+\)/, ''));
     const maxSpeciesGuess = [...feeds.events]
       .map((e) => e.name.match(/^(Gigantamax|Dynamax)\s+(.+?)(?:\s+during\s+Max Monday|\s+Max Battle Day|\s+in\s+Max Battles)/i))
@@ -70,7 +78,7 @@ export default function App() {
     return () => {
       cancelled = true;
     };
-  }, [feeds.events, feeds.raids]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [feeds.events, raidsFeed]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Gigantamax artwork for species that get one, keyed as "gmax:<species>".
   useEffect(() => {
@@ -98,8 +106,8 @@ export default function App() {
   useEffect(() => {
     if (appearance !== 'shiny') return;
     const names = [
-      ...feeds.raids,
-      ...scheduledRaids(feeds.events, feeds.raids, pokemonInfo),
+      ...raidsFeed,
+      ...scheduledRaids(feeds.events, raidsFeed, pokemonInfo),
       ...feeds.eggs,
       ...researchRewards(feeds.research),
       ...maxEncounters(feeds.events, pokemonInfo, feeds.eggs)
@@ -113,7 +121,7 @@ export default function App() {
     return () => {
       cancelled = true;
     };
-  }, [appearance, feeds, pokemonInfo]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [appearance, feeds, raidsFeed, pokemonInfo]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const statusText = status.loading
     ? 'Updating current data…'
@@ -126,14 +134,15 @@ export default function App() {
   const statusDotClass = status.loading ? '' : status.allFailed ? 'error' : status.cached || status.failed ? '' : 'live';
 
   const battleForms = useMemo(() => [
-    ...feeds.raids.filter((raid) => /^mega\s/i.test(raid.name)).map((raid) => ({ name: raid.name, image: raid.image, label: 'Current Mega Raid' })),
-    ...scheduledRaids(feeds.events, feeds.raids, pokemonInfo).filter((raid) => /^mega\s/i.test(raid.name)).map((raid) => ({ name: raid.name, image: raid.image, label: 'Upcoming Mega Raid' })),
-    ...maxEncounters(feeds.events, pokemonInfo, [...feeds.eggs, ...feeds.raids]).map((target) => ({ name: target.name, image: target.image, label: target.event.eventType === 'max-mondays' ? 'Max Monday' : 'Max Battle' }))
-  ], [feeds, pokemonInfo]);
+    ...raidsFeed.filter((raid) => /^mega\s/i.test(raid.name)).map((raid) => ({ name: raid.name, image: raid.image, label: 'Current Mega Raid' })),
+    ...scheduledRaids(feeds.events, raidsFeed, pokemonInfo).filter((raid) => /^mega\s/i.test(raid.name)).map((raid) => ({ name: raid.name, image: raid.image, label: 'Upcoming Mega Raid' })),
+    ...maxEncounters(feeds.events, pokemonInfo, [...feeds.eggs, ...raidsFeed]).map((target) => ({ name: target.name, image: target.image, label: target.event.eventType === 'max-mondays' ? 'Max Monday' : 'Max Battle' }))
+  ], [feeds, raidsFeed, pokemonInfo]);
 
   const pageProps = useMemo(
     () => ({
-      raidsFeed: feeds.raids,
+      raidsFeed,
+      raidRotations: feeds.rotations,
       eggsFeed: feeds.eggs,
       researchFeed: feeds.research,
       rocketFeed: feeds.rocket,
@@ -152,12 +161,12 @@ export default function App() {
       toggleChecked: checklistApi.toggleChecked,
       checked: checklistApi.checked
     }),
-    [feeds, pokemonInfo, battleForms, appearance, shinyFormArt, query, status.failed, activeHuntApi, checklistApi]
+    [feeds, raidsFeed, pokemonInfo, battleForms, appearance, shinyFormArt, query, status.failed, activeHuntApi, checklistApi]
   );
 
   const filters = [
     { id: 'featured', label: 'Featured' },
-    { id: 'raids', label: `Raids ${feeds.raids.length}` },
+    { id: 'raids', label: `Raids ${raidsFeed.length}` },
     { id: 'costumes', label: 'Costumes' },
     { id: 'eggs', label: `Eggs ${feeds.eggs.length}` },
     { id: 'research', label: `Research ${researchRewards(feeds.research).length}` },
@@ -187,7 +196,8 @@ export default function App() {
         )}
       </div>
 
-      <main>
+      <LocationControl location={location} />
+      <main key={location.timeZone || 'device'}>
         {view === 'hunt' ? (
           <>
             <div className="intro">
@@ -229,7 +239,7 @@ export default function App() {
           <section className="calendar-view">
             <div className="intro">
               <h2>Event calendar</h2>
-              <p>Upcoming Pokémon GO events in your device’s local time.</p>
+              <p>Upcoming Pokémon GO events in your selected local time.</p>
             </div>
             <div className="calendar-note">Tap <strong>Add to Calendar</strong> to save an event with a 30-minute alert.</div>
             <Events {...pageProps} />

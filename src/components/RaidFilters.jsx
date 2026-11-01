@@ -7,10 +7,10 @@ const SCOPES = [
 const TYPES = [
   { value: 'all', label: 'All types' },
   { value: 'legendary', label: 'Legendary' },
-  { value: 'shadow', label: 'Shadow' },
+  { value: 'shadow', label: 'Shadow (all tiers)' },
   { value: 'mega', label: 'Mega' },
-  { value: 'three', label: '3-Star' },
-  { value: 'one', label: '1-Star' }
+  { value: 'three', label: '3-Star (normal)' },
+  { value: 'one', label: '1-Star (normal)' }
 ];
 
 export default function RaidFilters({ scope, onScopeChange, raidType, onRaidTypeChange, sortKey, onSortChange, shinyOnly, onShinyOnlyChange }) {

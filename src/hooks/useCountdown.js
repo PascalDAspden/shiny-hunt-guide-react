@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { parseDate, now, countdownText, timeOfDay } from '../utils/dates.js';
+import { parseDate, now, countdownText, timeOfDay, zoneOptions } from '../utils/dates.js';
 
 /** Re-renders every 30s so on-screen countdowns and the local clock stay fresh without polling the feeds. */
 function useTick(intervalMs = 30000) {
@@ -39,7 +39,7 @@ export function useCountdownTo(target, prefix) {
 /** "Sat, 6:42 PM" local clock, refreshed alongside the countdowns. */
 export function useLocalClock() {
   useTick();
-  return new Intl.DateTimeFormat(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' }).format(now());
+  return new Intl.DateTimeFormat(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit', ...zoneOptions() }).format(now());
 }
 
 export { timeOfDay };

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Use your approximate location for local event timing and refresh the guide as you move. This does not locate nearby Pokémon or gyms.</string>
+    <key>NSLocationDefaultAccuracyReduced</key>
+    <true/>
     <key>NSCalendarsUsageDescription</key>
     <string>Add Pokémon GO events you choose to your calendar on iOS 15 and 16.</string>
   <key>CAPACITOR_DEBUG</key>

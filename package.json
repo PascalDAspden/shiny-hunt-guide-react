@@ -14,7 +14,9 @@
     "test:codes": "node --test tests/promo-codes.test.js tests/promo-ui.test.js",
     "test:costumes": "node --test tests/costumes.test.js tests/costume-ui.test.js tests/costume-updates.test.js",
     "test:calendar": "node --test tests/calendar.test.js",
-    "update:costumes": "node scripts/update-costumes.js"
+    "update:costumes": "node scripts/update-costumes.js",
+    "update:raids": "node scripts/update-raid-rotations.js",
+    "test:location-raids": "node --test tests/location-raids.test.js tests/location-raids-ui.test.js"
   },
   "dependencies": {
     "@capacitor/core": "^8.5.2",
