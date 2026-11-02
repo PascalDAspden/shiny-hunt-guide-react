@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T06:52:33.232Z",
+  "updatedAt": "2026-11-02T21:56:51.868Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/giratina-origin-mega-sableye.html",
-      "checkedAt": "2026-11-02T06:52:33.232Z",
+      "checkedAt": "2026-11-02T21:56:51.868Z",
       "ok": true,
       "bosses": [
         {
@@ -155,42 +155,6 @@
       ]
     },
     {
-      "id": "chandelure-super-mega-raid-day-2026",
-      "title": "Chandelure Super Mega Raid Day",
-      "description": "Mega Chandelure in Super Mega Raids",
-      "start": "2026-10-31T14:00:00",
-      "end": "2026-10-31T17:00:00",
-      "shadow": false,
-      "tags": [
-        "Raid Day"
-      ],
-      "source": "https://leekduck.com/raids/chandelure-super-mega-raid-day-2026.html",
-      "checkedAt": "2026-11-02T06:52:33.232Z",
-      "ok": true,
-      "bosses": [
-        {
-          "name": "Mega Chandelure",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm609.fMEGA.icon.png",
-          "tier": "Super Mega Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Fire"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1784,
-              "max": 1867
-            },
-            "boosted": {
-              "min": 2231,
-              "max": 2335
-            }
-          }
-        }
-      ]
-    },
-    {
       "id": "pokemon-go-wild-area-2026-global",
       "title": "Pokémon GO Wild Area 2026: Global",
       "description": "Modern Jacket Machamp in 3-star raids; Zekrom and White Kyurem on Saturday, Reshiram and Black Kyurem on Sunday in 5-star raids from 10:00 a.m. to 6:00 p.m. each day",
@@ -201,7 +165,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-02T06:52:33.232Z",
+      "checkedAt": "2026-11-02T21:56:51.868Z",
       "ok": true,
       "bosses": [
         {
@@ -314,7 +278,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-landorus-incarnate-october-november-2026.html",
-      "checkedAt": "2026-11-02T06:52:33.232Z",
+      "checkedAt": "2026-11-02T21:56:51.868Z",
       "ok": true,
       "bosses": [
         {
