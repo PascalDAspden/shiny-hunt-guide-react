@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T06:59:19.886Z",
+  "updatedAt": "2026-11-04T20:03:46.639Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/giratina-origin-mega-sableye.html",
-      "checkedAt": "2026-11-04T06:59:19.886Z",
+      "checkedAt": "2026-11-04T20:03:46.639Z",
       "ok": true,
       "bosses": [
         {
@@ -165,7 +165,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-04T06:59:19.886Z",
+      "checkedAt": "2026-11-04T20:03:46.639Z",
       "ok": true,
       "bosses": [
         {
@@ -278,7 +278,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-landorus-incarnate-october-november-2026.html",
-      "checkedAt": "2026-11-04T06:59:19.886Z",
+      "checkedAt": "2026-11-04T20:03:46.639Z",
       "ok": true,
       "bosses": [
         {
