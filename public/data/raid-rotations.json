@@ -1,42 +1,23 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-05T07:26:02.016Z",
+  "updatedAt": "2026-11-05T20:17:51.888Z",
   "failed": [],
   "rotations": [
     {
-      "id": "giratina-origin-mega-sableye",
-      "title": "Giratina (Origin Forme) and Mega Sableye in Raids",
-      "description": "Pikachu wearing a hat and capelet and Sinistea wearing a bow in 1-star raids; Cofagrigus, Trevenant, and Dhelmise in 3-star raids; Giratina (Origin) in 5-star raids; Mega Sableye in Mega raids",
-      "start": "2026-10-28T06:00:00",
-      "end": "2026-11-03T20:00:00",
+      "id": "giratina-altered-mega-sableye",
+      "title": "Giratina (Altered Forme) and Mega Sableye in Raids",
+      "description": "Duskull, Frillish (Male), Frillish (Female), and Litwick in 1-star raids; Cofagrigus, Trevenant, and Dhelmise in 3-star raids; Giratina (Altered Forme) in 5-star raids; Mega Sableye in Mega raids",
+      "start": "2026-11-06T06:00:00",
+      "end": "2026-11-08T20:00:00",
       "shadow": false,
       "tags": [],
-      "source": "https://leekduck.com/raids/giratina-origin-mega-sableye.html",
-      "checkedAt": "2026-11-05T07:26:02.016Z",
+      "source": "https://leekduck.com/raids/giratina-altered-mega-sableye.html",
+      "checkedAt": "2026-11-05T20:17:51.888Z",
       "ok": true,
       "bosses": [
         {
-          "name": "Pikachu wearing a hat and capelet",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm25.fHALLOWEEN_2026.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Electric"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 493,
-              "max": 536
-            },
-            "boosted": {
-              "min": 616,
-              "max": 670
-            }
-          }
-        },
-        {
-          "name": "Sinistea wearing a bow",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm854.fP_HALLOWEEN_2026_01.icon.png",
+          "name": "Duskull",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm355.icon.png",
           "tier": "1-Star Raids",
           "canBeShiny": true,
           "types": [
@@ -44,12 +25,72 @@
           ],
           "combatPower": {
             "normal": {
-              "min": 603,
-              "max": 650
+              "min": 364,
+              "max": 403
             },
             "boosted": {
-              "min": 754,
-              "max": 813
+              "min": 456,
+              "max": 504
+            }
+          }
+        },
+        {
+          "name": "Frillish",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 668,
+              "max": 718
+            },
+            "boosted": {
+              "min": 835,
+              "max": 898
+            }
+          }
+        },
+        {
+          "name": "Frillish (Female)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.fFEMALE.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 668,
+              "max": 718
+            },
+            "boosted": {
+              "min": 835,
+              "max": 898
+            }
+          }
+        },
+        {
+          "name": "Litwick",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm607.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 530,
+              "max": 575
+            },
+            "boosted": {
+              "min": 663,
+              "max": 719
             }
           }
         },
@@ -113,8 +154,8 @@
           }
         },
         {
-          "name": "Giratina (Origin)",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm487.fORIGIN.icon.png",
+          "name": "Giratina (Altered)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm487.fALTERED.icon.png",
           "tier": "5-Star Raids",
           "canBeShiny": true,
           "types": [
@@ -123,12 +164,12 @@
           ],
           "combatPower": {
             "normal": {
-              "min": 2018,
-              "max": 2105
+              "min": 1848,
+              "max": 1931
             },
             "boosted": {
-              "min": 2523,
-              "max": 2631
+              "min": 2310,
+              "max": 2414
             }
           }
         },
@@ -165,7 +206,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-05T07:26:02.016Z",
+      "checkedAt": "2026-11-05T20:17:51.888Z",
       "ok": true,
       "bosses": [
         {
@@ -278,7 +319,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-landorus-incarnate-october-november-2026.html",
-      "checkedAt": "2026-11-05T07:26:02.016Z",
+      "checkedAt": "2026-11-05T20:17:51.888Z",
       "ok": true,
       "bosses": [
         {
