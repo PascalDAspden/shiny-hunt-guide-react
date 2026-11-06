@@ -32,7 +32,8 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: node --test tests/costume-updates.test.js tests/location-raids.test.js tests/max-rotations.test.js
+      - run: node --test tests/*.test.js
+      - run: npm run build
       - run: node scripts/update-costumes.js
       - run: node scripts/update-raid-rotations.js
       - run: node scripts/update-max-rotations.js
@@ -41,7 +42,7 @@ jobs:
           if git diff --quiet -- public/data/costume-encounters.json public/data/raid-rotations.json public/data/max-rotations.json; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/data/costume-encounters.json public/data/raid-rotations.json
+          git add public/data/costume-encounters.json public/data/raid-rotations.json public/data/max-rotations.json
           git commit -m 'Update encounter guide sources'
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
