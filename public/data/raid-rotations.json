@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-05T20:17:51.888Z",
+  "updatedAt": "2026-11-06T00:17:42.370Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/giratina-altered-mega-sableye.html",
-      "checkedAt": "2026-11-05T20:17:51.888Z",
+      "checkedAt": "2026-11-06T00:17:42.370Z",
       "ok": true,
       "bosses": [
         {
@@ -206,7 +206,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-05T20:17:51.888Z",
+      "checkedAt": "2026-11-06T00:17:42.370Z",
       "ok": true,
       "bosses": [
         {
@@ -305,178 +305,6 @@
             "boosted": {
               "min": 2446,
               "max": 2553
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "shadow-landorus-incarnate-october-november-2026",
-      "title": "Shadow Landorus (Incarnate Forme) October–November 2026",
-      "description": "Shadow Gastly, Shadow Totodile, Shadow Shieldon, and Shadow Gible in 1-star Shadow Raids; Shadow Primeape, Shadow Kirlia, and Shadow Drapion in 3-star Shadow Raids; Shadow Landorus (Incarnate Forme) in 5-star Shadow Raids",
-      "start": "2026-10-07T06:00:00",
-      "end": "2026-11-03T22:00:00",
-      "shadow": true,
-      "tags": [],
-      "source": "https://leekduck.com/raids/shadow-landorus-incarnate-october-november-2026.html",
-      "checkedAt": "2026-11-05T20:17:51.888Z",
-      "ok": true,
-      "bosses": [
-        {
-          "name": "Shadow Gastly",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm92.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Poison"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 608,
-              "max": 702
-            },
-            "boosted": {
-              "min": 760,
-              "max": 878
-            }
-          }
-        },
-        {
-          "name": "Shadow Totodile",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm158.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Water"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 562,
-              "max": 646
-            },
-            "boosted": {
-              "min": 703,
-              "max": 808
-            }
-          }
-        },
-        {
-          "name": "Shadow Shieldon",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm410.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Rock",
-            "Steel"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 431,
-              "max": 509
-            },
-            "boosted": {
-              "min": 539,
-              "max": 636
-            }
-          }
-        },
-        {
-          "name": "Shadow Gible",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm443.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dragon",
-            "Ground"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 551,
-              "max": 635
-            },
-            "boosted": {
-              "min": 689,
-              "max": 794
-            }
-          }
-        },
-        {
-          "name": "Shadow Primeape",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm57.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Fighting"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1185,
-              "max": 1307
-            },
-            "boosted": {
-              "min": 1482,
-              "max": 1634
-            }
-          }
-        },
-        {
-          "name": "Shadow Kirlia",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm281.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Psychic",
-            "Fairy"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 475,
-              "max": 552
-            },
-            "boosted": {
-              "min": 593,
-              "max": 690
-            }
-          }
-        },
-        {
-          "name": "Shadow Drapion",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm452.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Poison",
-            "Dark"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1277,
-              "max": 1401
-            },
-            "boosted": {
-              "min": 1596,
-              "max": 1752
-            }
-          }
-        },
-        {
-          "name": "Shadow Landorus (Incarnate)",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm645.fINCARNATE.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ground",
-            "Flying"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1897,
-              "max": 2050
-            },
-            "boosted": {
-              "min": 2372,
-              "max": 2563
             }
           }
         }
