@@ -67,7 +67,8 @@ export default function App() {
       .filter(Boolean)
       .flatMap((m) => m[2].split(/,\s*(?:and\s+)?|\s+and\s+/i).map((s) => s.trim()))
       .filter((s) => s && !/^max$/i.test(s));
-    const species = [...new Set([...shadowSpecies, ...maxSpeciesGuess])].filter((name) => !pokemonInfo[name.toLowerCase()]);
+    const rotationSpecies = feeds.maxRotations.map(r => r.species).filter(Boolean);
+    const species = [...new Set([...shadowSpecies, ...maxSpeciesGuess, ...rotationSpecies])].filter((name) => !pokemonInfo[name.toLowerCase()]);
     if (!species.length) return;
     let cancelled = false;
     Promise.all(species.map(async (name) => [name.toLowerCase(), await fetchSpeciesInfo(name)])).then((entries) => {
@@ -83,7 +84,7 @@ export default function App() {
     return () => {
       cancelled = true;
     };
-  }, [feeds.events, raidsFeed]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [feeds.events, feeds.maxRotations, raidsFeed]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Gigantamax artwork for species that get one, keyed as "gmax:<species>".
   useEffect(() => {
