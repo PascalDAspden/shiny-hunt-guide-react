@@ -43,8 +43,17 @@ export async function updateMaxRotations({ fetcher = fetch, output = FILE, now =
     if (!response.ok) throw Error('Source returned ' + response.status);
     return response;
   };
-  const events = await (await load(EVENTS)).json();
-  if (!Array.isArray(events)) throw Error('Invalid events response: preserving previous rotation file');
+  let events;
+  try {
+    events = await (await load(EVENTS)).json();
+  } catch (error) {
+    console.warn('Max event feed unavailable; retaining the last verified rotation file: ' + error.message);
+    return { ...previous, skipped: true };
+  }
+  if (!Array.isArray(events)) {
+    console.warn('Invalid Max event feed; retaining previous rotation file');
+    return { ...previous, skipped: true };
+  }
   const candidates = events.filter(e => e.eventType === 'max-mondays' && eventName(e.name) && safeLink(e.link) && Date.parse(e.start) > +now - 16 * 86400000);
   const updated = [];
   for (const event of candidates) {
@@ -60,7 +69,10 @@ export async function updateMaxRotations({ fetcher = fetch, output = FILE, now =
   const byId = new Map(existing.map(r => [r.id, r]));
   for (const item of updated) byId.set(item.id, item);
   // Never rewrite the file to an empty list when upstream content is missing.
-  if (!byId.size) throw Error('No verifiable weekly rotations; keeping prior file');
+  if (!byId.size) {
+    console.warn('No verifiable weekly Max rotation published yet; retaining previous rotation file without marking expired data as current');
+    return { ...previous, skipped: true };
+  }
   const rotations = [...byId.values()].sort((a,b) => Date.parse(a.start) - Date.parse(b.start));
   const payload = { version: 1, updatedAt: now.toISOString(), rotations };
   await writeFile(output + '.tmp', JSON.stringify(payload, null, 2) + '\n');
