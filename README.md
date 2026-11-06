@@ -305,3 +305,84 @@ Copy needs clipboard access (normally HTTPS or localhost); failure shows manual
 copy instructions. Redeemed marks persist only where localStorage is available.
 The DOM tests simulate clipboard and page reload/remount; real Safari/iPhone and
 native Xcode signing/build were not tested in the Linux workspace.
+
+## Encounter, GPS and map review (6 November 2026)
+
+The encounter updater now stages all three generated JSON files before rebasing:
+`costume-encounters.json`, `raid-rotations.json` and `max-rotations.json`.
+Previously, the unstaged Max file caused all three failed encounter workflow
+runs to stop at publication after successful source parsing. The workflow runs
+all tests and a production build before updating; source, tests, dependency and
+iOS changes trigger those checks as well as the six-hour schedule.
+
+Max Monday-only announcements now retain their actual event start/end and have
+a separate section. They do not establish full-week availability. Weekly entries
+require explicit dated source text. Max updates deduplicate semantic windows and
+retain the previous timestamp when no new weekly announcement can be verified.
+The app bundles a dated Max seed, rejects older remote/cache copies and marks
+failed or old refreshes. Expired windows remain excluded from current results.
+
+GPS remains foreground-only and opt-in. Browser GPS provides coordinates but
+cannot determine a timezone itself; native iOS uses Apple's geocoder. Losing a
+GPS timezone refreshes the date-dependent guide after reverting to device time.
+Fetch timeouts use AbortController instead of AbortSignal.timeout for older iOS
+webviews. A visible app checks feeds every five minutes; overlapping refreshes
+cannot replace newer results with older responses. These intervals are not a
+background updater for a suspended iPhone app.
+
+The separate **Map** tab opens a MapKit screen on iPhone after location is
+enabled. It centres on the GPS fix, offers All / Raid / Dynamax / Gigantamax
+filters and 1/2/5/10 km radius controls, and opens a details card when a sourced
+pin is tapped. Get Directions offers Walking or Driving and calls MapKit to open
+Apple Maps with the chosen destination. Browser builds retain an explicitly
+loaded OpenStreetMap GPS basemap and tappable location cards with Apple Maps
+links. An optional coordinate form also supports a manually checked destination.
+
+`public/data/hunt-locations.json` is the source-backed location feed. It ships
+empty: there is no live gym/Power Spot provider configured. Do not add invented
+pins. Known locations require provenance and check dates; Pokémon, shiny flags
+and countdowns require a separate verified, active encounter. Battle filters
+exclude locations without an active matching encounter. Every minute the open
+Map tab refreshes this feed; encounter/temporary-place expiry is rechecked every
+15 seconds. Failed updates retain saved data without extending its expiry.
+MapKit and OSM supply maps, not Pokémon GO location data. No verified encounter
+pins are available until a permitted source or reviewed location records are
+provided. See [the feed contract](docs/hunt-location-feed.md).
+
+**Checklist** is available as a Hunt filter. Existing check keys and tracked-hunt
+storage are preserved. Raid matchup lookups accept string type names from the
+rotation scraper as well as object type names from other feeds. Max species
+metadata includes its artwork URL, including curated rotation targets; transient
+species/artwork failures can retry. Ordinary 1-star/3-star tiers no longer imply
+a uniform 1-in-64 shiny rate; tier alone cannot establish a species' rate.
+
+Validation commands:
+
+```sh
+npm ci
+npm test
+npm run build
+npm run ios:sync
+```
+
+The review expanded the test suite beyond the original 39 tests, including the actual
+publication shell block in an isolated bare Git repository, Max-only changes,
+offline/rollback cases, GPS timezone loss, Monday expiry, timeout/body download,
+map URL and UI behavior, checklist persistence, eggs and research navigation.
+Local live-source checks retrieved two dated raid pools and three weekly Max
+entries (two reverified announcements plus one retained dated entry). Costume,
+raid and Max live publication also passed on GitHub after the workflow fix.
+Browser QA checked live feed loading, Map navigation and current Max rendering.
+
+`Verify iOS build` compiles an unsigned simulator target on a macOS GitHub runner.
+Compilation and Capacitor sync are separate from device tests: GPS permission
+prompts, Apple's geocoder, Calendar save/cancel, native MapKit pin selection, map tiles and Apple Maps/app
+handoffs still require checks on a real iPhone before a device release. No live
+battle feed or complete Pokémon GO availability guarantee is supplied by these
+community sources. Parser format changes can require maintenance; cached eggs,
+research or raid information can be stale when offline. The app displays its
+saved-copy/failed-refresh status rather than verifying encounters in the game.
+
+The non-breaking dependency audit fixes reduced the audit from 10 advisories to
+2 (Vite/esbuild development tooling). Resolving those remaining advisories
+requires a separately tested Vite major-version migration; no force upgrade was applied.

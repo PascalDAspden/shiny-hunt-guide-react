@@ -85,3 +85,20 @@ test('normal 1-star and 3-star raids display by default; Shadow is a separate fi
     assert.match(document.querySelector('.raid-card').textContent, /Shadow Gastly/);
   } finally { await act(async () => root.unmount()); dom.window.close(); }
 });
+
+
+test('losing a GPS timezone refreshes date-dependent feeds after reverting to device time', async () => {
+  const dom = setup(); let moves = 0;
+  globalThis.onMove = () => moves++;
+  globalThis.getFix = async () => ({ latitude: -36.85, longitude: 174.76, timestamp: Date.now(), timeZone: 'Pacific/Auckland' });
+  const root = createRoot(document.getElementById('root'));
+  try {
+    await act(async () => root.render(React.createElement(Guide)));
+    await click('Use my location');
+    assert.equal(moves, 1);
+    globalThis.getFix = async () => { throw Error('Location permission denied'); };
+    await click('Update location');
+    assert.equal(moves, 2);
+    assert.equal(+parseDate('2026-11-01T10:00:00'), +new Date('2026-11-01T10:00:00'));
+  } finally { await act(async () => root.unmount()); dom.window.close(); }
+});

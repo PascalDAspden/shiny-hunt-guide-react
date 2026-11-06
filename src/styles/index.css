@@ -391,3 +391,13 @@ a { color: var(--teal); }
 .raid-source-notes { padding: 12px; border: 1px solid var(--card-border); border-radius: 12px; font-size: .8rem; }
 .raid-source-notes summary { cursor: pointer; color: var(--teal); }
 .raid-source-notes > div { margin-top: 12px; }
+
+.hunt-map { display: flex; flex-direction: column; gap: 14px; }
+.map-notice { display: block; padding: 16px; line-height: 1.6; }
+.map-notice h3 { margin-top: 0; }
+.map-radius { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.map-radius select, .map-coordinate-inputs input { min-width: 0; width: 100%; background: #101c30; color: var(--text); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px; font: inherit; }
+.map-radius select { width: auto; }
+.hunt-map-frame { width: 100%; height: min(56vh, 480px); min-height: 280px; border: 1px solid var(--card-border); border-radius: 16px; background: #20344a; }
+.map-coordinate-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.map-coordinate-inputs label { display: flex; flex-direction: column; gap: 8px; }

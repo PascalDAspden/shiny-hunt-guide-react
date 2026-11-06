@@ -32,8 +32,8 @@ export async function fetchSpeciesInfo(name) {
   if (speciesCache.has(key)) return speciesCache.get(key);
   const slug = key.replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-');
   const data = await pokeJson(`https://pokeapi.co/api/v2/pokemon-species/${slug}`, 8500);
-  const info = data ? { id: data.id, legendary: data.is_legendary } : null;
-  speciesCache.set(key, info);
+  const info = data ? { id: data.id, legendary: data.is_legendary, image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png` } : null;
+  if (info) speciesCache.set(key, info);
   return info;
 }
 
@@ -47,7 +47,7 @@ export async function fetchGmaxArt(name) {
   const data = await pokeJson(`https://pokeapi.co/api/v2/pokemon/${slug}-gmax`, 8500);
   const sprites = data?.sprites;
   const url = sprites?.other?.['official-artwork']?.front_default || sprites?.other?.home?.front_default || sprites?.front_default || null;
-  gmaxArtCache.set(key, url);
+  if (url) gmaxArtCache.set(key, url);
   return url;
 }
 
@@ -112,7 +112,7 @@ export async function fetchRaidMatchup(name, raid) {
   const slug = pokemonSlug(name);
   if (raidMetadataCache.has(slug)) return raidMetadataCache.get(slug);
   const promise = (async () => {
-    const feedTypes = raid.types?.map((t) => t.name).filter(Boolean) || [];
+    const feedTypes = raid.types?.map((t) => typeof t === 'string' ? t.toLowerCase() : t.name?.toLowerCase()).filter(Boolean) || [];
     const pokemon = feedTypes.length ? null : await pokeJson(`https://pokeapi.co/api/v2/pokemon/${slug}`);
     const types = feedTypes.length ? feedTypes : (pokemon?.types || []).sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
     if (!types.length) return null;

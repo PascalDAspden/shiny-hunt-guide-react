@@ -22,9 +22,11 @@ export default function useGuideLocation(onMove) {
       if (moved) callback.current();
     } catch (error) {
       if (request !== sequence.current) return;
+      const hadTimeZone = last.current?.timeZone;
       last.current = null;
       setEventTimeZone(null);
       setState(old => ({ ...old, loading: false, position: null, timeZone: null, error: locationError(error) }));
+      if (hadTimeZone) callback.current();
     } finally { if (request === sequence.current) pending.current = false; }
   }, []);
   const toggle = useCallback(() => {

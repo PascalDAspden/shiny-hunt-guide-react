@@ -6,7 +6,7 @@ const FILE = 'public/data/max-rotations.json';
 const MONTHS = 'January February March April May June July August September October November December'.split(' ');
 const datePattern = '(' + MONTHS.join('|') + ')\\s+(\\d{1,2}),?\\s+(20\\d{2})';
 function dateParts(month, day, year) {
-  const m = MONTHS.indexOf(month) + 1;
+  const m = MONTHS.findIndex(value => value.toLowerCase() === month.toLowerCase()) + 1;
   if (!m) return null;
   const d = new Date(Date.UTC(Number(year), m - 1, Number(day)));
   return d.getUTCFullYear() === +year && d.getUTCMonth() === m - 1 && d.getUTCDate() === +day ? d : null;
@@ -29,7 +29,7 @@ export function parseWeeklyMaxAnnouncement(text, event, source) {
   const species = match[2].split(/,\s*(?:and\s+)?|\s+and\s+/i).map(s => s.trim()).filter(Boolean);
   return species.map(name => ({
     id: 'weekly-' + dateOnly(start) + '-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-    species: name, form: match[1], start: dateOnly(start) + 'T00:00:00',
+    species: name, form: match[1].toLowerCase() === 'gigantamax' ? 'Gigantamax' : 'Dynamax', start: dateOnly(start) + 'T00:00:00',
     end: dateOnly(end) + 'T00:00:00', source,
     notes: 'Source states this Pokémon may appear at Power Spots during these dates; individual spots vary.'
   }));
@@ -66,10 +66,12 @@ export async function updateMaxRotations({ fetcher = fetch, output = FILE, now =
     } catch(error) { console.warn('Max rotation source failed: ' + event.link + ' ' + error.message); }
   }
   const existing = (previous.rotations || []).filter(r => r?.end && Date.parse(r.end) > +now - 86400000);
-  const byId = new Map(existing.map(r => [r.id, r]));
-  for (const item of updated) byId.set(item.id, item);
+  // Match semantic windows so hand-curated IDs do not duplicate scraped ones.
+  const key = r => [r.form.toLowerCase(), r.species.toLowerCase(), r.start, r.end].join(':');
+  const byId = new Map(existing.map(r => [key(r), r]));
+  for (const item of updated) byId.set(key(item), item);
   // Never rewrite the file to an empty list when upstream content is missing.
-  if (!byId.size) {
+  if (!updated.length) {
     console.warn('No verifiable weekly Max rotation published yet; retaining previous rotation file without marking expired data as current');
     return { ...previous, skipped: true };
   }

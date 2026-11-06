@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { fetchRaidRotations, currentRaidPool } from './data/raidRotations.js';
 import useGuideLocation from './hooks/useGuideLocation.js';
 import LocationControl from './components/LocationControl.jsx';
 import ShinyToggle from './components/ShinyToggle.jsx';
+import HuntMap from './pages/HuntMap.jsx';
 import Raids from './pages/Raids.jsx';
 import MaxRotations from './pages/MaxRotations.jsx';
 import { fetchMaxRotations } from './data/maxRotations.js';
@@ -35,9 +36,12 @@ export default function App() {
   const activeHuntApi = useActiveHunt();
   const checklistApi = useChecklist();
 
+  const refreshSequence = useRef(0);
   const refresh = useCallback(async () => {
+    const request = ++refreshSequence.current;
     setStatus((s) => ({ ...s, loading: true }));
     const [raids, eggs, research, events, rocket, rotations, maxRotations] = await Promise.all([fetchRaidsFeed(), fetchEggsFeed(), fetchResearchFeed(), fetchEventsFeed(), fetchRocketFeed(), fetchRaidRotations(), fetchMaxRotations()]);
+    if (request !== refreshSequence.current) return;
     setFeeds({ raids: raids.data, eggs: eggs.data, research: research.data, events: events.data, rocket: rocket.data, rotations: rotations.data, maxRotations: maxRotations.data });
     const cached = [raids, eggs, research, events, rocket, rotations, maxRotations].some((v) => v.cached);
     const failed = [raids, eggs, research, events, rocket, rotations, maxRotations].some((v) => v.failed);
@@ -54,7 +58,8 @@ export default function App() {
     refresh();
     const onVisible = () => { if (document.visibilityState === 'visible') refresh(); };
     document.addEventListener('visibilitychange', onVisible);
-    return () => document.removeEventListener('visibilitychange', onVisible);
+    const timer = setInterval(onVisible, 5 * 60000);
+    return () => { ++refreshSequence.current; clearInterval(timer); document.removeEventListener('visibilitychange', onVisible); };
   }, [refresh]);
 
   // Lazily hydrate legendary/dex-id info for raid bosses & Max Battle targets that need it
@@ -88,7 +93,7 @@ export default function App() {
 
   // Gigantamax artwork for species that get one, keyed as "gmax:<species>".
   useEffect(() => {
-    const gmaxSpecies = [...new Set(maxEncounters(feeds.events, pokemonInfo, feeds.eggs).filter((p) => p.name.startsWith('Gigantamax')).map((p) => p.species))].filter(
+    const gmaxSpecies = [...new Set([...maxEncounters(feeds.events, pokemonInfo, feeds.eggs).filter((p) => p.name.startsWith('Gigantamax')).map((p) => p.species), ...feeds.maxRotations.filter(r => r.form === 'Gigantamax').map(r => r.species)])].filter(
       (name) => !pokemonInfo['gmax:' + name.toLowerCase()]
     );
     if (!gmaxSpecies.length) return;
@@ -106,7 +111,7 @@ export default function App() {
     return () => {
       cancelled = true;
     };
-  }, [feeds.events, feeds.eggs]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [feeds.events, feeds.eggs, feeds.maxRotations]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Shiny artwork for mega/regional/gmax forms currently on screen, fetched once the person switches to Shiny.
   useEffect(() => {
@@ -116,7 +121,8 @@ export default function App() {
       ...scheduledRaids(feeds.events, raidsFeed, pokemonInfo),
       ...feeds.eggs,
       ...researchRewards(feeds.research),
-      ...maxEncounters(feeds.events, pokemonInfo, feeds.eggs)
+      ...maxEncounters(feeds.events, pokemonInfo, feeds.eggs),
+      ...feeds.maxRotations.map(r => ({ name: `${r.form} ${r.species}` }))
     ].map((p) => p.name);
     const forms = collectFormSlugs(names).filter((f) => !(f in shinyFormArt));
     if (!forms.length) return;
@@ -173,6 +179,7 @@ export default function App() {
 
   const filters = [
     { id: 'featured', label: 'Featured' },
+    { id: 'checklist', label: 'Checklist' },
     { id: 'raids', label: `Raids ${raidsFeed.length}` },
     { id: 'costumes', label: 'Costumes' },
     { id: 'eggs', label: `Eggs ${feeds.eggs.length}` },
@@ -213,7 +220,7 @@ export default function App() {
               <button type="button" className="odds-open-button" onClick={() => setShowOdds(true)}>✦ Odds calculator</button>
             </div>
 
-            <Checklist {...pageProps} compact />
+            {huntFilter !== 'checklist' && <Checklist {...pageProps} compact />}
 
             <label className="search-wrap">
               <span aria-hidden="true">⌕</span>
@@ -233,6 +240,7 @@ export default function App() {
               <ShinyToggle value={appearance} onChange={setAppearance} />
             </div>}
 
+            {huntFilter === 'checklist' && <Checklist {...pageProps} />}
             {huntFilter === 'featured' && <Research {...pageProps} sectionFilter="events" />}
             {huntFilter === 'raids' && <Raids {...pageProps} />}
             {huntFilter === 'costumes' && <Costumes query={query} />}
@@ -240,6 +248,8 @@ export default function App() {
             {huntFilter === 'max' && <MaxRotations rotations={feeds.maxRotations} events={feeds.events} pokemonInfo={pokemonInfo} query={query} failed={status.failed} appearance={appearance} shinyFormArt={shinyFormArt} />}
             {(huntFilter === 'research' || huntFilter === 'breakthrough' || huntFilter === 'rocket') && <Research {...pageProps} sectionFilter={huntFilter} />}
           </>
+        ) : view === 'map' ? (
+          <HuntMap location={location} />
         ) : view === 'codes' ? (
           <PromoCodes />
         ) : (
@@ -267,6 +277,9 @@ export default function App() {
         </button>
         <button type="button" className={`nav-item${view === 'calendar' ? ' active' : ''}`} aria-current={view === 'calendar' ? 'page' : undefined} onClick={() => setView('calendar')}>
           <span className="calendar-glyph" aria-hidden="true" /><span>Calendar</span>
+        </button>
+        <button type="button" className={`nav-item${view === 'map' ? ' active' : ''}`} aria-current={view === 'map' ? 'page' : undefined} onClick={() => setView('map')}>
+          <span className="nav-icon" aria-hidden="true">⌖</span><span>Map</span>
         </button>
         <button type="button" className={`nav-item${view === 'codes' ? ' active' : ''}`} aria-current={view === 'codes' ? 'page' : undefined} onClick={() => setView('codes')}>
           <span className="nav-icon" aria-hidden="true">♢</span><span>Promo Codes</span>

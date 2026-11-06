@@ -81,10 +81,10 @@ export function raidRate(raid, events = []) {
   const shadow = /^shadow\s/i.test(raid.name);
   if (currentRaidDayFor(raid.name, events)) return rate('1/10', 'event-specific', 'Named Raid Day boss, during event hours only');
   if (shadow && tier.includes('5-star')) return rate('1/20', 'estimated', 'Tier 5 Shadow raid');
-  if (shadow && /[13]-star/.test(tier)) return rate('1/64', 'estimated', 'Tier 1/3 Shadow raid');
+  if (shadow && /[13]-star/.test(tier)) return rate('Rate unknown', 'species-dependent', 'Raid tier alone does not establish the shiny rate');
   if (tier.includes('mega')) return rate('1/64', 'estimated', 'Mega raid');
-  if (tier.includes('5-star') || tier.includes('ultra beast')) return rate('1/20', 'confirmed guide rate', 'Tier 5 / Legendary raid');
-  if (/[13]-star/.test(tier)) return rate('1/64', 'estimated', 'Tier 1/3 raid');
+  if (tier.includes('5-star') || tier.includes('ultra beast')) return rate('1/20', 'estimated', 'Tier 5 / Legendary raid');
+  if (/[13]-star/.test(tier)) return rate('Rate unknown', 'species-dependent', 'Raid tier alone does not establish the shiny rate');
   return rate('Rate unknown', 'unknown', 'No supported rate for this raid type');
 }
 

@@ -1,3 +1,4 @@
+import { fetchWithTimeout } from '../utils/fetch.js';
 import seed from '../../public/data/raid-rotations.json' with { type: 'json' };
 import { parseDate } from '../utils/dates.js';
 
@@ -8,13 +9,13 @@ export async function fetchRaidRotations() {
   let saved = seed;
   try { const cache = JSON.parse(localStorage.getItem('raid-rotations-v1')); if (validRaidRotations(cache) && Date.parse(cache.updatedAt) > Date.parse(saved.updatedAt)) saved = cache; } catch { /* no stored guide */ }
   try {
-    const r = await fetch('https://raw.githubusercontent.com/PascalDAspden/shiny-hunt-guide-react/main/public/data/raid-rotations.json', { cache: 'no-cache', signal: AbortSignal.timeout(12000) });
+    const r = await fetchWithTimeout('https://raw.githubusercontent.com/PascalDAspden/shiny-hunt-guide-react/main/public/data/raid-rotations.json', { cache: 'no-cache' }, 12000);
     if (!r.ok) throw Error('Raid guide unavailable');
     const data = await r.json();
     if (!validRaidRotations(data) || Date.parse(data.updatedAt) < Date.parse(saved.updatedAt)) throw Error('Invalid or older raid guide');
     try { localStorage.setItem('raid-rotations-v1', JSON.stringify(data)); } catch { /* still usable */ }
     return { data: data.rotations, cached: Date.now() - Date.parse(data.updatedAt) > 48 * 3600000, failed: !!data.failed?.length || data.rotations.some(r => r.ok === false) };
-  } catch { return { data: saved.rotations, cached: true, failed: false }; }
+  } catch { return { data: saved.rotations, cached: true, failed: true }; }
 }
 
 // Match the source's event selector using the player's selected timezone, not
@@ -28,7 +29,7 @@ export function currentRaidPool(rotations, fallback = [], reference = new Date()
   for (const shadow of [false, true]) {
     const rotation = chooseRotation(rotations, shadow, reference);
     if (rotation) {
-      const rotationEvent = { eventID: rotation.id, name: rotation.title, start: rotation.start, end: rotation.end, link: 'https://leekduck.com/raid-bosses/' };
+      const rotationEvent = { eventID: rotation.id, name: rotation.title, start: rotation.start, end: rotation.end, link: rotation.source };
       result.push(...rotation.bosses.map(b => ({ ...b, rotationEvent, rotationDescription: rotation.description })));
     } else {
       // Once a dated pool exists, don't revive an undated snapshot after its
@@ -39,5 +40,5 @@ export function currentRaidPool(rotations, fallback = [], reference = new Date()
   return result;
 }
 export function upcomingRotationRaids(rotations, reference = new Date()) {
-  return rotations.filter(r => !r.tags.includes('Exclusive') && parseDate(r.start) > reference).flatMap(r => r.bosses.map(b => ({ ...b, event: { eventID: r.id, name: r.title, start: r.start, end: r.end, link: 'https://leekduck.com/raid-bosses/' }, rotationDescription: r.description })));
+  return rotations.filter(r => !r.tags.includes('Exclusive') && parseDate(r.start) > reference).flatMap(r => r.bosses.map(b => ({ ...b, event: { eventID: r.id, name: r.title, start: r.start, end: r.end, link: r.source }, rotationDescription: r.description })));
 }

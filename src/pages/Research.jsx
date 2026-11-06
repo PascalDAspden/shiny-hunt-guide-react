@@ -115,8 +115,8 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
         ))}
       </Section>}
 
-      {(sectionFilter === 'all' || sectionFilter === 'max') && maxMondays.length > 0 && <p className="section-explainer">Max Mondays feature a weekly Dynamax rotation at Power Spots, with local event times shown on each card.</p>}
-      {(sectionFilter === 'all' || sectionFilter === 'max') && <Section title="Max Monday · weekly rotation" count={maxMondays.length}>
+      {(sectionFilter === 'all' || sectionFilter === 'max') && maxMondays.length > 0 && <p className="section-explainer">Max Mondays feature the named Pokémon during the local event hours shown. Week-long availability requires a separate announcement.</p>}
+      {(sectionFilter === 'all' || sectionFilter === 'max') && <Section title="Max Monday features" count={maxMondays.length}>
         {maxMondays.map((p) => (
           <PokemonCard
             key={`${p.name}:${p.event.eventID}`}

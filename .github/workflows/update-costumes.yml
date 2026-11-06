@@ -4,15 +4,12 @@ on:
     branches: [main]
     paths:
       - .github/workflows/update-costumes.yml
-      - scripts/update-costumes.js
-      - src/data/costumes.js
-      - tests/costume-updates.test.js
-      - scripts/update-raid-rotations.js
-      - scripts/update-max-rotations.js
-      - src/data/maxRotations.js
-      - src/pages/MaxRotations.jsx
-      - tests/max-rotations.test.js
-      - tests/location-raids.test.js
+      - 'scripts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'ios/**'
+      - package.json
+      - package-lock.json
   schedule:
     - cron: '47 */6 * * *'
   workflow_dispatch:

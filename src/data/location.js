@@ -13,7 +13,7 @@ export async function cancelLocation() {
   if (Capacitor.isNativePlatform()) try { await LocationGuide.cancel(); } catch { /* pending request already ended */ }
 }
 export function validPosition(position) {
-  return Number.isFinite(position?.latitude) && Math.abs(position.latitude) <= 90 && Number.isFinite(position?.longitude) && Math.abs(position.longitude) <= 180 && Number.isFinite(position?.timestamp) && Math.abs(Date.now() - position.timestamp) < 10 * 60000;
+  return Number.isFinite(position?.latitude) && Math.abs(position.latitude) <= 90 && Number.isFinite(position?.longitude) && Math.abs(position.longitude) <= 180 && Number.isFinite(position?.timestamp) && position.timestamp <= Date.now() + 60000 && Date.now() - position.timestamp < 10 * 60000 && (position.accuracy === undefined || Number.isFinite(position.accuracy) && position.accuracy >= 0);
 }
 export function distanceKm(a, b) {
   if (!a || !b) return Infinity;

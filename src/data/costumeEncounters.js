@@ -1,3 +1,4 @@
+import { fetchWithTimeout } from '../utils/fetch.js';
 import seed from '../../public/data/costume-encounters.json' with { type: 'json' };
 import { costumeCatalog, findCostume } from './costumes.js';
 
@@ -16,7 +17,7 @@ export async function fetchCostumeEncounters() {
   try { const cached = JSON.parse(localStorage.getItem(KEY)); if (validCostumeFeed(cached) && Date.parse(cached.updatedAt) >= Date.parse(saved.updatedAt)) saved = cached; } catch { /* offline storage unavailable */ }
   for (const branch of ['main', 'feature/costume-pokemon']) {
     try {
-      const response = await fetch(`${REMOTE}${branch}/public/data/costume-encounters.json`, { cache: 'no-cache', signal: AbortSignal.timeout(10000) });
+      const response = await fetchWithTimeout(`${REMOTE}${branch}/public/data/costume-encounters.json`, { cache: 'no-cache' }, 10000);
       if (!response.ok) continue;
       const data = await response.json();
       if (!validCostumeFeed(data) || Date.parse(data.updatedAt) < Date.parse(saved.updatedAt)) continue;

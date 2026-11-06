@@ -66,7 +66,10 @@ export function useActiveHunt() {
  * "on my list"). Independent of the single active hunt above.
  */
 export function useChecklist() {
-  const [checked, setChecked] = useState(() => new Set(readJson(CHECKLIST_KEY, [])));
+  const [checked, setChecked] = useState(() => {
+    const saved = readJson(CHECKLIST_KEY, []);
+    return new Set(Array.isArray(saved) ? saved.filter(key => typeof key === 'string') : []);
+  });
 
   useEffect(() => {
     writeJson(CHECKLIST_KEY, [...checked]);

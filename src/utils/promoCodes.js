@@ -1,3 +1,4 @@
+import { fetchWithTimeout } from './fetch.js';
 export const REDEEMED_CODES_KEY = 'redeemed-promo-codes-v1';
 export const PROMO_CACHE_KEY = 'promo-codes-cache-v1';
 // This is generated JSON, never a request to Leek Duck from a user's device.
@@ -42,7 +43,7 @@ export function initialCodes(bundled) {
 }
 
 export async function fetchPromoCodes() {
-  const response = await fetch(PROMO_FEED_URL, { signal: AbortSignal.timeout(10000), cache: 'no-cache' });
+  const response = await fetchWithTimeout(PROMO_FEED_URL, { cache: 'no-cache' }, 10000);
   if (!response.ok) throw new Error('Promo feed unavailable.');
   const codes = normalizeCodes(await response.json());
   saveLocal(PROMO_CACHE_KEY, codes);
