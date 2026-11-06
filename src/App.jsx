@@ -4,6 +4,8 @@ import useGuideLocation from './hooks/useGuideLocation.js';
 import LocationControl from './components/LocationControl.jsx';
 import ShinyToggle from './components/ShinyToggle.jsx';
 import Raids from './pages/Raids.jsx';
+import MaxRotations from './pages/MaxRotations.jsx';
+import { fetchMaxRotations } from './data/maxRotations.js';
 import Research from './pages/Research.jsx';
 import Events from './pages/Events.jsx';
 import PromoCodes from './pages/PromoCodes.jsx';
@@ -17,7 +19,7 @@ import { fetchSpeciesInfo, fetchGmaxArt, fetchShinyFormArtBatch } from './data/p
 import { collectFormSlugs } from './utils/pokemonForms.js';
 import { useActiveHunt, useChecklist } from './hooks/useChecklist.js';
 
-const EMPTY_FEEDS = { raids: [], eggs: [], research: [], events: [], rocket: {}, rotations: [] };
+const EMPTY_FEEDS = { raids: [], eggs: [], research: [], events: [], rocket: {}, rotations: [], maxRotations: [] };
 
 export default function App() {
   const [feeds, setFeeds] = useState(EMPTY_FEEDS);
@@ -35,10 +37,10 @@ export default function App() {
 
   const refresh = useCallback(async () => {
     setStatus((s) => ({ ...s, loading: true }));
-    const [raids, eggs, research, events, rocket, rotations] = await Promise.all([fetchRaidsFeed(), fetchEggsFeed(), fetchResearchFeed(), fetchEventsFeed(), fetchRocketFeed(), fetchRaidRotations()]);
-    setFeeds({ raids: raids.data, eggs: eggs.data, research: research.data, events: events.data, rocket: rocket.data, rotations: rotations.data });
-    const cached = [raids, eggs, research, events, rocket, rotations].some((v) => v.cached);
-    const failed = [raids, eggs, research, events, rocket, rotations].some((v) => v.failed);
+    const [raids, eggs, research, events, rocket, rotations, maxRotations] = await Promise.all([fetchRaidsFeed(), fetchEggsFeed(), fetchResearchFeed(), fetchEventsFeed(), fetchRocketFeed(), fetchRaidRotations(), fetchMaxRotations()]);
+    setFeeds({ raids: raids.data, eggs: eggs.data, research: research.data, events: events.data, rocket: rocket.data, rotations: rotations.data, maxRotations: maxRotations.data });
+    const cached = [raids, eggs, research, events, rocket, rotations, maxRotations].some((v) => v.cached);
+    const failed = [raids, eggs, research, events, rocket, rotations, maxRotations].some((v) => v.failed);
     const allFailed = [raids, eggs, research, events, rocket].every((v) => v.failed);
     setStatus({ loading: false, cached, failed, allFailed, updatedAt: new Date() });
   }, []);
@@ -50,6 +52,9 @@ export default function App() {
 
   useEffect(() => {
     refresh();
+    const onVisible = () => { if (document.visibilityState === 'visible') refresh(); };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
   }, [refresh]);
 
   // Lazily hydrate legendary/dex-id info for raid bosses & Max Battle targets that need it
@@ -147,6 +152,7 @@ export default function App() {
       researchFeed: feeds.research,
       rocketFeed: feeds.rocket,
       eventsFeed: feeds.events,
+      maxRotations: feeds.maxRotations,
       events: feeds.events,
       pokemonInfo,
       battleForms,
@@ -172,7 +178,7 @@ export default function App() {
     { id: 'research', label: `Research ${researchRewards(feeds.research).length}` },
     { id: 'breakthrough', label: 'Breakthrough' },
     { id: 'rocket', label: `Rocket ${shinyRocketEncounters(feeds.rocket).length}` },
-    { id: 'max', label: `Max ${maxEncounters(feeds.events, pokemonInfo, feeds.eggs).length}` }
+    { id: 'max', label: 'Max Battles' }
   ];
 
   return (
@@ -230,7 +236,7 @@ export default function App() {
             {huntFilter === 'raids' && <Raids {...pageProps} />}
             {huntFilter === 'costumes' && <Costumes query={query} />}
             {huntFilter === 'eggs' && <Research {...pageProps} sectionFilter="eggs" />}
-            {huntFilter === 'max' && <Research {...pageProps} sectionFilter="max" />}
+            {huntFilter === 'max' && <MaxRotations rotations={feeds.maxRotations} events={feeds.events} pokemonInfo={pokemonInfo} query={query} failed={status.failed} appearance={appearance} shinyFormArt={shinyFormArt} />}
             {(huntFilter === 'research' || huntFilter === 'breakthrough' || huntFilter === 'rocket') && <Research {...pageProps} sectionFilter={huntFilter} />}
           </>
         ) : view === 'codes' ? (
