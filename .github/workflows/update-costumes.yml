@@ -8,6 +8,9 @@ on:
       - src/data/costumes.js
       - tests/costume-updates.test.js
       - scripts/update-raid-rotations.js
+      - scripts/update-max-rotations.js
+      - src/data/maxRotations.js
+      - src/pages/MaxRotations.jsx
       - tests/location-raids.test.js
   schedule:
     - cron: '47 */6 * * *'
@@ -31,9 +34,10 @@ jobs:
       - run: node --test tests/costume-updates.test.js tests/location-raids.test.js
       - run: node scripts/update-costumes.js
       - run: node scripts/update-raid-rotations.js
+      - run: node scripts/update-max-rotations.js
       - name: Publish encounter data
         run: |
-          if git diff --quiet -- public/data/costume-encounters.json public/data/raid-rotations.json; then exit 0; fi
+          if git diff --quiet -- public/data/costume-encounters.json public/data/raid-rotations.json public/data/max-rotations.json; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/data/costume-encounters.json public/data/raid-rotations.json
