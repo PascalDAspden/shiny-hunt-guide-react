@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-06T00:00:00.000Z",
+  "rotations": [
+    {
+      "id": "weekly-machop-2026-11-02",
+      "form": "Dynamax",
+      "species": "Machop",
+      "start": "2026-11-02T00:00:00",
+      "end": "2026-11-09T00:00:00",
+      "source": "https://leekduck.com/events/max-mondays-2026-11-02/",
+      "notes": "Announced as potentially appearing at Power Spots 2–8 November 2026. Exact Power Spot availability varies."
+    }
+  ]
+}
