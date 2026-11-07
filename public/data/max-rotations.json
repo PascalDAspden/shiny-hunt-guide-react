@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-07T13:35:17.752Z",
+  "updatedAt": "2026-11-07T22:13:41.517Z",
   "rotations": [
     {
       "id": "weekly-machop-2026-11-02",
@@ -28,6 +28,231 @@
       "end": "2026-12-07T00:00:00",
       "source": "https://leekduck.com/events/max-mondays-2026-11-30/",
       "notes": "Source states this Pokémon may appear at Power Spots during these dates; individual spots vary."
+    }
+  ],
+  "eventBattles": [
+    {
+      "id": "pokemon-go-wild-area-2026-sendai-japan:Gigantamax:Duraludon:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Sendai • Tohoku",
+      "form": "Gigantamax",
+      "species": "Duraludon",
+      "start": "2026-11-06T01:00:00.000Z",
+      "end": "2026-11-08T09:00:00.000Z",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-sendai-japan/",
+      "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-06-pokemon-go-wild-area-2026-sendai-japan/gigantamax-duraludon.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-sendai-japan:Dynamax:Dialga:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Sendai • Tohoku",
+      "form": "Dynamax",
+      "species": "Dialga",
+      "start": "2026-11-06T01:00:00.000Z",
+      "end": "2026-11-08T09:00:00.000Z",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-sendai-japan/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_483_00.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-sendai-japan:Dynamax:Palkia:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Sendai • Tohoku",
+      "form": "Dynamax",
+      "species": "Palkia",
+      "start": "2026-11-06T01:00:00.000Z",
+      "end": "2026-11-08T09:00:00.000Z",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-sendai-japan/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_484_00.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-mexico-city:Gigantamax:Duraludon:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Mexico City",
+      "form": "Gigantamax",
+      "species": "Duraludon",
+      "start": "2026-11-06T16:00:00.000Z",
+      "end": "2026-11-09T00:00:00.000Z",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-mexico-city/",
+      "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-06-pokemon-go-wild-area-2026-mexico-city/gigantamax-duraludon.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-mexico-city:Dynamax:Dialga:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Mexico City",
+      "form": "Dynamax",
+      "species": "Dialga",
+      "start": "2026-11-06T16:00:00.000Z",
+      "end": "2026-11-09T00:00:00.000Z",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-mexico-city/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_483_00.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-mexico-city:Dynamax:Palkia:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Mexico City",
+      "form": "Dynamax",
+      "species": "Palkia",
+      "start": "2026-11-06T16:00:00.000Z",
+      "end": "2026-11-09T00:00:00.000Z",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-mexico-city/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_484_00.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "into-the-wild-2026:Dynamax:Ralts:event",
+      "kind": "event",
+      "eventName": "Into the Wild",
+      "form": "Dynamax",
+      "species": "Ralts",
+      "start": "2026-11-09T10:00:00.000",
+      "end": "2026-11-13T20:00:00.000",
+      "source": "https://leekduck.com/events/into-the-wild-2026/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_280_00.png",
+      "notes": "One-Star Max Battles"
+    },
+    {
+      "id": "into-the-wild-2026:Dynamax:Machop:event",
+      "kind": "event",
+      "eventName": "Into the Wild",
+      "form": "Dynamax",
+      "species": "Machop",
+      "start": "2026-11-09T10:00:00.000",
+      "end": "2026-11-13T20:00:00.000",
+      "source": "https://leekduck.com/events/into-the-wild-2026/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_066_00.png",
+      "notes": "Two-Star Max Battles"
+    },
+    {
+      "id": "into-the-wild-2026:Dynamax:Registeel:2026-11-11",
+      "kind": "event",
+      "eventName": "Into the Wild",
+      "form": "Dynamax",
+      "species": "Registeel",
+      "start": "2026-11-11T00:00:00",
+      "end": "2026-11-12T00:00:00",
+      "day": "2026-11-11",
+      "source": "https://leekduck.com/events/into-the-wild-2026/",
+      "battleWindow": {
+        "start": "2026-11-11T18:00:00",
+        "end": "2026-11-11T19:00:00",
+        "label": "Featured hour"
+      },
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_379_00.png",
+      "notes": "Five-Star Max Battles: Wednesday, November 11"
+    },
+    {
+      "id": "into-the-wild-2026:Dynamax:Regidrago:2026-11-12",
+      "kind": "event",
+      "eventName": "Into the Wild",
+      "form": "Dynamax",
+      "species": "Regidrago",
+      "start": "2026-11-12T00:00:00",
+      "end": "2026-11-13T00:00:00",
+      "day": "2026-11-12",
+      "source": "https://leekduck.com/events/into-the-wild-2026/",
+      "battleWindow": {
+        "start": "2026-11-12T18:00:00",
+        "end": "2026-11-12T19:00:00",
+        "label": "Featured hour"
+      },
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pm895.icon.png",
+      "notes": "Five-Star Max Battles: Thursday, November 12"
+    },
+    {
+      "id": "into-the-wild-2026:Dynamax:Latias:2026-11-13",
+      "kind": "event",
+      "eventName": "Into the Wild",
+      "form": "Dynamax",
+      "species": "Latias",
+      "start": "2026-11-13T00:00:00",
+      "end": "2026-11-13T20:00:00.000",
+      "day": "2026-11-13",
+      "source": "https://leekduck.com/events/into-the-wild-2026/",
+      "battleWindow": {
+        "start": "2026-11-13T18:00:00",
+        "end": "2026-11-13T19:00:00",
+        "label": "Featured hour"
+      },
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_380_00.png",
+      "notes": "Five-Star Max Battles: Friday, November 13"
+    },
+    {
+      "id": "into-the-wild-2026:Dynamax:Latios:2026-11-13",
+      "kind": "event",
+      "eventName": "Into the Wild",
+      "form": "Dynamax",
+      "species": "Latios",
+      "start": "2026-11-13T00:00:00",
+      "end": "2026-11-13T20:00:00.000",
+      "day": "2026-11-13",
+      "source": "https://leekduck.com/events/into-the-wild-2026/",
+      "battleWindow": {
+        "start": "2026-11-13T18:00:00",
+        "end": "2026-11-13T19:00:00",
+        "label": "Featured hour"
+      },
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_381_00.png",
+      "notes": "Five-Star Max Battles: Friday, November 13"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-global:Gigantamax:Duraludon:event",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Global",
+      "form": "Gigantamax",
+      "species": "Duraludon",
+      "start": "2026-11-14T10:00:00.000",
+      "end": "2026-11-15T18:00:00.000",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
+      "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-14-pokemon-go-wild-area-2026-global/gigantamax-duraludon.png",
+      "notes": "Six-Star Max Battles"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-global:Dynamax:Dialga:2026-11-14",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Global",
+      "form": "Dynamax",
+      "species": "Dialga",
+      "start": "2026-11-14T10:00:00.000",
+      "end": "2026-11-15T00:00:00",
+      "day": "2026-11-14",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_483_00.png",
+      "notes": "Saturday, November 14"
+    },
+    {
+      "id": "pokemon-go-wild-area-2026-global:Dynamax:Palkia:2026-11-15",
+      "kind": "event",
+      "eventName": "Pokémon GO Wild Area 2026: Global",
+      "form": "Dynamax",
+      "species": "Palkia",
+      "start": "2026-11-15T00:00:00",
+      "end": "2026-11-15T18:00:00.000",
+      "day": "2026-11-15",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_484_00.png",
+      "notes": "Sunday, November 15"
+    },
+    {
+      "id": "eternamax-eternatus-max-battles-2026:Eternamax:Eternatus:event",
+      "kind": "event",
+      "eventName": "Eternamax Eternatus Returns",
+      "form": "Eternamax",
+      "species": "Eternatus",
+      "start": "2026-11-21T11:00:00.000",
+      "end": "2026-11-21T14:00:00.000",
+      "source": "https://leekduck.com/events/eternamax-eternatus-max-battles-2026/",
+      "battleWindow": {
+        "start": "2026-11-21T11:00:00.000",
+        "end": "2026-11-21T14:00:00.000",
+        "label": "Max Battle"
+      },
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pm890.fETERNAMAX.icon.png",
+      "notes": "Eternamax Eternatus in Max Battles"
     }
   ]
 }
