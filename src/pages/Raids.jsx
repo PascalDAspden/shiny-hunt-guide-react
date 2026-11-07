@@ -8,7 +8,7 @@ import { upcomingRotationRaids } from '../data/raidRotations.js';
 import { formatRange } from '../utils/dates.js';
 import { sortRaids } from '../utils/raidSorting.js';
 
-export default function Raids({ raidsFeed, raidRotations = [], events, pokemonInfo, battleForms, appearance, shinyFormArt, query, activeHunt, isActive, setActiveHunt }) {
+export default function Raids({ raidsFeed, raidRotations = [], events, pokemonInfo, battleForms, appearance, shinyFormArt, query }) {
   const [scope, setScope] = useState('current');
   const [raidType, setRaidType] = useState('all');
   const [sortKey, setSortKey] = useState('tier');
@@ -82,14 +82,6 @@ export default function Raids({ raidsFeed, raidRotations = [], events, pokemonIn
               events={events}
               appearance={appearance}
               shinyFormArt={shinyFormArt}
-              tracked={isActive('raid', raid.name, raid.event?.eventID || '')}
-              onTrack={(r, eventId) =>
-                setActiveHunt(
-                  isActive('raid', r.name, eventId)
-                    ? null
-                    : { kind: 'raid', name: r.name, eventId, image: r.image, label: r.tier, odds: raidRate(r, events), start: r.event?.start || r.rotationEvent?.start, end: r.event?.end || r.rotationEvent?.end }
-                )
-              }
               onOpen={openDetail}
             />
           ))}
@@ -104,23 +96,6 @@ export default function Raids({ raidsFeed, raidRotations = [], events, pokemonIn
           onClose={() => setOpenRaid(null)}
           shinyFormArt={shinyFormArt}
           battleForms={battleForms}
-          tracked={isActive('raid', openRaid.name, openRaid.event?.eventID || '')}
-          onTrack={() =>
-            setActiveHunt(
-              isActive('raid', openRaid.name, openRaid.event?.eventID || '')
-                ? null
-                : {
-                    kind: 'raid',
-                    name: openRaid.name,
-                    eventId: openRaid.event?.eventID || '',
-                    image: openRaid.image,
-                    label: openRaid.label,
-                    odds: openRaid.odds,
-                    start: openRaid.event?.start || openRaid.rotationEvent?.start,
-                    end: openRaid.event?.end || openRaid.rotationEvent?.end
-                  }
-            )
-          }
         />
       )}
     </section>

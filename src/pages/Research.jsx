@@ -31,7 +31,7 @@ function Section({ title, children, count }) {
   );
 }
 
-export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocketFeed, events, pokemonInfo, battleForms, appearance, shinyFormArt, query, activeHunt, isActive, setActiveHunt, isChecked, toggleChecked, sectionFilter = 'all' }) {
+export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocketFeed, events, pokemonInfo, battleForms, appearance, shinyFormArt, query, sectionFilter = 'all' }) {
   const [eggDistance, setEggDistance] = useState('all');
   const [openDetail, setOpenDetail] = useState(null);
 
@@ -57,21 +57,13 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
   const maxMondays = maxTargets.filter((p) => p.event.eventType === 'max-mondays');
   const maxBattles = maxTargets.filter((p) => p.event.eventType !== 'max-mondays');
 
-  const track = (kind, item, eventId) => {
-    const id = eventId || item.huntId || '';
-    const active = isActive(kind, item.name, id);
-    setActiveHunt(active ? null : { kind, name: item.name, eventId: id, image: item.image, label: item.eggType || item.event?.name || item.trainer || 'Field research', odds: item.odds || rate('Check species', 'unverified', 'Availability varies by encounter'), start: item.event?.start, end: item.event?.end });
-  };
-
   const openItem = (kind, item) => {
     const event = item.event;
-    const eventId = event?.eventID || '';
     const base = {
       kind,
       name: item.name,
       image: item.image,
       event,
-      huntId: item.huntId,
       trainer: item.trainer,
       odds:
         kind === 'egg'
@@ -91,7 +83,6 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
       base.meta = `${shortDate(parseDate(event.start))} ${timeOfDay(parseDate(event.start))}`;
     }
     setOpenDetail(base);
-    void eventId;
   };
 
   const nothing = !research.length && !eggs.length && !eventTargets.length && !maxTargets.length && !rocketTargets.length;
@@ -106,10 +97,6 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
             item={p}
             appearance={appearance}
             shinyFormArt={shinyFormArt}
-            tracked={isActive('event', p.name, p.event.eventID)}
-            checked={isChecked('event', p.name, p.event.eventID)}
-            onTrack={track}
-            onToggleChecked={toggleChecked}
             onOpen={openItem}
           />
         ))}
@@ -124,10 +111,6 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
             item={p}
             appearance={appearance}
             shinyFormArt={shinyFormArt}
-            tracked={isActive('max', p.name, p.event.eventID)}
-            checked={isChecked('max', p.name, p.event.eventID)}
-            onTrack={track}
-            onToggleChecked={toggleChecked}
             onOpen={openItem}
           />
         ))}
@@ -136,8 +119,7 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
       {(sectionFilter === 'all' || sectionFilter === 'max') && <Section title="Other Max Battles" count={maxBattles.length}>
         {maxBattles.map((p) => (
           <PokemonCard key={`${p.name}:${p.event.eventID}`} kind="max" item={p} appearance={appearance} shinyFormArt={shinyFormArt}
-            tracked={isActive('max', p.name, p.event.eventID)} checked={isChecked('max', p.name, p.event.eventID)}
-            onTrack={track} onToggleChecked={toggleChecked} onOpen={openItem} />
+            onOpen={openItem} />
         ))}
       </Section>}
 
@@ -162,10 +144,6 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
                 item={egg}
                 appearance={appearance}
                 shinyFormArt={shinyFormArt}
-                tracked={isActive('egg', egg.name)}
-                checked={isChecked('egg', egg.name)}
-                onTrack={track}
-                onToggleChecked={toggleChecked}
                 onOpen={openItem}
               />
             ))}
@@ -184,10 +162,6 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
             item={{ ...r, odds: rate('Check species', 'unverified', 'Research shiny status is not reliable in the feed') }}
             appearance={appearance}
             shinyFormArt={shinyFormArt}
-            tracked={isActive('research', r.name)}
-            checked={isChecked('research', r.name)}
-            onTrack={track}
-            onToggleChecked={toggleChecked}
             onOpen={openItem}
           />
         ))}
@@ -200,8 +174,8 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
         <p className="section-explainer">Twilight Trails · Sep 8–Dec 1, 2026. Earn a stamp for the first Field Research task you finish each day; 7 stamps unlock a Breakthrough. Shiny availability and odds vary by encounter. <a href={BREAKTHROUGH_SOURCE} target="_blank" rel="noopener noreferrer">Check Leek Duck’s current pool ↗</a></p>
         {new Date() >= BREAKTHROUGH_END ? <div className="empty">This seasonal pool has ended. Check the source for the new Breakthrough rewards.</div> : <div className="card-grid">
           {breakthroughs.map((p) => <PokemonCard key={p.name} kind="breakthrough" item={{ ...p, odds: rate('Check species', 'unverified', 'Breakthrough shiny availability depends on species') }}
-            appearance={appearance} shinyFormArt={shinyFormArt} tracked={isActive('breakthrough', p.name)} checked={isChecked('breakthrough', p.name)}
-            onTrack={track} onToggleChecked={toggleChecked} onOpen={openItem} />)}
+            appearance={appearance} shinyFormArt={shinyFormArt}
+            onOpen={openItem} />)}
         </div>}
       </section>}
 
@@ -209,8 +183,8 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
         <div className="section-head"><h3>Team GO Rocket · shiny Shadow rewards</h3><span>{rocketTargets.length} targets</span></div>
         {sectionFilter === 'rocket' && <p className="section-explainer">Only catchable rewards explicitly marked shiny in the Rocket lineup feed appear here. <a href="https://leekduck.com/rocket-lineups/" target="_blank" rel="noopener noreferrer">See full lineups ↗</a></p>}
         {rocketTargets.length ? <div className="card-grid">{rocketTargets.map((p) => (
-          <PokemonCard key={`${p.trainer}:${p.name}`} kind="rocket" item={{ ...p, huntId: p.trainer }} appearance={appearance} shinyFormArt={shinyFormArt}
-            tracked={isActive('rocket', p.name, p.trainer)} checked={isChecked('rocket', p.name, p.trainer)} onTrack={track} onToggleChecked={toggleChecked} onOpen={openItem} />
+          <PokemonCard key={`${p.trainer}:${p.name}`} kind="rocket" item={p} appearance={appearance} shinyFormArt={shinyFormArt}
+            onOpen={openItem} />
         ))}</div> : sectionFilter === 'rocket' && <div className="empty">No confirmed shiny Shadow reward loaded. Check the Rocket lineup source and try Refresh.</div>}
       </section>}
 
@@ -222,8 +196,6 @@ export default function Research({ researchFeed, eggsFeed, raidsFeed = [], rocke
           onClose={() => setOpenDetail(null)}
           shinyFormArt={shinyFormArt}
           battleForms={battleForms}
-          tracked={isActive(openDetail.kind, openDetail.name, openDetail.event?.eventID || openDetail.huntId || '')}
-          onTrack={() => track(openDetail.kind, openDetail, openDetail.event?.eventID || openDetail.huntId || '')}
         />
       )}
     </section>

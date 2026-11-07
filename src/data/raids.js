@@ -151,6 +151,10 @@ export function scheduledRaids(events, raidsFeed, pokemonInfo = {}) {
     );
 }
 
+export function raidCalendarEvent(raid, schedule) {
+  return { ...schedule, eventID: `${schedule.eventID || schedule.start}:${raid.name}`, name: `${raid.name} raid` };
+}
+
 /** Keep every Pokémon reward. The source currently marks even known shiny species false. */
 export function researchRewards(researchFeed) {
   return researchFeed.flatMap((task) =>

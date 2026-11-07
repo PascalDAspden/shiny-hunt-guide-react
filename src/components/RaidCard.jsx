@@ -2,16 +2,16 @@ import Sprite from './Sprite.jsx';
 import { RateNote } from './PokemonCard.jsx';
 import { useCountdown } from '../hooks/useCountdown.js';
 import { shortDate, timeOfDay, parseDate } from '../utils/dates.js';
-import { raidRate, rate } from '../data/raids.js';
+import { raidCalendarEvent, raidRate, rate } from '../data/raids.js';
+import { addToCalendar } from '../data/events.js';
 
-export default function RaidCard({ raid, events, appearance, shinyFormArt, tracked, onTrack, onOpen }) {
+export default function RaidCard({ raid, events, appearance, shinyFormArt, onOpen }) {
   const locked = raid.canBeShiny === false;
   const upcoming = !!raid.event;
-  const countdown = useCountdown(raid.event?.start || raid.rotationEvent?.start, raid.event?.end || raid.rotationEvent?.end);
+  const schedule = raid.event || raid.rotationEvent;
+  const countdown = useCountdown(schedule?.start, schedule?.end);
   const unknown = raid.canBeShiny !== true && !locked;
   const info = unknown ? rate('Shiny status unknown', 'unconfirmed', 'The source has not confirmed shiny availability') : locked ? rate('Shiny locked', 'feed status', 'Not obtainable shiny from this raid') : raidRate(raid, events);
-  const eventId = raid.event?.eventID || '';
-
   return (
     <article className="card raid-card" onClick={() => onOpen?.(raid)}>
       <Sprite src={raid.image} name={raid.name} shiny={appearance === 'shiny' && !locked} shinyFormArt={shinyFormArt} />
@@ -33,11 +33,9 @@ export default function RaidCard({ raid, events, appearance, shinyFormArt, track
           <button type="button" className="link-button" onClick={() => onOpen?.(raid)}>
             View raid details →
           </button>
-          {!locked && (
-            <button type="button" className={`track-button${tracked ? ' active' : ''}`} onClick={() => onTrack?.(raid, eventId)}>
-              {tracked ? 'Tracking ✓' : 'Track hunt'}
-            </button>
-          )}
+          {countdown && <button type="button" className="calendar-button" onClick={() => addToCalendar(raidCalendarEvent(raid, schedule))}>
+            Add to Calendar
+          </button>}
         </div>
       </div>
     </article>

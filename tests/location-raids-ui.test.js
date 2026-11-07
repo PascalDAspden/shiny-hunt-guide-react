@@ -12,7 +12,7 @@ await mkdir(directory, { recursive: true });
 const output = new URL('location-raids-ui.mjs', directory);
 await build({ stdin: { contents: `import React from 'react'; import useGuideLocation from './src/hooks/useGuideLocation.js'; import LocationControl from './src/components/LocationControl.jsx'; export { parseDate } from './src/utils/dates.js'; export { default as Raids } from './src/pages/Raids.jsx'; export function Guide() { const location = useGuideLocation(() => globalThis.onMove()); return React.createElement(LocationControl, {location}); }`, resolveDir: fileURLToPath(new URL('../', import.meta.url)) }, outfile: fileURLToPath(output), bundle: true, format: 'esm', jsx: 'automatic', external: ['react', 'react/jsx-runtime'], plugins: [{ name: 'native-location-mock', setup(builder) {
   builder.onResolve({ filter: /^@capacitor\/core$/ }, () => ({ path: 'bridge', namespace: 'mock' }));
-  builder.onLoad({ filter: /.*/, namespace: 'mock' }, () => ({ contents: `export const Capacitor = { isNativePlatform: () => true, getPlatform: () => 'ios' }; export const registerPlugin = () => ({ getLocation: () => globalThis.getFix(), cancel: async () => { globalThis.cancelCount++; } });` }));
+  builder.onLoad({ filter: /.*/, namespace: 'mock' }, () => ({ contents: `export const Capacitor = { isNativePlatform: () => true, getPlatform: () => 'ios' }; export const registerPlugin = () => ({ open: args => globalThis.openCalendar(args), getLocation: () => globalThis.getFix(), cancel: async () => { globalThis.cancelCount++; } });` }));
 } }] });
 const { Guide, Raids, parseDate } = await import(output.href);
 function setup() {
@@ -68,10 +68,21 @@ test('denied GPS permission leaves a working device-time guide', async () => {
 
 test('normal 1-star and 3-star raids display by default; Shadow is a separate filter', async () => {
   const dom = setup(); const root = createRoot(document.getElementById('root'));
-  const raids = [{ name: 'Pikachu', tier: '1-Star Raids', canBeShiny: true }, { name: 'Locked normal boss', tier: '3-Star Raids', canBeShiny: false }, { name: 'Shadow Gastly', tier: '1-Star Raids', canBeShiny: true }];
+  const schedule = { eventID: 'one-star', name: 'Regular raids', start: new Date(Date.now() - 3600000).toISOString(),
+    end: new Date(Date.now() + 3600000).toISOString(), link: 'https://leekduck.com/raids/' };
+  const raids = [{ name: 'Pikachu', tier: '1-Star Raids', canBeShiny: true, rotationEvent: schedule }, { name: 'Locked normal boss', tier: '3-Star Raids', canBeShiny: false }, { name: 'Shadow Gastly', tier: '1-Star Raids', canBeShiny: true }];
   try {
     await act(async () => root.render(React.createElement(Raids, { raidsFeed: raids, events: [], pokemonInfo: {}, isActive: () => false, query: '', appearance: 'normal' })));
     assert.equal(document.querySelectorAll('.raid-card').length, 3);
+    assert.equal(document.querySelectorAll('.raid-card .calendar-button').length, 1);
+    let calendar;
+    globalThis.openCalendar = async args => { calendar = args; return { status: 'saved' }; };
+    await click('Add to Calendar');
+    assert.equal(calendar.title, 'Pikachu raid');
+    assert.equal(calendar.start, schedule.start);
+    assert.equal(calendar.end, schedule.end);
+    assert.equal(calendar.alarmMinutes, 30);
+    assert.equal(document.querySelector('.modal-card'), null);
     assert.equal(document.querySelector('input[type="checkbox"]').checked, false);
     const select = document.querySelector('select[aria-label="Raid type"]');
     await act(async () => { select.value = 'one'; select.dispatchEvent(new dom.window.Event('change', { bubbles: true })); });

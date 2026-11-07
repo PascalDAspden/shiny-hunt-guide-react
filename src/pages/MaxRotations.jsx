@@ -2,39 +2,65 @@ import { useMemo, useState } from 'react';
 import Sprite from '../components/Sprite.jsx';
 import { parseDate, shortDate, formatRange } from '../utils/dates.js';
 import { maxRotationEntries, rotationStatus } from '../data/maxRotations.js';
+import { useCountdown } from '../hooks/useCountdown.js';
+import { addToCalendar } from '../data/events.js';
+
+function MaxRotationCard({ item, pokemonInfo, appearance, shinyFormArt }) {
+  const info = pokemonInfo[item.species.toLowerCase()] || {};
+  const art = item.form === 'Gigantamax' ? pokemonInfo['gmax:' + item.species.toLowerCase()]?.image || item.image || info.image : item.image || info.image;
+  const start = parseDate(item.start), end = parseDate(item.end);
+  const eventBattle = item.kind === 'event';
+  const badge = eventBattle ? 'EVENT BATTLE' : item.certainty === 'confirmed' ? 'SOURCE CONFIRMED' : 'MONDAY FEATURED';
+  const timing = eventBattle && item.day ? shortDate(start) : item.certainty === 'confirmed' && !eventBattle ? `${shortDate(start)} – ${shortDate(new Date(+end - 1))}` : formatRange(item.start, item.end);
+  const schedule = eventBattle ? item.battleWindow : item;
+  const countdown = useCountdown(schedule?.start, schedule?.end);
+  const featuredHour = schedule?.label === 'Featured hour';
+  const name = item.form + ' ' + item.species;
+  const calendarEvent = schedule && {
+    ...schedule, name: name + ' · ' + (schedule.label || 'Max Monday'),
+    eventID: item.key + ':max-schedule', link: item.source
+  };
+  return <article className="card pokemon-card">
+    <Sprite src={art} name={name} shiny={appearance === 'shiny'} shinyFormArt={shinyFormArt} />
+    <div className="card-main">
+      <div className="card-top"><h4>{item.form} {item.species}</h4><span className="badge gold">{badge}</span></div>
+      <p className="meta">{timing} · {eventBattle ? item.eventName : 'Power Spots'}</p>
+      {featuredHour && <p className="meta">Featured hour · {formatRange(schedule.start, schedule.end)}</p>}
+      {countdown && <span className="countdown">{featuredHour ? 'Featured hour ' + countdown.label.toLowerCase() : countdown.label}</span>}
+      {eventBattle && item.notes && <p className="meta">{item.notes}</p>}
+      <p className="meta">{eventBattle ? 'Published event roster. Check the event for battle hours and regional access.' : item.certainty === 'confirmed' ? 'Announced weekly availability; exact Power Spots vary.' : 'Featured on Max Monday. Week-long availability is not independently confirmed.'}</p>
+      {countdown && (eventBattle || item.kind === 'monday') &&
+        <button type="button" className="calendar-button" onClick={() => addToCalendar(calendarEvent)}>Add to Calendar</button>}
+      <a href={item.source} target="_blank" rel="noopener noreferrer">{eventBattle ? 'Event details' : 'View rotation source'} ↗</a>
+    </div>
+  </article>;
+}
 
 export default function MaxRotations({ rotations = [], events = [], pokemonInfo = {}, query = '', failed = false, appearance = 'normal', shinyFormArt = {} }) {
   const [tab, setTab] = useState('current');
   const entries = useMemo(() => maxRotationEntries(rotations, events), [rotations, events]);
   const reference = new Date();
-  const matches = entries.filter(item => rotationStatus(item, reference) === tab && (item.form + ' ' + item.species).toLowerCase().includes(query.toLowerCase()));
+  const search = query.trim().toLowerCase();
+  const matches = entries.filter(item => rotationStatus(item, reference) === tab && [item.form, item.species, item.eventName].join(' ').toLowerCase().includes(search));
   const weekly = matches.filter(item => item.kind === 'weekly');
   const mondays = matches.filter(item => item.kind === 'monday');
   const special = matches.filter(item => item.kind === 'gigantamax');
-  const maxEventTargets = events.filter(event => event.eventType === 'max-battles' && parseDate(event.end) > reference && (event.name || '').toLowerCase().includes(query.toLowerCase()) && (tab === 'current' ? parseDate(event.start) <= reference : parseDate(event.start) > reference));
+  const eventBattles = matches.filter(item => item.kind === 'event');
+  const rosterSources = new Set(entries.filter(item => item.kind === 'event').map(item => item.source));
+  const maxEventTargets = events.filter(event =>
+    (event.eventType === 'max-battles' || (event.eventType === 'event' && /\b(?:dynamax|gigantamax|max battles?)\b/i.test(event.name))) &&
+    !rosterSources.has(event.link) && rotationStatus(event, reference) === tab && (event.name || '').toLowerCase().includes(search));
 
-  const renderCards = items => items.map(item => {
-    const info = pokemonInfo[item.species.toLowerCase()] || {};
-    const art = item.form === 'Gigantamax' ? pokemonInfo['gmax:' + item.species.toLowerCase()]?.image || info.image : info.image;
-    const start = parseDate(item.start), end = parseDate(item.end);
-    return <article className="card pokemon-card" key={item.key}>
-      <Sprite src={art} name={item.form + ' ' + item.species} shiny={appearance === 'shiny'} shinyFormArt={shinyFormArt} />
-      <div className="card-main">
-        <div className="card-top"><h4>{item.form} {item.species}</h4><span className="badge gold">{item.certainty === 'confirmed' ? 'SOURCE CONFIRMED' : 'MONDAY FEATURED'}</span></div>
-        <p className="meta">{item.certainty === 'confirmed' ? `${shortDate(start)} – ${shortDate(new Date(+end - 1))}` : formatRange(item.start, item.end)} · Power Spots</p>
-        <p className="meta">{item.certainty === 'confirmed' ? 'Announced weekly availability; exact Power Spots vary.' : 'Featured on Max Monday. Week-long availability is not independently confirmed.'}</p>
-
-        <a href={item.source} target="_blank" rel="noopener noreferrer">View rotation source ↗</a>
-      </div>
-    </article>;
-  });
+  const renderCards = items => items.map(item =>
+    <MaxRotationCard key={item.key} item={item} pokemonInfo={pokemonInfo} appearance={appearance} shinyFormArt={shinyFormArt} />);
   return <section className="page">
     <div className="section-head"><h3>Max Battle rotations</h3></div>
-    <p className="section-explainer">Regular Power Spot rotations are separate from Max Mondays. Only announced, date-bounded Pokémon are shown; the app cannot see individual Power Spots. Dates follow your selected timezone.</p>
+    <p className="section-explainer">Browse published event battles, weekly Power Spot rotations and Max Monday features. Dates follow your selected timezone.</p>
     <div className="event-filter-row" role="group" aria-label="Max rotation timing">
       {[['current', 'Current rotation'], ['upcoming', 'Upcoming rotation']].map(([id, label]) => <button key={id} type="button" className={`pill${tab === id ? ' active' : ''}`} aria-pressed={tab === id} onClick={() => setTab(id)}>{label}</button>)}
     </div>
     {failed && <p className="section-explainer">The rotation feed could not refresh. Dated saved information may be incomplete.</p>}
+    {!!eventBattles.length && <section className="card-section"><div className="section-head"><h3>Event Max Battles</h3><span>{eventBattles.length} targets</span></div><div className="card-grid">{renderCards(eventBattles)}</div></section>}
     <div className="section-head"><h3>{tab === 'current' ? 'Available this week' : 'Announced upcoming weeks'}</h3><span>{weekly.length} targets</span></div>
     {weekly.length ? <div className="card-grid">{renderCards(weekly)}</div> : <div className="empty">No confirmed weekly Pokémon found for this period. This does not mean Power Spots are empty.</div>}
     <div className="section-head"><h3>Max Monday features</h3><span>{mondays.length} targets</span></div>

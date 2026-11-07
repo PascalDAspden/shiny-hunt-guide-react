@@ -7,6 +7,7 @@ import { useCountdown } from '../hooks/useCountdown.js';
 import { formatRange, parseDate, shortDate, timeOfDay } from '../utils/dates.js';
 import { fetchRaidMatchup, typeName } from '../data/pokemon.js';
 import { addToCalendar } from '../data/events.js';
+import { raidCalendarEvent } from '../data/raids.js';
 
 const REMOTE_RAID_APPS = [
   { label: 'Open Campfire ↗', url: 'https://campfire.nianticlabs.com/' },
@@ -21,10 +22,11 @@ const REMOTE_RAID_APPS = [
  *   raidRaw   // only for kind === 'raid': the original raid object (for CP + type matchup)
  * }
  */
-export default function PokemonDetail({ detail, onClose, tracked, onTrack, shinyFormArt, battleForms }) {
+export default function PokemonDetail({ detail, onClose, shinyFormArt, battleForms }) {
   const [matchup, setMatchup] = useState(null);
   const [matchupLoading, setMatchupLoading] = useState(detail.kind === 'raid');
-  const countdown = useCountdown(detail.event?.start || detail.rotationEvent?.start, detail.event?.end || detail.rotationEvent?.end);
+  const schedule = detail.event || detail.rotationEvent;
+  const countdown = useCountdown(schedule?.start, schedule?.end);
   const locked = detail.odds?.value === 'Shiny locked';
 
   useEffect(() => {
@@ -127,13 +129,8 @@ export default function PokemonDetail({ detail, onClose, tracked, onTrack, shiny
           {!locked && <OddsCalculator key={`${detail.kind}:${detail.name}:${detail.odds?.value}`} odds={detail.odds} />}
 
           <div className="event-actions">
-            {!locked && (
-              <button type="button" className={`track-button${tracked ? ' active' : ''}`} onClick={onTrack}>
-                {tracked ? 'Tracking ✓' : 'Track hunt'}
-              </button>
-            )}
-            {detail.event && (
-              <button type="button" className="calendar-button" onClick={() => addToCalendar(detail.event)}>
+            {schedule && (detail.kind !== 'raid' || countdown) && (
+              <button type="button" className="calendar-button" onClick={() => addToCalendar(detail.kind === 'raid' ? raidCalendarEvent(detail, schedule) : schedule)}>
                 Add to Calendar
               </button>
             )}

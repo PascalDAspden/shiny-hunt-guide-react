@@ -219,8 +219,7 @@ still shows something if a feed request fails.
 | Raid list filtering | `utils/raidFilters.js` |
 | Raid list sorting | `utils/raidSorting.js` |
 | Date/countdown formatting | `utils/dates.js` |
-| Live countdown text, local clock | `hooks/useCountdown.js` |
-| `tracked-hunt-v1` active hunt + new persistent "checked off" list | `hooks/useChecklist.js` |
+| Live countdown text | `hooks/useCountdown.js` |
 | Raid card | `components/RaidCard.jsx` |
 | Egg / research / event / Max Battle card | `components/PokemonCard.jsx` |
 | Calendar event card | `components/EventCard.jsx` |
@@ -231,15 +230,9 @@ still shows something if a feed request fails.
 | Sprite rendering + shiny fallback (new shared helper, not in your list) | `components/Sprite.jsx` |
 | "Hunt" view (raids + eggs + events + Max filters) | `App.jsx`, `pages/Raids.jsx`, and `pages/Research.jsx` |
 | Bottom Calendar view | `pages/Events.jsx` |
-| Dashboard / active hunt / trackable list | `pages/Checklist.jsx` (now also lets you check off multiple targets, not just pin one) |
 
 ## Notes on the rebuild
 
-- **Checklist is expanded, not just renamed.** The original only supported one
-  "tracked hunt" at a time. That's preserved as the pinned "Active hunt" card,
-  but the Checklist page adds a second, independent feature: a persistent
-  set of checked-off targets (`shiny-checklist-v1` in localStorage) so you can
-  tick off things you've already caught across all categories.
 - **Sprite.jsx** is a small shared component that isn't in the structure you
   listed — every card and the detail modal needed the same shiny/normal
   fallback logic, so it was pulled out once rather than copy-pasted five times.
@@ -330,27 +323,13 @@ webviews. A visible app checks feeds every five minutes; overlapping refreshes
 cannot replace newer results with older responses. These intervals are not a
 background updater for a suspended iPhone app.
 
-The separate **Map** tab opens a MapKit screen on iPhone after location is
-enabled. It centres on the GPS fix, offers All / Raid / Dynamax / Gigantamax
-filters and 1/2/5/10 km radius controls, and opens a details card when a sourced
-pin is tapped. Get Directions offers Walking or Driving and calls MapKit to open
-Apple Maps with the chosen destination. Browser builds retain an explicitly
-loaded OpenStreetMap GPS basemap and tappable location cards with Apple Maps
-links. An optional coordinate form also supports a manually checked destination.
+**Hunt → Max Battles → Upcoming rotation** lists dated Pokémon from Max
+Monday announcements and explicit Max Battle rosters in supported event
+articles, including rosters published inside broader events. Event cards
+link to the source for exact hours and regional access. A roster tied to
+a named day appears on that date. Weekly and event rosters remain separate.
 
-`public/data/hunt-locations.json` is the source-backed location feed. It ships
-empty: there is no live gym/Power Spot provider configured. Do not add invented
-pins. Known locations require provenance and check dates; Pokémon, shiny flags
-and countdowns require a separate verified, active encounter. Battle filters
-exclude locations without an active matching encounter. Every minute the open
-Map tab refreshes this feed; encounter/temporary-place expiry is rechecked every
-15 seconds. Failed updates retain saved data without extending its expiry.
-MapKit and OSM supply maps, not Pokémon GO location data. No verified encounter
-pins are available until a permitted source or reviewed location records are
-provided. See [the feed contract](docs/hunt-location-feed.md).
-
-**Checklist** is available as a Hunt filter. Existing check keys and tracked-hunt
-storage are preserved. Raid matchup lookups accept string type names from the
+Raid matchup lookups accept string type names from the
 rotation scraper as well as object type names from other feeds. Max species
 metadata includes its artwork URL, including curated rotation targets; transient
 species/artwork failures can retry. Ordinary 1-star/3-star tiers no longer imply
@@ -368,16 +347,15 @@ npm run ios:sync
 The review expanded the test suite beyond the original 39 tests, including the actual
 publication shell block in an isolated bare Git repository, Max-only changes,
 offline/rollback cases, GPS timezone loss, Monday expiry, timeout/body download,
-map URL and UI behavior, checklist persistence, eggs and research navigation.
+Max Battle roster rendering, eggs and research navigation.
 Local live-source checks retrieved two dated raid pools and three weekly Max
 entries (two reverified announcements plus one retained dated entry). Costume,
 raid and Max live publication also passed on GitHub after the workflow fix.
-Browser QA checked live feed loading, Map navigation and current Max rendering.
+Browser QA checked live feed loading, current Max rendering.
 
 `Verify iOS build` compiles an unsigned simulator target on a macOS GitHub runner.
 Compilation and Capacitor sync are separate from device tests: GPS permission
-prompts, Apple's geocoder, Calendar save/cancel, native MapKit pin selection, map tiles and Apple Maps/app
-handoffs still require checks on a real iPhone before a device release. No live
+prompts, Apple's geocoder and Calendar save/cancel still require checks on a real iPhone before a device release. No live
 battle feed or complete Pokémon GO availability guarantee is supplied by these
 community sources. Parser format changes can require maintenance; cached eggs,
 research or raid information can be stale when offline. The app displays its

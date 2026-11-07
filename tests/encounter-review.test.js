@@ -8,7 +8,6 @@ import { updateMaxRotations } from '../scripts/update-max-rotations.js';
 import { fetchRaidRotations } from '../src/data/raidRotations.js';
 import { setEventTimeZone } from '../src/utils/dates.js';
 import { fetchWithTimeout } from '../src/utils/fetch.js';
-import { coordinates, mapUrls, walkingDestination } from '../src/utils/huntMap.js';
 
 const rotation = { id: 'manual-id', form: 'Dynamax', species: 'Machop', start: '2026-11-02T00:00:00', end: '2026-11-09T00:00:00', source: 'https://leekduck.com/events/max-mondays-2026-11-02/' };
 const monday = { name: 'Dynamax Machop during Max Monday', eventType: 'max-mondays', eventID: 'monday', start: '2026-11-02T18:00:00', end: '2026-11-02T19:00:00', link: rotation.source };
@@ -94,21 +93,6 @@ test('fetch timeout works without AbortSignal.timeout, aborts and covers slow bo
   await assert.rejects(fetchWithTimeout('https://example.test', {}, 10), /body aborted/);
 });
 
-test('map coordinates, viewport radius and walking links use real supplied points', () => {
-  assert.equal(coordinates('', ''), null);
-  assert.equal(coordinates('NaN', '180'), null);
-  assert.equal(coordinates(91, 0), null);
-  assert.equal(mapUrls(null), null);
-  const origin = coordinates('-36.85', '174.76'), destination = coordinates('-36.86', '174.76');
-  const small = new URL(mapUrls(origin, 1).embed), large = new URL(mapUrls(origin, 10).embed);
-  assert.equal(small.searchParams.get('marker'), '-36.85,174.76');
-  assert.notEqual(small.searchParams.get('bbox'), large.searchParams.get('bbox'));
-  const walk = walkingDestination(origin, destination), url = new URL(walk.url);
-  assert.ok(walk.distance > 1 && walk.distance < 1.2);
-  assert.equal(url.hostname, 'maps.apple.com');
-  assert.equal(url.searchParams.get('dirflg'), 'w');
-  assert.equal(url.searchParams.get('daddr'), '-36.86,174.76');
-});
 
 test('species metadata supplies rotation artwork and transient failures can retry', async t => {
   mockNetwork(t);

@@ -3,14 +3,12 @@ import { fetchRaidRotations, currentRaidPool } from './data/raidRotations.js';
 import useGuideLocation from './hooks/useGuideLocation.js';
 import LocationControl from './components/LocationControl.jsx';
 import ShinyToggle from './components/ShinyToggle.jsx';
-import HuntMap from './pages/HuntMap.jsx';
 import Raids from './pages/Raids.jsx';
 import MaxRotations from './pages/MaxRotations.jsx';
 import { fetchMaxRotations } from './data/maxRotations.js';
 import Research from './pages/Research.jsx';
 import Events from './pages/Events.jsx';
 import PromoCodes from './pages/PromoCodes.jsx';
-import Checklist from './pages/Checklist.jsx';
 import Costumes from './pages/Costumes.jsx';
 import OddsCalculator from './components/OddsCalculator.jsx';
 import { fetchRaidsFeed, fetchEggsFeed, fetchResearchFeed, fetchEventsFeed, fetchRocketFeed, scheduledRaids, researchRewards } from './data/raids.js';
@@ -18,7 +16,6 @@ import { maxEncounters } from './data/events.js';
 import { shinyRocketEncounters } from './data/rocket.js';
 import { fetchSpeciesInfo, fetchGmaxArt, fetchShinyFormArtBatch } from './data/pokemon.js';
 import { collectFormSlugs } from './utils/pokemonForms.js';
-import { useActiveHunt, useChecklist } from './hooks/useChecklist.js';
 
 const EMPTY_FEEDS = { raids: [], eggs: [], research: [], events: [], rocket: {}, rotations: [], maxRotations: [] };
 
@@ -33,8 +30,6 @@ export default function App() {
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [shinyFormArt, setShinyFormArt] = useState({});
 
-  const activeHuntApi = useActiveHunt();
-  const checklistApi = useChecklist();
 
   const refreshSequence = useRef(0);
   const refresh = useCallback(async () => {
@@ -166,20 +161,13 @@ export default function App() {
       appearance,
       shinyFormArt,
       query,
-      failed: status.failed,
-      activeHunt: activeHuntApi.activeHunt,
-      isActive: activeHuntApi.isActive,
-      setActiveHunt: activeHuntApi.setActiveHunt,
-      isChecked: checklistApi.isChecked,
-      toggleChecked: checklistApi.toggleChecked,
-      checked: checklistApi.checked
+      failed: status.failed
     }),
-    [feeds, raidsFeed, pokemonInfo, battleForms, appearance, shinyFormArt, query, status.failed, activeHuntApi, checklistApi]
+    [feeds, raidsFeed, pokemonInfo, battleForms, appearance, shinyFormArt, query, status.failed]
   );
 
   const filters = [
     { id: 'featured', label: 'Featured' },
-    { id: 'checklist', label: 'Checklist' },
     { id: 'raids', label: `Raids ${raidsFeed.length}` },
     { id: 'costumes', label: 'Costumes' },
     { id: 'eggs', label: `Eggs ${feeds.eggs.length}` },
@@ -220,7 +208,6 @@ export default function App() {
               <button type="button" className="odds-open-button" onClick={() => setShowOdds(true)}>✦ Odds calculator</button>
             </div>
 
-            {huntFilter !== 'checklist' && <Checklist {...pageProps} compact />}
 
             <label className="search-wrap">
               <span aria-hidden="true">⌕</span>
@@ -240,7 +227,6 @@ export default function App() {
               <ShinyToggle value={appearance} onChange={setAppearance} />
             </div>}
 
-            {huntFilter === 'checklist' && <Checklist {...pageProps} />}
             {huntFilter === 'featured' && <Research {...pageProps} sectionFilter="events" />}
             {huntFilter === 'raids' && <Raids {...pageProps} />}
             {huntFilter === 'costumes' && <Costumes query={query} />}
@@ -248,8 +234,6 @@ export default function App() {
             {huntFilter === 'max' && <MaxRotations rotations={feeds.maxRotations} events={feeds.events} pokemonInfo={pokemonInfo} query={query} failed={status.failed} appearance={appearance} shinyFormArt={shinyFormArt} />}
             {(huntFilter === 'research' || huntFilter === 'breakthrough' || huntFilter === 'rocket') && <Research {...pageProps} sectionFilter={huntFilter} />}
           </>
-        ) : view === 'map' ? (
-          <HuntMap location={location} />
         ) : view === 'codes' ? (
           <PromoCodes />
         ) : (
@@ -277,9 +261,6 @@ export default function App() {
         </button>
         <button type="button" className={`nav-item${view === 'calendar' ? ' active' : ''}`} aria-current={view === 'calendar' ? 'page' : undefined} onClick={() => setView('calendar')}>
           <span className="calendar-glyph" aria-hidden="true" /><span>Calendar</span>
-        </button>
-        <button type="button" className={`nav-item${view === 'map' ? ' active' : ''}`} aria-current={view === 'map' ? 'page' : undefined} onClick={() => setView('map')}>
-          <span className="nav-icon" aria-hidden="true">⌖</span><span>Map</span>
         </button>
         <button type="button" className={`nav-item${view === 'codes' ? ' active' : ''}`} aria-current={view === 'codes' ? 'page' : undefined} onClick={() => setView('codes')}>
           <span className="nav-icon" aria-hidden="true">♢</span><span>Promo Codes</span>

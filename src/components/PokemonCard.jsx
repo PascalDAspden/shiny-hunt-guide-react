@@ -26,11 +26,11 @@ const KIND_LABEL = { egg: 'EGG', research: 'RESEARCH', breakthrough: 'BREAKTHROU
  * `item` shape varies slightly by kind (see data/raids.js and data/events.js),
  * but always has at least { name, image }.
  */
-export default function PokemonCard({ kind, item, appearance, shinyFormArt, tracked, checked, onTrack, onToggleChecked, onOpen }) {
+export default function PokemonCard({ kind, item, appearance, shinyFormArt, onOpen }) {
   const locked = item.canBeShiny === false;
   const event = item.event;
   const countdown = useCountdown(event?.start, event?.end);
-  const eventId = event?.eventID || item.huntId || '';
+
 
   const badge = locked
     ? 'LOCKED'
@@ -76,21 +76,10 @@ export default function PokemonCard({ kind, item, appearance, shinyFormArt, trac
           <button type="button" className="link-button" onClick={() => onOpen?.(kind, item)}>
             View details →
           </button>
-          {!locked && (
-            <button type="button" className={`track-button${tracked ? ' active' : ''}`} onClick={() => onTrack?.(kind, item, eventId)}>
-              {tracked ? 'Tracking ✓' : 'Track hunt'}
-            </button>
-          )}
           {event && (
             <button type="button" className="calendar-button" onClick={() => addToCalendar(event)}>
               Add event to Calendar
             </button>
-          )}
-          {onToggleChecked && (
-            <label className="checklist-check">
-              <input type="checkbox" checked={!!checked} onChange={() => onToggleChecked(kind, item.name, eventId)} />
-              On checklist
-            </label>
           )}
         </div>
       </div>

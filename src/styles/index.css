@@ -145,8 +145,6 @@ a { color: var(--teal); }
   display: inline-block; font-size: .78rem; font-weight: 700; color: var(--teal);
   background: #10362f; padding: 3px 9px; border-radius: 999px; width: fit-content;
 }
-.local-ended { color: #e29797; font-size: .8rem; font-weight: 600; }
-.availability-now { color: #7fe08c; font-size: .82rem; font-weight: 700; }
 
 .rate-note-block.locked .rate-line { color: #e29797; }
 .rate-line { font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 8px; }
@@ -155,7 +153,7 @@ a { color: var(--teal); }
 
 .event-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; align-items: center; }
 .link-button { background: none; border: none; color: var(--teal); padding: 7px 0; font-weight: 800; font-size: .8rem; }
-.track-button, .calendar-button, .clear-hunt {
+.track-button, .calendar-button {
   border: 1px solid var(--card-border); background: #16233b; color: #d5e4f6;
   border-radius: 9px; padding: 8px 10px; font-size: .77rem; font-weight: 800;
 }
@@ -163,7 +161,6 @@ a { color: var(--teal); }
 .calendar-button { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 800; }
 .source-link { font-size: .82rem; }
 
-.checklist-check { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--meta); }
 
 .raid-controls, .event-controls { display: flex; flex-direction: column; gap: 10px; }
 .raid-scope-row, .event-filter-row, .egg-pool-row { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -234,35 +231,6 @@ a { color: var(--teal); }
 .section-explainer { margin: 0; color: var(--meta); font-size: .83rem; line-height: 1.5; }
 .battle-form-label { margin: 16px 0 3px; font-size: .82rem; font-weight: 800; color: var(--teal); }
 
-/* Dashboard / Checklist */
-.dashboard-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.dashboard-title h2 { margin: 2px 0 0; font-size: 1.3rem; }
-.local-clock { color: var(--meta); font-size: .82rem; }
-.dashboard-empty {
-  background: var(--card-bg); border: 1px dashed var(--card-border); border-radius: 16px; padding: 18px;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.dashboard-note { font-size: .76rem; color: var(--meta); }
-
-.tracked-hunt { display: flex; gap: 14px; background: linear-gradient(135deg, #16233b, #101c30); border: 1px solid var(--card-border); border-radius: 18px; padding: 16px; }
-.tracked-main { display: flex; flex-direction: column; gap: 4px; flex: 1; }
-.tracked-main h3 { margin: 0; font-size: 1.1rem; }
-.opportunity-kind { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--teal); text-transform: uppercase; }
-.tracked-timing { display: flex; flex-direction: column; gap: 4px; margin: 4px 0; }
-.tracked-timing small { color: var(--meta); }
-.tracked-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.tracked-actions a { font-size: .8rem; }
-
-.checklist-list { display: flex; flex-direction: column; gap: 8px; }
-.checklist-row {
-  display: flex; align-items: center; gap: 12px; background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 14px; padding: 10px 12px;
-}
-.checklist-row.is-checked { opacity: .55; }
-.checklist-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.checklist-row-main h4 { margin: 0; font-size: .92rem; }
-.row-check input { width: 18px; height: 18px; }
-
 .app-footer { padding: 30px 0 10px; color: var(--meta); font-size: .74rem; text-align: center; }
 
 /* Restored field-guide layout */
@@ -304,7 +272,6 @@ a { color: var(--teal); }
 .calendar-glyph::before { content: ''; position: absolute; left: -2px; right: -2px; top: 5px; border-top: 2px solid currentColor; }
 .calendar-glyph::after { content: ''; position: absolute; width: 3px; height: 3px; border-radius: 50%; background: currentColor; left: 5px; top: 10px; box-shadow: 6px 0 currentColor, 12px 0 currentColor, 0 5px currentColor, 6px 5px currentColor, 12px 5px currentColor; }
 .page + .page { margin-top: 24px; }
-.tracked-hunt, .dashboard-empty { margin-bottom: 8px; }
 
 @media (max-width: 480px) {
   .card { flex-direction: row; }
@@ -358,7 +325,7 @@ a { color: var(--teal); }
 .costume-art-shiny { background: radial-gradient(ellipse at 50% 55%, #354b43, #1a303d); }
 .costume-art img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .costume-art-missing { padding: 8px; color: var(--meta); font-size: .7rem; text-align: center; }
-.card > .costume-art, .tracked-hunt > .costume-art, .checklist-row > .costume-art { width: 66px; height: 66px; }
+.card > .costume-art { width: 66px; height: 66px; }
 .raid-modal-heading > .costume-art { width: 72px; height: 72px; }
 .costume-methods { display: flex; flex-direction: column; gap: 8px; }
 .costume-methods small { color: var(--teal); font-size: .72rem; }
@@ -391,13 +358,3 @@ a { color: var(--teal); }
 .raid-source-notes { padding: 12px; border: 1px solid var(--card-border); border-radius: 12px; font-size: .8rem; }
 .raid-source-notes summary { cursor: pointer; color: var(--teal); }
 .raid-source-notes > div { margin-top: 12px; }
-
-.hunt-map { display: flex; flex-direction: column; gap: 14px; }
-.map-notice { display: block; padding: 16px; line-height: 1.6; }
-.map-notice h3 { margin-top: 0; }
-.map-radius { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.map-radius select, .map-coordinate-inputs input { min-width: 0; width: 100%; background: #101c30; color: var(--text); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px; font: inherit; }
-.map-radius select { width: auto; }
-.hunt-map-frame { width: 100%; height: min(56vh, 480px); min-height: 280px; border: 1px solid var(--card-border); border-radius: 16px; background: #20344a; }
-.map-coordinate-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.map-coordinate-inputs label { display: flex; flex-direction: column; gap: 8px; }
