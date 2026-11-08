@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T13:53:49.275Z",
+  "updatedAt": "2026-11-08T22:29:56.913Z",
   "rotations": [
     {
       "id": "weekly-machop-2026-11-02",
@@ -106,7 +106,7 @@
     {
       "id": "into-the-wild-2026:Dynamax:Ralts:event",
       "kind": "event",
-      "eventName": "Into the Wild",
+      "eventName": "Into the Wild 2026",
       "form": "Dynamax",
       "species": "Ralts",
       "start": "2026-11-09T10:00:00.000",
@@ -118,7 +118,7 @@
     {
       "id": "into-the-wild-2026:Dynamax:Machop:event",
       "kind": "event",
-      "eventName": "Into the Wild",
+      "eventName": "Into the Wild 2026",
       "form": "Dynamax",
       "species": "Machop",
       "start": "2026-11-09T10:00:00.000",
@@ -130,7 +130,7 @@
     {
       "id": "into-the-wild-2026:Dynamax:Registeel:2026-11-11",
       "kind": "event",
-      "eventName": "Into the Wild",
+      "eventName": "Into the Wild 2026",
       "form": "Dynamax",
       "species": "Registeel",
       "start": "2026-11-11T00:00:00",
@@ -148,7 +148,7 @@
     {
       "id": "into-the-wild-2026:Dynamax:Regidrago:2026-11-12",
       "kind": "event",
-      "eventName": "Into the Wild",
+      "eventName": "Into the Wild 2026",
       "form": "Dynamax",
       "species": "Regidrago",
       "start": "2026-11-12T00:00:00",
@@ -166,7 +166,7 @@
     {
       "id": "into-the-wild-2026:Dynamax:Latias:2026-11-13",
       "kind": "event",
-      "eventName": "Into the Wild",
+      "eventName": "Into the Wild 2026",
       "form": "Dynamax",
       "species": "Latias",
       "start": "2026-11-13T00:00:00",
@@ -184,7 +184,7 @@
     {
       "id": "into-the-wild-2026:Dynamax:Latios:2026-11-13",
       "kind": "event",
-      "eventName": "Into the Wild",
+      "eventName": "Into the Wild 2026",
       "form": "Dynamax",
       "species": "Latios",
       "start": "2026-11-13T00:00:00",
