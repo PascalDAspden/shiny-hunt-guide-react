@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T07:14:08.225Z",
+  "updatedAt": "2026-11-09T22:43:39.580Z",
   "rotations": [
     {
       "id": "weekly-machop-2026-11-02",
@@ -31,42 +31,6 @@
     }
   ],
   "eventBattles": [
-    {
-      "id": "pokemon-go-wild-area-2026-sendai-japan:Gigantamax:Duraludon:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Sendai • Tohoku",
-      "form": "Gigantamax",
-      "species": "Duraludon",
-      "start": "2026-11-06T01:00:00.000Z",
-      "end": "2026-11-08T09:00:00.000Z",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-sendai-japan/",
-      "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-06-pokemon-go-wild-area-2026-sendai-japan/gigantamax-duraludon.png",
-      "notes": "Six-Star Max Battles"
-    },
-    {
-      "id": "pokemon-go-wild-area-2026-sendai-japan:Dynamax:Dialga:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Sendai • Tohoku",
-      "form": "Dynamax",
-      "species": "Dialga",
-      "start": "2026-11-06T01:00:00.000Z",
-      "end": "2026-11-08T09:00:00.000Z",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-sendai-japan/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_483_00.png",
-      "notes": "Six-Star Max Battles"
-    },
-    {
-      "id": "pokemon-go-wild-area-2026-sendai-japan:Dynamax:Palkia:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Sendai • Tohoku",
-      "form": "Dynamax",
-      "species": "Palkia",
-      "start": "2026-11-06T01:00:00.000Z",
-      "end": "2026-11-08T09:00:00.000Z",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-sendai-japan/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_484_00.png",
-      "notes": "Six-Star Max Battles"
-    },
     {
       "id": "pokemon-go-wild-area-2026-mexico-city:Gigantamax:Duraludon:event",
       "kind": "event",

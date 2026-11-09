@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T07:14:07.696Z",
+  "updatedAt": "2026-11-09T22:43:38.546Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/giratina-altered-mega-sableye.html",
-      "checkedAt": "2026-11-09T07:14:07.696Z",
+      "checkedAt": "2026-11-09T22:43:38.546Z",
       "ok": true,
       "bosses": [
         {
@@ -206,7 +206,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/into-the-wild-2026.html",
-      "checkedAt": "2026-11-09T07:14:07.696Z",
+      "checkedAt": "2026-11-09T22:43:38.546Z",
       "ok": true,
       "bosses": [
         {
@@ -300,7 +300,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-09T07:14:07.696Z",
+      "checkedAt": "2026-11-09T22:43:38.546Z",
       "ok": true,
       "bosses": [
         {
@@ -399,6 +399,174 @@
             "boosted": {
               "min": 2446,
               "max": 2553
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow-tornadus-incarnate-november-december-2026",
+      "title": "Shadow Tornadus (Incarnate Forme) November–December 2026",
+      "description": "Shadow Larvitar, Shadow Mudkip, Shadow Makuhita, and Shadow Cranidos in 1-star Shadow Raids; Shadow Poliwhirl, Shadow Piloswine, and Shadow Prinplup in 3-star Shadow Raids; Shadow Tornadus (Incarnate Forme) in 5-star Shadow Raids",
+      "start": "2026-11-16T06:00:00",
+      "end": "2026-12-01T20:00:00",
+      "shadow": true,
+      "tags": [],
+      "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
+      "checkedAt": "2026-11-09T22:43:38.546Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Shadow Larvitar",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm246.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Rock",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 513,
+              "max": 594
+            },
+            "boosted": {
+              "min": 642,
+              "max": 743
+            }
+          }
+        },
+        {
+          "name": "Shadow Mudkip",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm258.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 560,
+              "max": 644
+            },
+            "boosted": {
+              "min": 700,
+              "max": 805
+            }
+          }
+        },
+        {
+          "name": "Shadow Makuhita",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm296.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 391,
+              "max": 467
+            },
+            "boosted": {
+              "min": 489,
+              "max": 583
+            }
+          }
+        },
+        {
+          "name": "Shadow Cranidos",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm408.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Rock"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 922,
+              "max": 1040
+            },
+            "boosted": {
+              "min": 1153,
+              "max": 1300
+            }
+          }
+        },
+        {
+          "name": "Shadow Poliwhirl",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm61.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 716,
+              "max": 811
+            },
+            "boosted": {
+              "min": 895,
+              "max": 1013
+            }
+          }
+        },
+        {
+          "name": "Shadow Piloswine",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm221.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ice",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1217,
+              "max": 1340
+            },
+            "boosted": {
+              "min": 1521,
+              "max": 1675
+            }
+          }
+        },
+        {
+          "name": "Shadow Prinplup",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm394.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 868,
+              "max": 972
+            },
+            "boosted": {
+              "min": 1086,
+              "max": 1215
+            }
+          }
+        },
+        {
+          "name": "Shadow Tornadus (Incarnate)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm641.fINCARNATE.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1762,
+              "max": 1911
+            },
+            "boosted": {
+              "min": 2203,
+              "max": 2389
             }
           }
         }
