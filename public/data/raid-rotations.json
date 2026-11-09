@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T22:29:56.296Z",
+  "updatedAt": "2026-11-09T07:14:07.696Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/giratina-altered-mega-sableye.html",
-      "checkedAt": "2026-11-08T22:29:56.296Z",
+      "checkedAt": "2026-11-09T07:14:07.696Z",
       "ok": true,
       "bosses": [
         {
@@ -196,6 +196,100 @@
       ]
     },
     {
+      "id": "into-the-wild-2026",
+      "title": "Into the Wild 2026 (Crowned Sword Zacian and Crowned Shield Zamazenta)",
+      "description": "Druddigon and Orthworm in 3-star raids; Crowned Sword Zacian and Crowned Shield Zamazenta in 5-star raids",
+      "start": "2026-11-09T10:00:00",
+      "end": "2026-11-13T20:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/into-the-wild-2026.html",
+      "checkedAt": "2026-11-09T07:14:07.696Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Druddigon",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm621.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1487,
+              "max": 1561
+            },
+            "boosted": {
+              "min": 1859,
+              "max": 1951
+            }
+          }
+        },
+        {
+          "name": "Orthworm",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm968.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": false,
+          "types": [
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1245,
+              "max": 1313
+            },
+            "boosted": {
+              "min": 1557,
+              "max": 1642
+            }
+          }
+        },
+        {
+          "name": "Zacian (Crowned Sword)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm888.fCROWNED_SWORD.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fairy",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2100,
+              "max": 2188
+            },
+            "boosted": {
+              "min": 2625,
+              "max": 2735
+            }
+          }
+        },
+        {
+          "name": "Zamazenta (Crowned Shield)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm889.fCROWNED_SHIELD.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fighting",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2100,
+              "max": 2188
+            },
+            "boosted": {
+              "min": 2625,
+              "max": 2735
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "pokemon-go-wild-area-2026-global",
       "title": "Pokémon GO Wild Area 2026: Global",
       "description": "Modern Jacket Machamp in 3-star raids; Zekrom and White Kyurem on Saturday, Reshiram and Black Kyurem on Sunday in 5-star raids from 10:00 a.m. to 6:00 p.m. each day",
@@ -206,7 +300,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-08T22:29:56.296Z",
+      "checkedAt": "2026-11-09T07:14:07.696Z",
       "ok": true,
       "bosses": [
         {

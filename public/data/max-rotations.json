@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T22:29:56.913Z",
+  "updatedAt": "2026-11-09T07:14:08.225Z",
   "rotations": [
     {
       "id": "weekly-machop-2026-11-02",
@@ -112,7 +112,7 @@
       "start": "2026-11-09T10:00:00.000",
       "end": "2026-11-13T20:00:00.000",
       "source": "https://leekduck.com/events/into-the-wild-2026/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_280_00.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_280_00.png",
       "notes": "One-Star Max Battles"
     },
     {
@@ -124,7 +124,7 @@
       "start": "2026-11-09T10:00:00.000",
       "end": "2026-11-13T20:00:00.000",
       "source": "https://leekduck.com/events/into-the-wild-2026/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_066_00.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_066_00.png",
       "notes": "Two-Star Max Battles"
     },
     {
@@ -142,7 +142,7 @@
         "end": "2026-11-11T19:00:00",
         "label": "Featured hour"
       },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_379_00.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_379_00.png",
       "notes": "Five-Star Max Battles: Wednesday, November 11"
     },
     {
@@ -160,7 +160,7 @@
         "end": "2026-11-12T19:00:00",
         "label": "Featured hour"
       },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pm895.icon.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pm895.icon.png",
       "notes": "Five-Star Max Battles: Thursday, November 12"
     },
     {
@@ -178,7 +178,7 @@
         "end": "2026-11-13T19:00:00",
         "label": "Featured hour"
       },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_380_00.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_380_00.png",
       "notes": "Five-Star Max Battles: Friday, November 13"
     },
     {
@@ -196,7 +196,7 @@
         "end": "2026-11-13T19:00:00",
         "label": "Featured hour"
       },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_381_00.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_381_00.png",
       "notes": "Five-Star Max Battles: Friday, November 13"
     },
     {
@@ -251,7 +251,7 @@
         "end": "2026-11-21T14:00:00.000",
         "label": "Max Battle"
       },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pm890.fETERNAMAX.icon.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pm890.fETERNAMAX.icon.png",
       "notes": "Eternamax Eternatus in Max Battles"
     }
   ]
