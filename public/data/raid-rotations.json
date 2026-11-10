@@ -1,200 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-10T07:45:59.511Z",
+  "updatedAt": "2026-11-10T20:01:40.159Z",
   "failed": [],
   "rotations": [
-    {
-      "id": "giratina-altered-mega-sableye",
-      "title": "Giratina (Altered Forme) and Mega Sableye in Raids",
-      "description": "Duskull, Frillish (Male), Frillish (Female), and Litwick in 1-star raids; Cofagrigus, Trevenant, and Dhelmise in 3-star raids; Giratina (Altered Forme) in 5-star raids; Mega Sableye in Mega raids",
-      "start": "2026-11-06T06:00:00",
-      "end": "2026-11-08T20:00:00",
-      "shadow": false,
-      "tags": [],
-      "source": "https://leekduck.com/raids/giratina-altered-mega-sableye.html",
-      "checkedAt": "2026-11-10T07:45:59.511Z",
-      "ok": true,
-      "bosses": [
-        {
-          "name": "Duskull",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm355.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 364,
-              "max": 403
-            },
-            "boosted": {
-              "min": 456,
-              "max": 504
-            }
-          }
-        },
-        {
-          "name": "Frillish",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Water",
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 668,
-              "max": 718
-            },
-            "boosted": {
-              "min": 835,
-              "max": 898
-            }
-          }
-        },
-        {
-          "name": "Frillish (Female)",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.fFEMALE.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Water",
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 668,
-              "max": 718
-            },
-            "boosted": {
-              "min": 835,
-              "max": 898
-            }
-          }
-        },
-        {
-          "name": "Litwick",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm607.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Fire"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 530,
-              "max": 575
-            },
-            "boosted": {
-              "min": 663,
-              "max": 719
-            }
-          }
-        },
-        {
-          "name": "Cofagrigus",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm563.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1231,
-              "max": 1299
-            },
-            "boosted": {
-              "min": 1539,
-              "max": 1624
-            }
-          }
-        },
-        {
-          "name": "Trevenant",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm709.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Grass"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1390,
-              "max": 1462
-            },
-            "boosted": {
-              "min": 1738,
-              "max": 1828
-            }
-          }
-        },
-        {
-          "name": "Dhelmise",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm781.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Grass"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1608,
-              "max": 1685
-            },
-            "boosted": {
-              "min": 2010,
-              "max": 2107
-            }
-          }
-        },
-        {
-          "name": "Giratina (Altered)",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm487.fALTERED.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Dragon"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1848,
-              "max": 1931
-            },
-            "boosted": {
-              "min": 2310,
-              "max": 2414
-            }
-          }
-        },
-        {
-          "name": "Mega Sableye",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm302.fMEGA.icon.png",
-          "tier": "Mega Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dark",
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 789,
-              "max": 843
-            },
-            "boosted": {
-              "min": 986,
-              "max": 1054
-            }
-          }
-        }
-      ]
-    },
     {
       "id": "into-the-wild-2026",
       "title": "Into the Wild 2026 (Crowned Sword Zacian and Crowned Shield Zamazenta)",
@@ -206,7 +14,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/into-the-wild-2026.html",
-      "checkedAt": "2026-11-10T07:45:59.511Z",
+      "checkedAt": "2026-11-10T20:01:40.159Z",
       "ok": true,
       "bosses": [
         {
@@ -300,7 +108,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-10T07:45:59.511Z",
+      "checkedAt": "2026-11-10T20:01:40.159Z",
       "ok": true,
       "bosses": [
         {
@@ -413,7 +221,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-10T07:45:59.511Z",
+      "checkedAt": "2026-11-10T20:01:40.159Z",
       "ok": true,
       "bosses": [
         {
