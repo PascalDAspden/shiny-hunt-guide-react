@@ -1,16 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T22:43:39.580Z",
+  "updatedAt": "2026-11-10T07:46:00.282Z",
   "rotations": [
-    {
-      "id": "weekly-machop-2026-11-02",
-      "form": "Dynamax",
-      "species": "Machop",
-      "start": "2026-11-02T00:00:00",
-      "end": "2026-11-09T00:00:00",
-      "source": "https://leekduck.com/events/max-mondays-2026-11-02/",
-      "notes": "Announced as potentially appearing at Power Spots 2–8 November 2026. Exact Power Spot availability varies."
-    },
     {
       "id": "weekly-2026-11-23-espurr",
       "species": "Espurr",
@@ -31,42 +22,6 @@
     }
   ],
   "eventBattles": [
-    {
-      "id": "pokemon-go-wild-area-2026-mexico-city:Gigantamax:Duraludon:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Mexico City",
-      "form": "Gigantamax",
-      "species": "Duraludon",
-      "start": "2026-11-06T16:00:00.000Z",
-      "end": "2026-11-09T00:00:00.000Z",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-mexico-city/",
-      "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-06-pokemon-go-wild-area-2026-mexico-city/gigantamax-duraludon.png",
-      "notes": "Six-Star Max Battles"
-    },
-    {
-      "id": "pokemon-go-wild-area-2026-mexico-city:Dynamax:Dialga:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Mexico City",
-      "form": "Dynamax",
-      "species": "Dialga",
-      "start": "2026-11-06T16:00:00.000Z",
-      "end": "2026-11-09T00:00:00.000Z",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-mexico-city/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_483_00.png",
-      "notes": "Six-Star Max Battles"
-    },
-    {
-      "id": "pokemon-go-wild-area-2026-mexico-city:Dynamax:Palkia:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Mexico City",
-      "form": "Dynamax",
-      "species": "Palkia",
-      "start": "2026-11-06T16:00:00.000Z",
-      "end": "2026-11-09T00:00:00.000Z",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-mexico-city/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_484_00.png",
-      "notes": "Six-Star Max Battles"
-    },
     {
       "id": "into-the-wild-2026:Dynamax:Ralts:event",
       "kind": "event",
