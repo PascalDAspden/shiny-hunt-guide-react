@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T20:28:19.123Z",
+  "updatedAt": "2026-11-13T07:21:15.199Z",
   "failed": [],
   "rotations": [
     {
@@ -14,7 +14,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/into-the-wild-2026.html",
-      "checkedAt": "2026-11-12T20:28:19.123Z",
+      "checkedAt": "2026-11-13T07:21:15.199Z",
       "ok": true,
       "bosses": [
         {
@@ -108,7 +108,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-12T20:28:19.123Z",
+      "checkedAt": "2026-11-13T07:21:15.199Z",
       "ok": true,
       "bosses": [
         {
@@ -221,7 +221,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-12T20:28:19.123Z",
+      "checkedAt": "2026-11-13T07:21:15.199Z",
       "ok": true,
       "bosses": [
         {
