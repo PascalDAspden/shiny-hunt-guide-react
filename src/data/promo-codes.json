@@ -12,6 +12,18 @@
     "active": true
   },
   {
+    "id": "promo-communitymax10",
+    "title": "10th Anniversary – 500K Community Check-Ins",
+    "code": "CommunityMax10",
+    "rewards": [
+      "×10 Max Mushroom"
+    ],
+    "expires": null,
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=CommunityMax10",
+    "active": true
+  },
+  {
     "id": "promo-fendixfrgmtxpokemon",
     "title": "FENDI x FRGMT x POKÉMON Hoodie Avatar Item",
     "code": "FENDIxFRGMTxPOKEMON",
