@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-14T07:03:32.812Z",
+  "updatedAt": "2026-11-14T18:30:19.565Z",
   "rotations": [
     {
       "id": "weekly-2026-11-23-espurr",
@@ -45,42 +45,6 @@
       "source": "https://leekduck.com/events/into-the-wild-2026/",
       "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_066_00.png",
       "notes": "Two-Star Max Battles"
-    },
-    {
-      "id": "into-the-wild-2026:Dynamax:Registeel:2026-11-11",
-      "kind": "event",
-      "eventName": "Into the Wild 2026",
-      "form": "Dynamax",
-      "species": "Registeel",
-      "start": "2026-11-11T00:00:00",
-      "end": "2026-11-12T00:00:00",
-      "day": "2026-11-11",
-      "source": "https://leekduck.com/events/into-the-wild-2026/",
-      "battleWindow": {
-        "start": "2026-11-11T18:00:00",
-        "end": "2026-11-11T19:00:00",
-        "label": "Featured hour"
-      },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_379_00.png",
-      "notes": "Five-Star Max Battles: Wednesday, November 11"
-    },
-    {
-      "id": "into-the-wild-2026:Dynamax:Regidrago:2026-11-12",
-      "kind": "event",
-      "eventName": "Into the Wild 2026",
-      "form": "Dynamax",
-      "species": "Regidrago",
-      "start": "2026-11-12T00:00:00",
-      "end": "2026-11-13T00:00:00",
-      "day": "2026-11-12",
-      "source": "https://leekduck.com/events/into-the-wild-2026/",
-      "battleWindow": {
-        "start": "2026-11-12T18:00:00",
-        "end": "2026-11-12T19:00:00",
-        "label": "Featured hour"
-      },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pm895.icon.png",
-      "notes": "Five-Star Max Battles: Thursday, November 12"
     },
     {
       "id": "into-the-wild-2026:Dynamax:Latias:2026-11-13",
