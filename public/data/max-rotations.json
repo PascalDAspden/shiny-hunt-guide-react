@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T19:07:49.226Z",
+  "updatedAt": "2026-11-16T07:19:31.184Z",
   "rotations": [
     {
       "id": "weekly-2026-11-23-espurr",
@@ -33,19 +33,6 @@
       "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
       "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-14-pokemon-go-wild-area-2026-global/gigantamax-duraludon.png",
       "notes": "Six-Star Max Battles"
-    },
-    {
-      "id": "pokemon-go-wild-area-2026-global:Dynamax:Dialga:2026-11-14",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Global",
-      "form": "Dynamax",
-      "species": "Dialga",
-      "start": "2026-11-14T10:00:00.000",
-      "end": "2026-11-15T00:00:00",
-      "day": "2026-11-14",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_483_00.png",
-      "notes": "Saturday, November 14"
     },
     {
       "id": "pokemon-go-wild-area-2026-global:Dynamax:Palkia:2026-11-15",
@@ -455,17 +442,6 @@
       "end": "2026-11-23T20:00:00.000",
       "source": "https://leekduck.com/events/dynamax-trails-2026/",
       "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_529_00.png"
-    },
-    {
-      "id": "dynamax-trails-2026:Dynamax:Excadrill:event",
-      "kind": "event",
-      "eventName": "Dynamax Trails",
-      "form": "Dynamax",
-      "species": "Excadrill",
-      "start": "2026-11-16T10:00:00.000",
-      "end": "2026-11-23T20:00:00.000",
-      "source": "https://leekduck.com/events/dynamax-trails-2026/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pokemon_icon_530_00.png"
     },
     {
       "id": "dynamax-trails-2026:Dynamax:Cottonee:event",
