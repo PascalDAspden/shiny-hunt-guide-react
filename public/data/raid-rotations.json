@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T07:19:30.536Z",
+  "updatedAt": "2026-11-16T22:32:23.955Z",
   "failed": [],
   "rotations": [
     {
@@ -14,7 +14,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-16T07:19:30.536Z",
+      "checkedAt": "2026-11-16T22:32:23.955Z",
       "ok": true,
       "bosses": [
         {
@@ -127,7 +127,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-16T07:19:30.536Z",
+      "checkedAt": "2026-11-16T22:32:23.955Z",
       "ok": true,
       "bosses": [
         {
@@ -335,7 +335,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-16T07:19:30.536Z",
+      "checkedAt": "2026-11-16T22:32:23.955Z",
       "ok": true,
       "bosses": [
         {

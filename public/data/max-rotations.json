@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-16T07:19:31.184Z",
+  "updatedAt": "2026-11-16T22:32:24.623Z",
   "rotations": [
     {
       "id": "weekly-2026-11-23-espurr",
@@ -22,31 +22,6 @@
     }
   ],
   "eventBattles": [
-    {
-      "id": "pokemon-go-wild-area-2026-global:Gigantamax:Duraludon:event",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Global",
-      "form": "Gigantamax",
-      "species": "Duraludon",
-      "start": "2026-11-14T10:00:00.000",
-      "end": "2026-11-15T18:00:00.000",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
-      "image": "https://cdn.leekduck.com/assets/img/events/article-images/2026/2026-11-14-pokemon-go-wild-area-2026-global/gigantamax-duraludon.png",
-      "notes": "Six-Star Max Battles"
-    },
-    {
-      "id": "pokemon-go-wild-area-2026-global:Dynamax:Palkia:2026-11-15",
-      "kind": "event",
-      "eventName": "Pokémon GO Wild Area 2026: Global",
-      "form": "Dynamax",
-      "species": "Palkia",
-      "start": "2026-11-15T00:00:00",
-      "end": "2026-11-15T18:00:00.000",
-      "day": "2026-11-15",
-      "source": "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pokemon_icon_484_00.png",
-      "notes": "Sunday, November 15"
-    },
     {
       "id": "dynamax-trails-2026:Dynamax:Bulbasaur:event",
       "kind": "event",
