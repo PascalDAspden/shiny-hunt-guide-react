@@ -21,7 +21,7 @@
     "expires": null,
     "sourceUrl": "https://leekduck.com/promo-codes/",
     "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=CommunityMax10",
-    "active": true
+    "active": false
   },
   {
     "id": "promo-fendixfrgmtxpokemon",
@@ -48,6 +48,18 @@
     "expires": null,
     "sourceUrl": "https://leekduck.com/promo-codes/",
     "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=LEGOxPOKEMONGOxBERRIES",
+    "active": true
+  },
+  {
+    "id": "promo-pokemongoxcrocsxelectrifying",
+    "title": "Pokémon Pikachu Classic Clog Avatar Item",
+    "code": "POKEMONGOxCROCSxELECTRIFYING",
+    "rewards": [
+      "Pokémon Pikachu Classic Clog"
+    ],
+    "expires": "2027-12-31T23:59:59-08:00",
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=POKEMONGOxCROCSxELECTRIFYING",
     "active": true
   }
 ]
