@@ -61,5 +61,29 @@
     "sourceUrl": "https://leekduck.com/promo-codes/",
     "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=POKEMONGOxCROCSxELECTRIFYING",
     "active": true
+  },
+  {
+    "id": "promo-pokemongoxcrocsxenchanting",
+    "title": "Pokémon Gengar Classic Clog Avatar Item",
+    "code": "POKEMONGOxCROCSxENCHANTING",
+    "rewards": [
+      "Pokémon Gengar Classic Clog"
+    ],
+    "expires": "2027-12-31T23:59:59-08:00",
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=POKEMONGOxCROCSxENCHANTING",
+    "active": true
+  },
+  {
+    "id": "promo-pokemongoxcrocsxmelody",
+    "title": "Pokémon Jigglypuff Classic Platform Clog Avatar Item",
+    "code": "POKEMONGOxCROCSxMELODY",
+    "rewards": [
+      "Pokémon Jigglypuff Classic Platform Clog"
+    ],
+    "expires": "2027-12-31T23:59:59-08:00",
+    "sourceUrl": "https://leekduck.com/promo-codes/",
+    "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=POKEMONGOxCROCSxMELODY",
+    "active": true
   }
 ]
