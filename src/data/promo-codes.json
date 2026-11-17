@@ -45,10 +45,10 @@
       "×5 Pinap Berry",
       "×5 Nanab Berry"
     ],
-    "expires": null,
+    "expires": "2026-09-30T23:59:00",
     "sourceUrl": "https://leekduck.com/promo-codes/",
     "redeemUrl": "https://store.pokemongo.com/offer-redemption?passcode=LEGOxPOKEMONGOxBERRIES",
-    "active": true
+    "active": false
   },
   {
     "id": "promo-pokemongoxcrocsxelectrifying",
