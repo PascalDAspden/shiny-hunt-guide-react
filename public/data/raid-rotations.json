@@ -1,123 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-17T08:30:17.659Z",
+  "updatedAt": "2026-11-17T21:21:15.131Z",
   "failed": [],
   "rotations": [
-    {
-      "id": "pokemon-go-wild-area-2026-global",
-      "title": "Pokémon GO Wild Area 2026: Global",
-      "description": "Modern Jacket Machamp in 3-star raids; Zekrom and White Kyurem on Saturday, Reshiram and Black Kyurem on Sunday in 5-star raids from 10:00 a.m. to 6:00 p.m. each day",
-      "start": "2026-11-14T10:00:00",
-      "end": "2026-11-15T18:00:00",
-      "shadow": false,
-      "tags": [
-        "Event"
-      ],
-      "source": "https://leekduck.com/raids/pokemon-go-wild-area-2026-global.html",
-      "checkedAt": "2026-11-17T08:30:17.659Z",
-      "ok": true,
-      "bosses": [
-        {
-          "name": "Modern Jacket Machamp",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm68.fWILDAREA_2026_01.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Fighting"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1667,
-              "max": 1746
-            },
-            "boosted": {
-              "min": 2084,
-              "max": 2183
-            }
-          }
-        },
-        {
-          "name": "Zekrom",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm644.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dragon",
-            "Electric"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 2217,
-              "max": 2307
-            },
-            "boosted": {
-              "min": 2771,
-              "max": 2884
-            }
-          }
-        },
-        {
-          "name": "Kyurem (White)",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm646.fWHITE.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dragon",
-            "Ice"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1957,
-              "max": 2042
-            },
-            "boosted": {
-              "min": 2446,
-              "max": 2553
-            }
-          }
-        },
-        {
-          "name": "Reshiram",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm643.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dragon",
-            "Fire"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 2217,
-              "max": 2307
-            },
-            "boosted": {
-              "min": 2771,
-              "max": 2884
-            }
-          }
-        },
-        {
-          "name": "Kyurem (Black)",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm646.fBLACK.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dragon",
-            "Ice"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1957,
-              "max": 2042
-            },
-            "boosted": {
-              "min": 2446,
-              "max": 2553
-            }
-          }
-        }
-      ]
-    },
     {
       "id": "cresselia-darkrai-mega-banette-november-2026",
       "title": "Cresselia, Darkrai, and Mega Banette in Raids",
@@ -127,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-17T08:30:17.659Z",
+      "checkedAt": "2026-11-17T21:21:15.131Z",
       "ok": true,
       "bosses": [
         {
@@ -335,7 +220,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-17T08:30:17.659Z",
+      "checkedAt": "2026-11-17T21:21:15.131Z",
       "ok": true,
       "bosses": [
         {
