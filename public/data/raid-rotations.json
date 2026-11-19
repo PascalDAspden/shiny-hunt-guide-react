@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-19T07:57:30.977Z",
+  "updatedAt": "2026-11-19T20:59:26.418Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-19T07:57:30.977Z",
+      "checkedAt": "2026-11-19T20:59:26.418Z",
       "ok": true,
       "bosses": [
         {
@@ -220,7 +220,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-19T07:57:30.977Z",
+      "checkedAt": "2026-11-19T20:59:26.418Z",
       "ok": true,
       "bosses": [
         {
