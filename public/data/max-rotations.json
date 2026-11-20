@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-19T20:59:27.122Z",
+  "updatedAt": "2026-11-20T07:46:26.958Z",
   "rotations": [
     {
       "id": "weekly-2026-11-23-espurr",
@@ -663,7 +663,7 @@
         "end": "2026-11-21T14:00:00.000",
         "label": "Max Battle"
       },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pm890.fETERNAMAX.icon.png",
+      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pm890.fETERNAMAX.icon.png",
       "notes": "Eternamax Eternatus in Max Battles"
     }
   ]
