@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T07:29:14.588Z",
+  "updatedAt": "2026-11-22T19:58:57.111Z",
   "rotations": [
     {
       "id": "weekly-2026-11-23-espurr",
@@ -648,23 +648,6 @@
       "end": "2026-11-23T20:00:00.000",
       "source": "https://leekduck.com/events/dynamax-trails-2026/",
       "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop_dmax/pm884.icon.png"
-    },
-    {
-      "id": "eternamax-eternatus-max-battles-2026:Eternamax:Eternatus:event",
-      "kind": "event",
-      "eventName": "Eternamax Eternatus Returns",
-      "form": "Eternamax",
-      "species": "Eternatus",
-      "start": "2026-11-21T11:00:00.000",
-      "end": "2026-11-21T14:00:00.000",
-      "source": "https://leekduck.com/events/eternamax-eternatus-max-battles-2026/",
-      "battleWindow": {
-        "start": "2026-11-21T11:00:00.000",
-        "end": "2026-11-21T14:00:00.000",
-        "label": "Max Battle"
-      },
-      "image": "https://cdn.leekduck.com/assets/img/pokemon_icons_crop/pm890.fETERNAMAX.icon.png",
-      "notes": "Eternamax Eternatus in Max Battles"
     }
   ]
 }
