@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-24T10:26:46.597Z",
+  "updatedAt": "2026-11-24T22:46:19.694Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-24T10:26:46.597Z",
+      "checkedAt": "2026-11-24T22:46:19.694Z",
       "ok": true,
       "bosses": [
         {
@@ -222,7 +222,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/twilight-wishes-2026-cresselia-darkrai.html",
-      "checkedAt": "2026-11-24T10:26:46.597Z",
+      "checkedAt": "2026-11-24T22:46:19.694Z",
       "ok": true,
       "bosses": [
         {
@@ -431,7 +431,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/twilight-wishes-2026-deoxys.html",
-      "checkedAt": "2026-11-24T10:26:46.597Z",
+      "checkedAt": "2026-11-24T22:46:19.694Z",
       "ok": true,
       "bosses": [
         {
@@ -676,7 +676,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-24T10:26:46.597Z",
+      "checkedAt": "2026-11-24T22:46:19.694Z",
       "ok": true,
       "bosses": [
         {
