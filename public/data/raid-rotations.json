@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T08:16:41.473Z",
+  "updatedAt": "2026-11-24T00:23:49.529Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-23T08:16:41.473Z",
+      "checkedAt": "2026-11-24T00:23:49.529Z",
       "ok": true,
       "bosses": [
         {
@@ -212,6 +212,462 @@
       ]
     },
     {
+      "id": "twilight-wishes-2026-cresselia-darkrai",
+      "title": "Twilight Wishes (Cresselia and Darkrai)",
+      "description": "Sun Crown and Moon Crown Pikachu in 1-star raids; Day Scarf Espeon and Night Scarf Umbreon in 3-star raids; Cresselia, Darkrai in 5-star raids; Mega Beedrill, Mega Houndoom, Mega Sableye, and Mega Manectric in Mega raids",
+      "start": "2026-11-24T10:00:00",
+      "end": "2026-11-25T06:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/twilight-wishes-2026-cresselia-darkrai.html",
+      "checkedAt": "2026-11-24T00:23:49.529Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Sun Crown Pikachu",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm25.fGOFEST_2024_STIARA.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 493,
+              "max": 536
+            },
+            "boosted": {
+              "min": 616,
+              "max": 670
+            }
+          }
+        },
+        {
+          "name": "Moon Crown Pikachu",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm25.fGOFEST_2024_MTIARA.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 493,
+              "max": 536
+            },
+            "boosted": {
+              "min": 616,
+              "max": 670
+            }
+          }
+        },
+        {
+          "name": "Espeon wearing a sun scarf",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm196.fGOFEST_2024_SSCARF.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1730,
+              "max": 1811
+            },
+            "boosted": {
+              "min": 2162,
+              "max": 2264
+            }
+          }
+        },
+        {
+          "name": "Umbreon wearing a moon scarf",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm197.fGOFEST_2024_MSCARF.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1153,
+              "max": 1221
+            },
+            "boosted": {
+              "min": 1442,
+              "max": 1526
+            }
+          }
+        },
+        {
+          "name": "Cresselia",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm488.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1555,
+              "max": 1633
+            },
+            "boosted": {
+              "min": 1944,
+              "max": 2041
+            }
+          }
+        },
+        {
+          "name": "Darkrai",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm491.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2048,
+              "max": 2136
+            },
+            "boosted": {
+              "min": 2560,
+              "max": 2671
+            }
+          }
+        },
+        {
+          "name": "Mega Beedrill",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm15.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Bug",
+            "Poison"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 994,
+              "max": 1054
+            },
+            "boosted": {
+              "min": 1242,
+              "max": 1318
+            }
+          }
+        },
+        {
+          "name": "Mega Houndoom",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm229.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark",
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1432,
+              "max": 1505
+            },
+            "boosted": {
+              "min": 1790,
+              "max": 1882
+            }
+          }
+        },
+        {
+          "name": "Mega Sableye",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm302.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 789,
+              "max": 843
+            },
+            "boosted": {
+              "min": 986,
+              "max": 1054
+            }
+          }
+        },
+        {
+          "name": "Mega Manectric",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm310.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1267,
+              "max": 1337
+            },
+            "boosted": {
+              "min": 1585,
+              "max": 1672
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "twilight-wishes-2026-deoxys",
+      "title": "Twilight Wishes (Deoxys)",
+      "description": "Sun Crown and Moon Crown Pikachu in 1-star raids; Day Scarf Espeon and Night Scarf Umbreon in 3-star raids; Deoxys (Normal), Deoxys (Defense), Deoxys (Attack), Deoxys (Speed) in 5-star raids; Mega Beedrill, Mega Houndoom, Mega Sableye, and Mega Manectric in Mega raids",
+      "start": "2026-11-25T06:00:00",
+      "end": "2026-11-30T20:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/twilight-wishes-2026-deoxys.html",
+      "checkedAt": "2026-11-24T00:23:49.529Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Sun Crown Pikachu",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm25.fGOFEST_2024_STIARA.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 493,
+              "max": 536
+            },
+            "boosted": {
+              "min": 616,
+              "max": 670
+            }
+          }
+        },
+        {
+          "name": "Moon Crown Pikachu",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm25.fGOFEST_2024_MTIARA.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 493,
+              "max": 536
+            },
+            "boosted": {
+              "min": 616,
+              "max": 670
+            }
+          }
+        },
+        {
+          "name": "Espeon wearing a sun scarf",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm196.fGOFEST_2024_SSCARF.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1730,
+              "max": 1811
+            },
+            "boosted": {
+              "min": 2162,
+              "max": 2264
+            }
+          }
+        },
+        {
+          "name": "Umbreon wearing a moon scarf",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm197.fGOFEST_2024_MSCARF.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1153,
+              "max": 1221
+            },
+            "boosted": {
+              "min": 1442,
+              "max": 1526
+            }
+          }
+        },
+        {
+          "name": "Deoxys (Normal)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm386.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1717,
+              "max": 1806
+            },
+            "boosted": {
+              "min": 2146,
+              "max": 2257
+            }
+          }
+        },
+        {
+          "name": "Deoxys (Defense)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm386.fDEFENSE.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1228,
+              "max": 1299
+            },
+            "boosted": {
+              "min": 1535,
+              "max": 1624
+            }
+          }
+        },
+        {
+          "name": "Deoxys (Attack)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm386.fATTACK.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1372,
+              "max": 1474
+            },
+            "boosted": {
+              "min": 1716,
+              "max": 1842
+            }
+          }
+        },
+        {
+          "name": "Deoxys (Speed)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm386.fSPEED.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1568,
+              "max": 1645
+            },
+            "boosted": {
+              "min": 1960,
+              "max": 2056
+            }
+          }
+        },
+        {
+          "name": "Mega Beedrill",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm15.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Bug",
+            "Poison"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 994,
+              "max": 1054
+            },
+            "boosted": {
+              "min": 1242,
+              "max": 1318
+            }
+          }
+        },
+        {
+          "name": "Mega Houndoom",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm229.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark",
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1432,
+              "max": 1505
+            },
+            "boosted": {
+              "min": 1790,
+              "max": 1882
+            }
+          }
+        },
+        {
+          "name": "Mega Sableye",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm302.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dark",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 789,
+              "max": 843
+            },
+            "boosted": {
+              "min": 986,
+              "max": 1054
+            }
+          }
+        },
+        {
+          "name": "Mega Manectric",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm310.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1267,
+              "max": 1337
+            },
+            "boosted": {
+              "min": 1585,
+              "max": 1672
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "shadow-tornadus-incarnate-november-december-2026",
       "title": "Shadow Tornadus (Incarnate Forme) November–December 2026",
       "description": "Shadow Larvitar, Shadow Mudkip, Shadow Makuhita, and Shadow Cranidos in 1-star Shadow Raids; Shadow Poliwhirl, Shadow Piloswine, and Shadow Prinplup in 3-star Shadow Raids; Shadow Tornadus (Incarnate Forme) in 5-star Shadow Raids",
@@ -220,7 +676,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-23T08:16:41.473Z",
+      "checkedAt": "2026-11-24T00:23:49.529Z",
       "ok": true,
       "bosses": [
         {
