@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T21:59:26.114Z",
+  "updatedAt": "2026-11-26T08:55:11.678Z",
   "failed": [],
   "rotations": [
     {
@@ -12,7 +12,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-25T21:59:26.114Z",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
       "ok": true,
       "bosses": [
         {
@@ -222,7 +222,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/twilight-wishes-2026-cresselia-darkrai.html",
-      "checkedAt": "2026-11-25T21:59:26.114Z",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
       "ok": true,
       "bosses": [
         {
@@ -431,7 +431,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/twilight-wishes-2026-deoxys.html",
-      "checkedAt": "2026-11-25T21:59:26.114Z",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
       "ok": true,
       "bosses": [
         {
@@ -668,6 +668,1183 @@
       ]
     },
     {
+      "id": "clefable-super-mega-raid-day-2026",
+      "title": "Clefable Super Mega Raid Day",
+      "description": "Mega Clefable in Super Mega Raids",
+      "start": "2026-11-28T14:00:00",
+      "end": "2026-11-28T17:00:00",
+      "shadow": false,
+      "tags": [
+        "Raid Day"
+      ],
+      "source": "https://leekduck.com/raids/clefable-super-mega-raid-day-2026.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Mega Clefable",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm36.fMEGA.icon.png",
+          "tier": "Super Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fairy",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1322,
+              "max": 1392
+            },
+            "boosted": {
+              "min": 1653,
+              "max": 1741
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tropical-paradise-2026",
+      "title": "Tropical Paradise 2026",
+      "description": "Alolan Diglett, Frillish, and Sandygast in 1-star raids; Pyukumuku in 3-star raids",
+      "start": "2026-12-01T10:00:00",
+      "end": "2026-12-02T06:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/tropical-paradise-2026.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Alolan Diglett",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm50.fALOLA.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ground",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 352,
+              "max": 389
+            },
+            "boosted": {
+              "min": 440,
+              "max": 486
+            }
+          }
+        },
+        {
+          "name": "Frillish",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 668,
+              "max": 718
+            },
+            "boosted": {
+              "min": 835,
+              "max": 898
+            }
+          }
+        },
+        {
+          "name": "Frillish (Female)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.fFEMALE.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 668,
+              "max": 718
+            },
+            "boosted": {
+              "min": 835,
+              "max": 898
+            }
+          }
+        },
+        {
+          "name": "Sandygast",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm769.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 655,
+              "max": 705
+            },
+            "boosted": {
+              "min": 819,
+              "max": 881
+            }
+          }
+        },
+        {
+          "name": "Pyukumuku",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm771.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 729,
+              "max": 784
+            },
+            "boosted": {
+              "min": 912,
+              "max": 980
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tropical-paradise-2026-regidrago",
+      "title": "Tropical Paradise 2026 (Regidrago)",
+      "description": "Alolan Diglett, Frillish, and Sandygast in 1-star raids; Pyukumuku in 3-star raids; Regidrago in 5-star raids; Mega Slowbro in Mega raids",
+      "start": "2026-12-02T06:00:00",
+      "end": "2026-12-07T20:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/tropical-paradise-2026-regidrago.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Alolan Diglett",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm50.fALOLA.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ground",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 352,
+              "max": 389
+            },
+            "boosted": {
+              "min": 440,
+              "max": 486
+            }
+          }
+        },
+        {
+          "name": "Frillish",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 668,
+              "max": 718
+            },
+            "boosted": {
+              "min": 835,
+              "max": 898
+            }
+          }
+        },
+        {
+          "name": "Frillish (Female)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm592.fFEMALE.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Ghost"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 668,
+              "max": 718
+            },
+            "boosted": {
+              "min": 835,
+              "max": 898
+            }
+          }
+        },
+        {
+          "name": "Sandygast",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm769.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 655,
+              "max": 705
+            },
+            "boosted": {
+              "min": 819,
+              "max": 881
+            }
+          }
+        },
+        {
+          "name": "Pyukumuku",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm771.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 729,
+              "max": 784
+            },
+            "boosted": {
+              "min": 912,
+              "max": 980
+            }
+          }
+        },
+        {
+          "name": "Regidrago",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm895.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1614,
+              "max": 1699
+            },
+            "boosted": {
+              "min": 2017,
+              "max": 2124
+            }
+          }
+        },
+        {
+          "name": "Mega Slowbro",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm80.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1382,
+              "max": 1454
+            },
+            "boosted": {
+              "min": 1728,
+              "max": 1817
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "pokemon-champions-celebration-event-2026-regidrago",
+      "title": "Pokémon Champions Celebration Event 2026 (Regidrago)",
+      "description": "Bagon, Litten, and Frigibax in 1-star raids; Raichu, Garchomp, and Rillaboom in 3-star raids; Regidrago in 5-star raids; Mega Slowbro in Mega raids",
+      "start": "2026-12-08T10:00:00",
+      "end": "2026-12-09T06:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/pokemon-champions-celebration-event-2026-regidrago.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Bagon",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm371.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 612,
+              "max": 660
+            },
+            "boosted": {
+              "min": 765,
+              "max": 826
+            }
+          }
+        },
+        {
+          "name": "Litten",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm725.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 545,
+              "max": 591
+            },
+            "boosted": {
+              "min": 682,
+              "max": 739
+            }
+          }
+        },
+        {
+          "name": "Frigibax",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm996.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ice"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 662,
+              "max": 712
+            },
+            "boosted": {
+              "min": 827,
+              "max": 891
+            }
+          }
+        },
+        {
+          "name": "Raichu",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm26.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1180,
+              "max": 1247
+            },
+            "boosted": {
+              "min": 1476,
+              "max": 1558
+            }
+          }
+        },
+        {
+          "name": "Garchomp",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm445.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2174,
+              "max": 2264
+            },
+            "boosted": {
+              "min": 2718,
+              "max": 2830
+            }
+          }
+        },
+        {
+          "name": "Rillaboom",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm812.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Grass"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1817,
+              "max": 1899
+            },
+            "boosted": {
+              "min": 2272,
+              "max": 2374
+            }
+          }
+        },
+        {
+          "name": "Regidrago",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm895.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1614,
+              "max": 1699
+            },
+            "boosted": {
+              "min": 2017,
+              "max": 2124
+            }
+          }
+        },
+        {
+          "name": "Mega Slowbro",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm80.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Water",
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1382,
+              "max": 1454
+            },
+            "boosted": {
+              "min": 1728,
+              "max": 1817
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "pokemon-champions-celebration-event-2026-legendaries",
+      "title": "Pokémon Champions Celebration Event 2026 (Legendary Rotation)",
+      "description": "Bagon, Litten, and Frigibax in 1-star raids; Raichu, Garchomp, and Rillaboom in 3-star raids; Latias, Latios, Heatran, Cobalion, Terrakion, Virizion, Regieleki, and Regidrago in 5-star raids; Mega Gengar in Mega raids",
+      "start": "2026-12-09T06:00:00",
+      "end": "2026-12-14T20:00:00",
+      "shadow": false,
+      "tags": [
+        "Event"
+      ],
+      "source": "https://leekduck.com/raids/pokemon-champions-celebration-event-2026-legendaries.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Bagon",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm371.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 612,
+              "max": 660
+            },
+            "boosted": {
+              "min": 765,
+              "max": 826
+            }
+          }
+        },
+        {
+          "name": "Litten",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm725.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fire"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 545,
+              "max": 591
+            },
+            "boosted": {
+              "min": 682,
+              "max": 739
+            }
+          }
+        },
+        {
+          "name": "Frigibax",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm996.icon.png",
+          "tier": "1-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ice"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 662,
+              "max": 712
+            },
+            "boosted": {
+              "min": 827,
+              "max": 891
+            }
+          }
+        },
+        {
+          "name": "Raichu",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm26.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1180,
+              "max": 1247
+            },
+            "boosted": {
+              "min": 1476,
+              "max": 1558
+            }
+          }
+        },
+        {
+          "name": "Garchomp",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm445.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Ground"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2174,
+              "max": 2264
+            },
+            "boosted": {
+              "min": 2718,
+              "max": 2830
+            }
+          }
+        },
+        {
+          "name": "Rillaboom",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm812.icon.png",
+          "tier": "3-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Grass"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1817,
+              "max": 1899
+            },
+            "boosted": {
+              "min": 2272,
+              "max": 2374
+            }
+          }
+        },
+        {
+          "name": "Latias",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm380.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1921,
+              "max": 2006
+            },
+            "boosted": {
+              "min": 2402,
+              "max": 2507
+            }
+          }
+        },
+        {
+          "name": "Latios",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm381.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2090,
+              "max": 2178
+            },
+            "boosted": {
+              "min": 2613,
+              "max": 2723
+            }
+          }
+        },
+        {
+          "name": "Heatran",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm485.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fire",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2058,
+              "max": 2145
+            },
+            "boosted": {
+              "min": 2573,
+              "max": 2681
+            }
+          }
+        },
+        {
+          "name": "Cobalion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm638.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Steel",
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1649,
+              "max": 1727
+            },
+            "boosted": {
+              "min": 2061,
+              "max": 2159
+            }
+          }
+        },
+        {
+          "name": "Terrakion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm639.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Rock",
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2026,
+              "max": 2113
+            },
+            "boosted": {
+              "min": 2533,
+              "max": 2641
+            }
+          }
+        },
+        {
+          "name": "Virizion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm640.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Grass",
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1649,
+              "max": 1727
+            },
+            "boosted": {
+              "min": 2061,
+              "max": 2159
+            }
+          }
+        },
+        {
+          "name": "Regieleki",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm894.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1524,
+              "max": 1602
+            },
+            "boosted": {
+              "min": 1905,
+              "max": 2002
+            }
+          }
+        },
+        {
+          "name": "Regidrago",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm895.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1614,
+              "max": 1699
+            },
+            "boosted": {
+              "min": 2017,
+              "max": 2124
+            }
+          }
+        },
+        {
+          "name": "Mega Gengar",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm94.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Poison"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1566,
+              "max": 1644
+            },
+            "boosted": {
+              "min": 1958,
+              "max": 2055
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "legendary-rotation-mega-gengar-december-2026",
+      "title": "Legendary Rotation and Mega Gengar in Raids",
+      "description": "Latias, Latios, Heatran, Cobalion, Terrakion, Virizion, Regieleki, and Regidrago in 5-star raids; Mega Gengar in Mega raids",
+      "start": "2026-12-14T20:00:00",
+      "end": "2026-12-15T22:00:00",
+      "shadow": false,
+      "tags": [],
+      "source": "https://leekduck.com/raids/legendary-rotation-mega-gengar-december-2026.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Latias",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm380.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1921,
+              "max": 2006
+            },
+            "boosted": {
+              "min": 2402,
+              "max": 2507
+            }
+          }
+        },
+        {
+          "name": "Latios",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm381.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon",
+            "Psychic"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2090,
+              "max": 2178
+            },
+            "boosted": {
+              "min": 2613,
+              "max": 2723
+            }
+          }
+        },
+        {
+          "name": "Heatran",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm485.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fire",
+            "Steel"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2058,
+              "max": 2145
+            },
+            "boosted": {
+              "min": 2573,
+              "max": 2681
+            }
+          }
+        },
+        {
+          "name": "Cobalion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm638.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Steel",
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1649,
+              "max": 1727
+            },
+            "boosted": {
+              "min": 2061,
+              "max": 2159
+            }
+          }
+        },
+        {
+          "name": "Terrakion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm639.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Rock",
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2026,
+              "max": 2113
+            },
+            "boosted": {
+              "min": 2533,
+              "max": 2641
+            }
+          }
+        },
+        {
+          "name": "Virizion",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm640.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Grass",
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1649,
+              "max": 1727
+            },
+            "boosted": {
+              "min": 2061,
+              "max": 2159
+            }
+          }
+        },
+        {
+          "name": "Regieleki",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm894.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1524,
+              "max": 1602
+            },
+            "boosted": {
+              "min": 1905,
+              "max": 2002
+            }
+          }
+        },
+        {
+          "name": "Regidrago",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm895.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1614,
+              "max": 1699
+            },
+            "boosted": {
+              "min": 2017,
+              "max": 2124
+            }
+          }
+        },
+        {
+          "name": "Mega Gengar",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm94.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ghost",
+            "Poison"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1566,
+              "max": 1644
+            },
+            "boosted": {
+              "min": 1958,
+              "max": 2055
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ho-oh-mega-skarmory-december-2026",
+      "title": "Ho-Oh and Mega Skarmory in Raids",
+      "description": "Ho-Oh in 5-star raids; Mega Skarmory in Mega raids",
+      "start": "2026-12-16T06:00:00",
+      "end": "2026-12-22T22:00:00",
+      "shadow": false,
+      "tags": [],
+      "source": "https://leekduck.com/raids/ho-oh-mega-skarmory-december-2026.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Ho-Oh",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm250.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Fire",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2119,
+              "max": 2207
+            },
+            "boosted": {
+              "min": 2649,
+              "max": 2759
+            }
+          }
+        },
+        {
+          "name": "Mega Skarmory",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm227.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Steel",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1139,
+              "max": 1204
+            },
+            "boosted": {
+              "min": 1424,
+              "max": 1506
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lugia-mega-glalie-december-2026",
+      "title": "Lugia and Mega Glalie in Raids",
+      "description": "Lugia in 5-star raids; Mega Glalie in Mega raids",
+      "start": "2026-12-23T06:00:00",
+      "end": "2026-12-29T22:00:00",
+      "shadow": false,
+      "tags": [],
+      "source": "https://leekduck.com/raids/lugia-mega-glalie-december-2026.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Lugia",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm249.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Psychic",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2028,
+              "max": 2115
+            },
+            "boosted": {
+              "min": 2535,
+              "max": 2645
+            }
+          }
+        },
+        {
+          "name": "Mega Glalie",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm362.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ice"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1138,
+              "max": 1203
+            },
+            "boosted": {
+              "min": 1423,
+              "max": 1504
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "therian-formes-mega-falinks-december-2026",
+      "title": "Tornadus, Thundurus, and Landorus (Therian Formes) and Mega Falinks in Raids",
+      "description": "Tornadus (Therian Forme), Thundurus (Therian Forme), and Landorus (Therian Forme) in 5-star raids; Mega Falinks in Mega raids",
+      "start": "2026-12-30T06:00:00",
+      "end": "2027-01-05T22:00:00",
+      "shadow": false,
+      "tags": [],
+      "source": "https://leekduck.com/raids/therian-formes-mega-falinks-december-2026.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Tornadus (Therian)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm641.fTHERIAN.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1756,
+              "max": 1837
+            },
+            "boosted": {
+              "min": 2196,
+              "max": 2296
+            }
+          }
+        },
+        {
+          "name": "Thundurus (Therian)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm642.fTHERIAN.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Electric",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2002,
+              "max": 2091
+            },
+            "boosted": {
+              "min": 2503,
+              "max": 2614
+            }
+          }
+        },
+        {
+          "name": "Landorus (Therian)",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm645.fTHERIAN.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Ground",
+            "Flying"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2151,
+              "max": 2241
+            },
+            "boosted": {
+              "min": 2688,
+              "max": 2801
+            }
+          }
+        },
+        {
+          "name": "Mega Falinks",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm870.fMEGA.icon.png",
+          "tier": "Mega Raids",
+          "canBeShiny": false,
+          "types": [
+            "Fighting"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 1278,
+              "max": 1347
+            },
+            "boosted": {
+              "min": 1598,
+              "max": 1683
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "shadow-tornadus-incarnate-november-december-2026",
       "title": "Shadow Tornadus (Incarnate Forme) November–December 2026",
       "description": "Shadow Larvitar, Shadow Mudkip, Shadow Makuhita, and Shadow Cranidos in 1-star Shadow Raids; Shadow Poliwhirl, Shadow Piloswine, and Shadow Prinplup in 3-star Shadow Raids; Shadow Tornadus (Incarnate Forme) in 5-star Shadow Raids",
@@ -676,7 +1853,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-25T21:59:26.114Z",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
       "ok": true,
       "bosses": [
         {
@@ -830,6 +2007,40 @@
             "boosted": {
               "min": 2203,
               "max": 2389
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow-dialga-december-2026-january-2027",
+      "title": "Shadow Dialga December 2026–January 2027",
+      "description": "Shadow Dialga in 5-star Shadow Raids",
+      "start": "2026-12-02T06:00:00",
+      "end": "2027-01-05T22:00:00",
+      "shadow": true,
+      "tags": [],
+      "source": "https://leekduck.com/raids/shadow-dialga-december-2026-january-2027.html",
+      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "ok": true,
+      "bosses": [
+        {
+          "name": "Shadow Dialga",
+          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm483.icon.png",
+          "tier": "5-Star Raids",
+          "canBeShiny": true,
+          "types": [
+            "Steel",
+            "Dragon"
+          ],
+          "combatPower": {
+            "normal": {
+              "min": 2145,
+              "max": 2307
+            },
+            "boosted": {
+              "min": 2682,
+              "max": 2884
             }
           }
         }
