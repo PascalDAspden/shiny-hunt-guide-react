@@ -1,216 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-26T08:55:11.678Z",
+  "updatedAt": "2026-11-26T21:56:48.138Z",
   "failed": [],
   "rotations": [
-    {
-      "id": "cresselia-darkrai-mega-banette-november-2026",
-      "title": "Cresselia, Darkrai, and Mega Banette in Raids",
-      "description": "Alolan Meowth, Misdreavus, Galarian Yamask, and Sandygast in 1-star raids; Alolan Marowak, Liepard, and Golurk in 3-star raids; Cresselia and Darkrai in 5-star raids; Mega Banette in Mega raids",
-      "start": "2026-11-16T06:00:00",
-      "end": "2026-11-24T10:00:00",
-      "shadow": false,
-      "tags": [],
-      "source": "https://leekduck.com/raids/cresselia-darkrai-mega-banette-november-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
-      "ok": true,
-      "bosses": [
-        {
-          "name": "Alolan Meowth",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm52.fALOLA.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dark"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 416,
-              "max": 455
-            },
-            "boosted": {
-              "min": 520,
-              "max": 569
-            }
-          }
-        },
-        {
-          "name": "Misdreavus",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm200.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1039,
-              "max": 1100
-            },
-            "boosted": {
-              "min": 1298,
-              "max": 1376
-            }
-          }
-        },
-        {
-          "name": "Galarian Yamask",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm562.fGALARIAN.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ground",
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 516,
-              "max": 561
-            },
-            "boosted": {
-              "min": 646,
-              "max": 701
-            }
-          }
-        },
-        {
-          "name": "Sandygast",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm769.icon.png",
-          "tier": "1-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost",
-            "Ground"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 655,
-              "max": 705
-            },
-            "boosted": {
-              "min": 819,
-              "max": 881
-            }
-          }
-        },
-        {
-          "name": "Alolan Marowak",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm105.fALOLA.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Fire",
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 988,
-              "max": 1048
-            },
-            "boosted": {
-              "min": 1235,
-              "max": 1311
-            }
-          }
-        },
-        {
-          "name": "Liepard",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm510.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dark"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 993,
-              "max": 1055
-            },
-            "boosted": {
-              "min": 1241,
-              "max": 1318
-            }
-          }
-        },
-        {
-          "name": "Golurk",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm623.icon.png",
-          "tier": "3-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ground",
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1554,
-              "max": 1630
-            },
-            "boosted": {
-              "min": 1943,
-              "max": 2038
-            }
-          }
-        },
-        {
-          "name": "Cresselia",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm488.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Psychic"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1555,
-              "max": 1633
-            },
-            "boosted": {
-              "min": 1944,
-              "max": 2041
-            }
-          }
-        },
-        {
-          "name": "Darkrai",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm491.icon.png",
-          "tier": "5-Star Raids",
-          "canBeShiny": true,
-          "types": [
-            "Dark"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 2048,
-              "max": 2136
-            },
-            "boosted": {
-              "min": 2560,
-              "max": 2671
-            }
-          }
-        },
-        {
-          "name": "Mega Banette",
-          "image": "https://cdn.leekduck.com/assets/img/pokemon_icons/pm354.fMEGA.icon.png",
-          "tier": "Mega Raids",
-          "canBeShiny": true,
-          "types": [
-            "Ghost"
-          ],
-          "combatPower": {
-            "normal": {
-              "min": 1244,
-              "max": 1313
-            },
-            "boosted": {
-              "min": 1555,
-              "max": 1642
-            }
-          }
-        }
-      ]
-    },
     {
       "id": "twilight-wishes-2026-cresselia-darkrai",
       "title": "Twilight Wishes (Cresselia and Darkrai)",
@@ -222,7 +14,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/twilight-wishes-2026-cresselia-darkrai.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -431,7 +223,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/twilight-wishes-2026-deoxys.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -678,7 +470,7 @@
         "Raid Day"
       ],
       "source": "https://leekduck.com/raids/clefable-super-mega-raid-day-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -714,7 +506,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/tropical-paradise-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -829,7 +621,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/tropical-paradise-2026-regidrago.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -983,7 +775,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-champions-celebration-event-2026-regidrago.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -1154,7 +946,7 @@
         "Event"
       ],
       "source": "https://leekduck.com/raids/pokemon-champions-celebration-event-2026-legendaries.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -1462,7 +1254,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/legendary-rotation-mega-gengar-december-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -1654,7 +1446,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/ho-oh-mega-skarmory-december-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -1708,7 +1500,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/lugia-mega-glalie-december-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -1761,7 +1553,7 @@
       "shadow": false,
       "tags": [],
       "source": "https://leekduck.com/raids/therian-formes-mega-falinks-december-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -1853,7 +1645,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-tornadus-incarnate-november-december-2026.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
@@ -2021,7 +1813,7 @@
       "shadow": true,
       "tags": [],
       "source": "https://leekduck.com/raids/shadow-dialga-december-2026-january-2027.html",
-      "checkedAt": "2026-11-26T08:55:11.678Z",
+      "checkedAt": "2026-11-26T21:56:48.138Z",
       "ok": true,
       "bosses": [
         {
